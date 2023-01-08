@@ -1,0 +1,76 @@
+* {
+    background-color: rgb(200, 213, 223);
+    
+}
+.login-page{
+    display: flex;
+    justify-content: center; 
+    margin-top: 7rem;
+}
+
+.login-box{
+    background-color: rgb(52, 79, 99);
+    width: 30vw;
+    height: 70vh;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.login-head{
+    background-color: rgb(157, 164, 168);
+    height: 10vh;
+    width: 90%;
+    /* border-radius: 10px; */
+    /* box-shadow: 1px 1px 5px white; */
+    margin-top: 1rem;
+}
+.login-body{
+    background-color: rgb(157, 164, 168);
+    width: 90%;
+    height: 45vh;
+    /* border-radius: 10px; */
+    /* box-shadow: 1px 1px 5px white; */
+    margin-top: 1rem;
+}
+.login-footer{
+    background-color: rgb(157, 164, 168);
+    width: 90%;
+    height: 7vh;
+    /* border-radius: 10px; */
+    /* box-shadow: 1px 1px 5px white; */
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: auto;
+    align-items: center;
+}
+h2{
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: transparent;
+    color: rgb(52, 79, 99);
+    margin-left: 5rem;
+}
+
+i{
+    font-size: 50px;
+    background-color: rgb(157, 164, 168);   
+    color: rgb(52, 79, 99);
+    margin-right: 5rem;
+}
+i:hover{
+    color: rgb(116, 143, 163);
+
+
+}
+@media screen and (max-width: 968px) {
+    .login-box{
+        width: 70vw;
+        height: 70vh;
+    }
+}
+
+

@@ -1,0 +1,54 @@
+.home-page{
+    display: flex;
+    flex-direction: row;
+}
+.patient-table{
+    width: 30%;
+    background-color: rgb(192, 199, 209);
+    height: 43.5rem; 
+}
+.employee-table{
+    width: 30%;
+    background-color: rgb(59, 101, 156);
+    height: 43.5rem; 
+}
+.hosplital-details{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    /* background-color: rgb(180, 194, 213); */
+    height: 43.5rem;
+}
+.transactions{
+    width: 100%;
+    background-color: rgb(244, 149, 149);
+    height:45%
+}
+.absentees-table{
+    width: 100%;
+    background-color: rgb(145, 101, 101);
+    height: 55%
+}
+
+
+@media screen and (max-width:1000px) {
+    .home-page{
+        display: flex;
+        flex-direction: column;
+    }
+    .patient-table{
+        width: 100%;
+        background-color: rgb(192, 199, 209);
+        height: 30rem; 
+    }
+    .employee-table{
+        width: 100%;
+        background-color: rgb(59, 101, 156);
+        height: 30rem; 
+    }
+    .hosplital-details{
+        width: 100%;
+        background-color: rgb(180, 194, 213);
+        height: 60rem;
+    }
+} 

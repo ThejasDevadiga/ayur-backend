@@ -1,0 +1,47 @@
+use("test");
+
+
+// db.sales.insertOne({
+//     "id":3,
+//     "basic":{
+//         "fname":"abcde",
+//         "mname":"defgh",
+//         "lname":"ghijk"
+//     }
+    
+//   });
+
+// db.collection.find(
+//    { <query> },
+//    { <projection> }
+// )
+const data = []
+db.sales.find({"id":2}).forEach(function(x){
+    data.push(x)
+})
+data.forEach(function(d){
+    print(d.basic.fname)
+})
+
+// data = db.sales.find(
+//     {"id":2}
+//     )
+// print(data.toArray())
+// db.sales.updateOne(
+//     {"_id":1},
+//     {$set:{
+//         "item":"efg",
+//         "quantity":40
+//     }}
+// )
+
+
+// db.sales.deleteOne({
+//     "item": "abc",
+// })
+
+
+// db.sales.aggregate([
+//   { $match: { date: { $gte: new Date("2014-01-01"), $lt: new Date("2015-01-01") } } },
+//   { $group: { _id: "$item", totalSale: { $sum: { $multiply: [ "$price", "$quantity" ] } } } }
+// ])

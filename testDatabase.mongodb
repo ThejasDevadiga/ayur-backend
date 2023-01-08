@@ -1,0 +1,22 @@
+
+use('test');
+
+// db,sales,drop()
+db.sales.insertOne({
+    PatientID:"dddddd",
+    basic:{
+        Fname:"c",
+        Mname:"dc",
+        Lname: "sd",
+        DateOfBirth:Date(Date.now()).toString().slice(0,15)
+    }
+})
+
+
+// db.sales.find({
+//  PatientID:"abs123 4"
+// },
+// {basic:{
+//     Fname:1
+// }}
+// )

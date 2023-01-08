@@ -1,0 +1,202 @@
+{
+    "patient" : {
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Issues":{
+            "AdmsDate":"Date",
+            "AdmitTime":"Time",
+            "AdmitType":"String",
+            "Category":"String"
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    },
+
+
+    
+    "Doctor":{
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "Speciality":"String",
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Education":{   
+            "SchoolGrade":"String",
+            "DegreeGrade":"String",
+            "Major":"String"
+
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    },
+
+
+
+
+    "LabTechnitian":{
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "Speciality":"String",
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Education":{   
+            "SchoolGrade":"String",
+            "DegreeGrade":"String",
+            "Major":"String"
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    },
+
+
+
+
+    "Staff":{
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "Speciality":"String",
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Education":{   
+            "SchoolGrade":"String",
+            "DegreeGrade":"String",
+            "Major":"String"
+
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    },
+
+
+
+
+    "Accountant":{
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "Speciality":"String",
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Education":{   
+            "SchoolGrade":"String",
+            "DegreeGrade":"String",
+            "Major":"String"
+
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    },
+    "helpdesk":{
+        "Basic":{
+            "Fname ":"String",
+            "Mname ":"String",
+            "Lname ":"String",
+            "DateOfBirth ":"Date",
+            "Phone ":"Number",
+            "Email ":"String",
+            "Address ":"String",
+            "City ":"String",
+            "State ":"String",
+            "ZipCode ":"String",
+            "Country ":"String"
+        },
+        "Documents":{
+            "Speciality":"String",
+            "AdharNum ":"Number",
+            "BloodGroup":"String",
+            "Documents":"Image"
+        },
+        "Education":{   
+            "SchoolGrade":"String",
+            "DegreeGrade":"String",
+            "Major":"String"
+
+        },
+        "Images":{
+            "DocName":"Image"
+        },
+        "Other":"JsonObject"
+    }
+
+}
