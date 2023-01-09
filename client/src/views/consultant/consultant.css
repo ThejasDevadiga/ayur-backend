@@ -1,0 +1,42 @@
+.consultant-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.patients-table {
+    border: 3px solid ;
+    border-collapse: collapse;
+    align-items: center;
+    width: 80%;
+}
+.patients-table th{
+    font-family: 'Sevillana', cursive;
+    width: 14.2%;
+    border: 1px solid ;
+    padding: .4rem ;
+    background-color: rgb(155, 169, 182);
+}
+
+.patients-table td{
+    font-family: 'Sevillana', cursive;
+    border: 1px solid rgb(125, 126, 131) ;
+    padding: .3rem;  
+}
+
+.button{
+    border-radius: 10px;
+    min-height: 2rem;
+    min-width: 4rem;
+    color: white;
+     background: rgb(15, 15, 90);
+    border: 0px;
+    cursor: pointer;
+    transition: opacity 0.25s ease-out;
+  }
+  
+.button:hover{
+    opacity: 0.8;
+  }
+  
