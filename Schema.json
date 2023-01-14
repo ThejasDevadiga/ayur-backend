@@ -16,7 +16,16 @@
             "Category":"String",
             "Description":"String",
             "Symptoms":"String"
-        }
+        },
+        "Warden":{
+            "Name":"String",
+            "EmployeeID":"String" 
+        },
+        "Doctor":{
+            "Name":"String",
+            "EmployeeID":"String"
+        },
+        "Prescription":"Object"
     },
     "Users":{
         "UserID":"String",
@@ -48,6 +57,7 @@
         },
         "Designation":"String"
     },
+
     "Warden":{
         "Basic":{
             "Name":"String",
@@ -58,8 +68,6 @@
             "Name":"String",
             "WardenID":"String"
         }
-
-        
     },
     "Receptionist":{
         "Name":"String",
@@ -82,7 +90,8 @@
         "EmployeeID":"String",
         "Status":"String"
     },
-    "ReqAppointments":{
+    "Appointments":{
+        "AppointmentID":"String",
         "Basic":{
             "Fname ":"String",
             "Mname ":"String",
@@ -98,37 +107,16 @@
             "Description":"String",
             "Symptoms":"String"
         },
-        "warden":{
-            "Name":"String",
-            "EmployeeID":"String" 
-        }
-    },
-    "ApprvdAppointments":{
-        "Basic":{
-            "Fname ":"String",
-            "Mname ":"String",
-            "Lname ":"String",
-            "DateOfBirth ":"Date",
-            "Phone ":"Number",
-            "Gender":"String"
-        },
-        "Issues":{
-            "DiagnosisDate":"Date",
-            "DiagnosisTime":"Time",
-            "Category":"String",
-            "Description":"String",
-            "Symptoms":"String"
-        },
-        "warden":{
+        "Warden":{
             "Name":"String",
             "EmployeeID":"String" 
         },
-        "Details":{
-            "DoctorName":"String",
-            "TimeSlot":"Time",
-            "Department":"String"
+        "Status":{
+            "1":"REQUESTED",
+            "2":"APPROVED"
         }
     },
+    
     "ConsultingPatients":{
         "Basic":{
             "Name":"String",
@@ -140,5 +128,11 @@
             "Description":"String"
         },
         "Prescription":"String"
+    },
+
+    "TimeSlot":{
+        "From":"DATETIME",
+        "range":"Number",
+        "Status":"String"
     }
 }

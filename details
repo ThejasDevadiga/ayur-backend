@@ -1,0 +1,11 @@
+
+//  warden =>{
+//     MakeAppointment=>{
+//         Appointmnt schema (status:Rstd)
+         
+//         aaprvdtble  
+//         Appointmnts (doctr=ID)
+//         doctr ===Appointmnt +prescptn
+//         pateintData = Appointmnt+wrdn  +doctr +prscrptn+date
+//     }
+//  }

@@ -1,97 +1,515 @@
 {  
     "Warden":{
-        "GET":{
-            
+        "GET":{  
         },
         "POST":{
             "MakeAppointment":{
-
+                "1":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "AppointmentID":"String"
+                    }
+                },
+                "1.1":{
+                    "condition":"1 is true",
+                    "message":"Already exist"
+                },
+                "2":{
+                    "Schema":"Appointments",
+                    "function":"create",
+                    "constraints":{
+                        "AppointmentID":"String",
+                        "Basic":{
+                            "Fname ":"String",
+                            "Mname ":"String",
+                            "Lname ":"String",
+                            "DateOfBirth ":"Date",
+                            "Phone ":"Number",
+                            "Gender":"String"
+                        },
+                        "Issues":{
+                            "DiagnosisDate":"Date",
+                            "DiagnosisTime":"Time",
+                            "Category":"String",
+                            "Description":"String",
+                            "Symptoms":"String"
+                        },
+                        "warden":{
+                            "Name":"String",
+                            "EmployeeID":"String" 
+                        }
+                    },      
+                    "success":{
+                        "message":"appointment created successfully"
+                    },
+                    "unsuccess":{
+                        "message":"appointment created successfully"
+                    } 
+                },
+                "else":{
+                    "return":"ERROR while requesting appointment"
+                }          
             }
         },
         "PUT":{
             "updateAppointment":{
-
+                "1":{
+                    "Schema":"ReqAppointments",
+                    "function":"find",
+                    "constraints":{
+                        "AppointmentID":"String"
+                    }
+                },
+                "1.1":{
+                    "condition":"1 is false",
+                    "message":"Appointment doesn't exist"
+                },
+                "2":{
+                    "Schema":"ReqAppointments",
+                    "function":"put",
+                    "constraints":{
+                        "Basic":{
+                            "Fname ":"String",
+                            "Mname ":"String",
+                            "Lname ":"String",
+                            "DateOfBirth ":"Date",
+                            "Phone ":"Number",
+                            "Gender":"String"
+                        },
+                        "Issues":{
+                            "DiagnosisDate":"Date",
+                            "DiagnosisTime":"Time",
+                            "Category":"String",
+                            "Description":"String",
+                            "Symptoms":"String"
+                        }
+                    }
+                },
+                "else":{
+                    "return":"ERROR while requesting appointment"
+                }
             }
         
         },
-        "DELETE":{
-             
+        "DELETE":{ 
             "DeleteAppointment":{
-
+                "1":{
+                    "Schema":"ReqAppointments",
+                    "function":"find",
+                    "constraints":{
+                        "AppointmentID":"String"
+                    }
+                },
+                "1.1":{
+                    "condition":"1 is false",
+                    "message":"Appointment doesn't exist"
+                },
+                "2":{
+                    "Schema":"ReqAppointments",
+                    "function":"delete",
+                    "constraints":{
+                        "AppointmentID":"String"
+                    }
+                },
+                "else":{
+                    "message":"Error while deleting appointment"
+                }
             }
         }
     },
     "Receptionist":{
         "GET":{
             "getPatientData":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
 
             "AvailableDoctor":{
-
+                "constraints":{
+                    "requestedId":"String"
+                },
+                "No constraints":{
+                    "message":"Error: No request id found"
+                },
+                "start":{
+                    "Schema":"Consultant",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "Status":"Ready"
+                        }
+                    },
+                    "success":{
+                        "message":"fetched data",
+                        "return":"Data"
+                    },
+                    "unsuccess":{
+                        "message":"Available doctor not found"
+                    }
+                },
+                "Error":{
+                    "message":"Error while fetching data"
+                }
             },
             "AvailableTimeSlots":{
-
+                
             },
-            "AppointmentsList":{
-
+            "ReqAppointmentsList":{
+                "constraints":{
+                    "requestedId":"String"
+                },
+                "No constraints":{
+                    "message":"Error: No request id found"
+                },
+                "start":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "Status":"REQUESTED"
+                        }
+                    },
+                    "success":{
+                        "message":"fetched data",
+                        "return":"Data"
+                    },
+                    "unsuccess":{
+                        "message":"Appointment not found"
+                    }
+                },
+                "Error":{
+                    "message":"Error while fetching data"
+                }
+            },
+            "AppAppointmentsList":{
+                "constraints":{
+                    "requestedId":"String"
+                },
+                "No constraints":{
+                    "message":"Error: No request id found"
+                },
+                "start":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "Status":"APPROVED"
+                        }
+                    },
+                    "success":{
+                        "message":"fetched data",
+                        "return":"Data"
+                    },
+                    "unsuccess":{
+                        "message":"Appointment not found"
+                    }
+                },
+                "Error":{
+                    "message":"Error while fetching data"
+                }
             },
             "WardenDetails":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Warden",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
             "EmployeeData":{
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Employee",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
                 
             }
         },
         "POST":{
             "AddPatientData":{
-
-            },
-            "AddPatientToconsultant":{
-
-            },
-            "MoveToApproved":{
-
-            },
-            "AcknoledgeWarden":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "PatientID":"String",
+                    "Status":"String",
+                    "Basic":{
+                        "Fname ":"String",
+                        "Mname ":"String",
+                        "Lname ":"String",
+                        "DateofBirth":"Date",
+                        "Gender ":"String",
+                        "Phone ":"Number"
+                    },
+                    "Issues":{
+                        "DiagnosisDate":"Date",
+                        "DiagnosisTime":"Time",
+                        "Category":"String",
+                        "Description":"String",
+                        "Symptoms":"String"
+                    },
+                    "Prescription":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "PatientID":"PatientID"
+                        },
+                        "projection":"Object"
+                    },
+                    "If found":{
+                        "message":"Data already exist"
+                    },
+                    "else":{
+                        "Schema":"Patient",
+                        "function":"create",
+                        "constraints":"Objects" 
+                    }, 
+                    "success":{
+                        "message":"Data inserted successfully"
+                    },
+                    "unsuccess":"Error while inserting data"
+                },
+                "Error":"Error: while inserting data" 
             }
         },
         "PUT":{
             "UpdatePatientsData":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "Basic":"Object",
+                    "Issues":"Object",
+                    "Doctor":"Object"
+                },
+                "Start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "PatientID":"PatientID"
+                    },
+                    "success":{
+                        "schema":"Patient",
+                        "function":"put",
+                        "constraints":{
+                            "Basic":"Object",
+                            "Issues":"Object",
+                            "Doctor":"Object"
+                        }
+                    },
+                    "unsuccess":{
+                        "message":"Data not found"
+                    }
+                },
+                "error":{
+                    "message":"Error  while  updating data"
+                }
             },
             "updateTimeSlots":{
-
             }
-             
-
         },
         "DELETE":{
             "DeleteAppointment":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "PatientID":"String"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "Appointments":"Appointments"
+                        }
+                    },
+                    "If not found":{
+                        "message":"Data does'nt exist"
+                    },
+                    "else":{
+                        "Schema":"Appointments",
+                        "function":"delete",
+                        "filter":{
+                            "Appointments":"Appointments"
+                        }
+                    },
+                    "success":{
+                        "message":"appointment deleted successfully"
+                    },
+                    "unsuccess":"Error while deleting appointment"
+                },
+                "Error":"Error: while deleting appointment" 
             },
             "deletePatientData":{
+                "constraints":{
+                    "requestedId":"String",
+                    "PatientID":"String"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "PatientID":"PatientID"
+                        }
+                    },
+                    "If not found":{
+                        "message":"Data does'nt exist"
+                    },
+                    "else":{
+                        "Schema":"patient",
+                        "function":"delete",
+                        "filter":{
+                            "PatientID":"PatientID"
+                        }
+                    },
+                    "success":{
+                        "message":"Data deleted successfully"
+                    },
+                    "unsuccess":"Error while deleting Data"
+                },
+                "Error":"Error: while deleting Data" 
 
             },
             "proceedWaitingToConsult":{
-
             }
-            
         }
     },"Consultant":{
         "GET":{
             "AppointmentList":{
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
 
             },
             "PatientDetail":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
             "consultingPatientList":{
-
-            }
-            
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"ConsultingPatients",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
+            } 
         },
         "POST":{
             
@@ -101,6 +519,31 @@
         },
         "PUT":{
             "UploadPrescription":{
+                "constraints":{
+                    "requestedId":"String",
+                   "Prescription":"Object",
+                   "PatientID":"String"
+                },
+                "Start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "PatientID":"PatientID"
+                    },
+                    "success":{
+                        "schema":"Patient",
+                        "function":"put",
+                        "constraints":{
+                            "Prescription":"Object"
+                        }
+                    },
+                    "unsuccess":{
+                        "message":"Data not found"
+                    }
+                },
+                "error":{
+                    "message":"Error  while  updating data"
+                }
 
             }
 
@@ -115,21 +558,126 @@
     "Admin":{
         "GET":{
             "EmployeesList":{
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Employee",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
 
             },
             "EmployeeData":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "EmployeeID":"EmployeeID",         
+                    "projection":"Object"
+                    },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                }, 
+                "start":{
+                    "Schema":"Employee",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
             "PatientsList":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",        
+                    "projection":"Object"
+                    },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                }, 
+                "start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
             "PatientData":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",        
+                    "projection":"Object"
+                    },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                }, 
+                "start":{
+                    "Schema":"Patient",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             } ,
-            "AppointmentsList":{
-
+            "AppointmentList":{
+                "constraints":{
+                    "requestedId":"String",
+                    "filter":"Object",
+                    "projection":"Object"
+                },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                },
+                "start":{
+                    "Schema":"Appointments",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             }
-
         },
         "POST":{
             "AddPatientData":{
@@ -180,10 +728,54 @@
     "Manager":{
         "GET":{
             "getEmployeeData":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "EmployeeID":"EmployeeID",         
+                    "projection":"Object"
+                    },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                }, 
+                "start":{
+                    "Schema":"Employee",
+                    "function":"find",
+                    "constraints":{
+                        "filter":"Object",
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             },
             "getEmployeeStatus":{
-
+                "constraints":{
+                    "requestedId":"String",
+                    "EmployeeID":"EmployeeID",         
+                    "projection":"Object"
+                    },
+                "No constraints":{
+                    "message":"Error: No filter or projection found"
+                }, 
+                "start":{
+                    "Schema":"Employee",
+                    "function":"find",
+                    "constraints":{
+                        "filter":{
+                            "Status":"FREE"
+                        },
+                        "projection":"Object"
+                    },
+                    "success":{
+                        "message":"fetched data"
+                    },
+                    "Error":{
+                        "message":"Error while fetching data"
+                    }
+                }
             }
         },
         "POST":{

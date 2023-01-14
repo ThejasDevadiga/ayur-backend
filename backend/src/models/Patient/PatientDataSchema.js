@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const patientShema = mongoose.Schema({
     PatientID:{
             type:String,
-            required:true,
-            unique:true
+            required:true,  
     },
     Status:{
         type:String,
@@ -35,6 +34,10 @@ const patientShema = mongoose.Schema({
         Phone:{
             type:Number,
             required:true,
+        },
+        Age:{
+            type:Number,
+            required:true,
         }
     },
     
@@ -60,6 +63,13 @@ const patientShema = mongoose.Schema({
             default:''
         }
     },
+    Warden:{
+        Name:{
+            type:String,
+            required:true,
+
+        }
+    }
 },
 {
     timestamps: true,

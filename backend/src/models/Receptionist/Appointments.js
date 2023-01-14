@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const appointments = mongoose.Schema({
-    PatientID:{
+    AppointmentID:{
             type:String,
             required:true,
             unique:true
@@ -8,7 +8,7 @@ const appointments = mongoose.Schema({
     Status:{
         type:String,
         required:true,
-        default:"Waiting"
+        default:"REQUESTED"
     },
     Basic:
     {
@@ -47,6 +47,16 @@ const appointments = mongoose.Schema({
             required:true,
         }
     },
+    Warden:{
+        Name:{
+            type:String,
+            required:true
+        },
+        EmployeeID:{
+            type:String,
+            required:true
+        }
+    }
 },
 {
     timestamps: true,
