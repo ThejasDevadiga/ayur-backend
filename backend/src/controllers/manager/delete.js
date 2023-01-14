@@ -2,10 +2,6 @@ const EmployeeShema = require('../../models/Employee/EmployeeDataScheme')
 const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
 
-
-
-
-
 const deleteEmployeeData = asyncHandler(async (req, res) => {
     const {EmployeeId,requestedId} = req.body
     if (!EmployeeId) { 

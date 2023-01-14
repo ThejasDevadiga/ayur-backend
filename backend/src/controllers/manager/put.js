@@ -3,8 +3,6 @@ const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
 const EmployeeShema = require('../../models/Employee/EmployeeDataScheme')
  
-
-
 const updateEmployeeData = asyncHandler(async (req, res, next) => {
     const {
         requestedId,
@@ -53,8 +51,7 @@ const updateEmployeeData = asyncHandler(async (req, res, next) => {
         })
       }
 })
-
-
+ 
 module.exports  = {
     updateEmployeeData
 }

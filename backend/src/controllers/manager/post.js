@@ -4,9 +4,7 @@ const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
 const consultants = require('../../models/Consultant/consultantList')
 const Receptionists = require('../../models/Receptionist/ReceptionList')
-
-
-
+ 
 const insertEmployeeData = asyncHandler(async (req, res) => {
     const { 
       requestedId,
@@ -83,4 +81,5 @@ const insertEmployeeData = asyncHandler(async (req, res) => {
       })
     }
 });
+
 module.exports = {insertEmployeeData};

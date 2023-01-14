@@ -38,9 +38,7 @@ const getEmployeeStatus  = asyncHandler(async (req, res, next) => {
         token: generateToken(requestedId)
 })
 })
-
-
-
+ 
 module.exports = {
     
     getEmployeeData,
