@@ -4,9 +4,6 @@ const ConsultPatient = require('../../models/Patient/ConsultPatientList')
 const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
  
-
-
-
 const proceedWaitingToConsult = asyncHandler(async(req,res) =>{         
     const {
           requestedId,
@@ -38,7 +35,6 @@ const proceedWaitingToConsult = asyncHandler(async(req,res) =>{
               else {
                 throw new Error("Error occured while Updating the data in Patient Records")
             }
-
   }catch(err){
     res.status(400).json({
       acknowledged : true,
