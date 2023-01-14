@@ -1,38 +1,32 @@
 {
     "patient" : {
+        "PatientID":"String",
+        "Status":"String",
         "Basic":{
             "Fname ":"String",
             "Mname ":"String",
             "Lname ":"String",
-            "DateOfBirth ":"Date",
-            "Phone ":"Number",
-            "Email ":"String",
-            "Address ":"String",
-            "City ":"String",
-            "State ":"String",
-            "ZipCode ":"String",
-            "Country ":"String"
-        },
-        "Documents":{
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
+            "DateofBirth":"Date",
+            "Gender ":"String",
+            "Phone ":"Number"
         },
         "Issues":{
-            "AdmsDate":"Date",
-            "AdmitTime":"Time",
-            "AdmitType":"String",
-            "Category":"String"
-        },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
+            "DiagnosisDate":"Date",
+            "DiagnosisTime":"Time",
+            "Category":"String",
+            "Description":"String",
+            "Symptoms":"String"
+        }
     },
-
-
-    
-    "Doctor":{
+    "Users":{
+        "UserID":"String",
+        "Credential":{
+            "username":"String",
+            "password":"String"
+        }
+    },
+    "Employee":{
+        "EmployeeID":"String",
         "Basic":{
             "Fname ":"String",
             "Mname ":"String",
@@ -40,163 +34,111 @@
             "DateOfBirth ":"Date",
             "Phone ":"Number",
             "Email ":"String",
+            "Gender ":"String",
+            "Age":"Number",
             "Address ":"String",
             "City ":"String",
             "State ":"String",
             "ZipCode ":"String",
             "Country ":"String"
         },
-        "Documents":{
-            "Speciality":"String",
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
+        "Department":{   
+            "Name":"String",
+            "DeptID":"String"
         },
-        "Education":{   
-            "SchoolGrade":"String",
-            "DegreeGrade":"String",
-            "Major":"String"
-
-        },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
+        "Designation":"String"
     },
+    "Warden":{
+        "Basic":{
+            "Name":"String",
+            "Phone ":"Number"
+        },
+        "EmployeeID":"String",
+        "Hostel":{
+            "Name":"String",
+            "WardenID":"String"
+        }
 
-
-
-
-    "LabTechnitian":{
+        
+    },
+    "Receptionist":{
+        "Name":"String",
+        "EmployeeID":"String",
+        "Status":"String"
+    },
+    "Consultant":{
+        "Name":"String",
+        "EmployeeID":"String",
+        "Department":"String",
+        "Status":"String"
+    },
+    "Manager":{
+        "Name":"String",
+        "EmployeeID":"String",
+        "Status":"String"
+    },
+    "Admin":{
+        "Name":"String",
+        "EmployeeID":"String",
+        "Status":"String"
+    },
+    "ReqAppointments":{
         "Basic":{
             "Fname ":"String",
             "Mname ":"String",
             "Lname ":"String",
             "DateOfBirth ":"Date",
             "Phone ":"Number",
-            "Email ":"String",
-            "Address ":"String",
-            "City ":"String",
-            "State ":"String",
-            "ZipCode ":"String",
-            "Country ":"String"
+            "Gender":"String"
         },
-        "Documents":{
-            "Speciality":"String",
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
+        "Issues":{
+            "DiagnosisDate":"Date",
+            "DiagnosisTime":"Time",
+            "Category":"String",
+            "Description":"String",
+            "Symptoms":"String"
         },
-        "Education":{   
-            "SchoolGrade":"String",
-            "DegreeGrade":"String",
-            "Major":"String"
-        },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
+        "warden":{
+            "Name":"String",
+            "EmployeeID":"String" 
+        }
     },
-
-
-
-
-    "Staff":{
+    "ApprvdAppointments":{
         "Basic":{
             "Fname ":"String",
             "Mname ":"String",
             "Lname ":"String",
             "DateOfBirth ":"Date",
             "Phone ":"Number",
-            "Email ":"String",
-            "Address ":"String",
-            "City ":"String",
-            "State ":"String",
-            "ZipCode ":"String",
-            "Country ":"String"
+            "Gender":"String"
         },
-        "Documents":{
-            "Speciality":"String",
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
+        "Issues":{
+            "DiagnosisDate":"Date",
+            "DiagnosisTime":"Time",
+            "Category":"String",
+            "Description":"String",
+            "Symptoms":"String"
         },
-        "Education":{   
-            "SchoolGrade":"String",
-            "DegreeGrade":"String",
-            "Major":"String"
-
+        "warden":{
+            "Name":"String",
+            "EmployeeID":"String" 
         },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
+        "Details":{
+            "DoctorName":"String",
+            "TimeSlot":"Time",
+            "Department":"String"
+        }
     },
-
-
-
-
-    "Accountant":{
+    "ConsultingPatients":{
         "Basic":{
-            "Fname ":"String",
-            "Mname ":"String",
-            "Lname ":"String",
-            "DateOfBirth ":"Date",
-            "Phone ":"Number",
-            "Email ":"String",
-            "Address ":"String",
-            "City ":"String",
-            "State ":"String",
-            "ZipCode ":"String",
-            "Country ":"String"
+            "Name":"String",
+            "phone":"String"
         },
-        "Documents":{
-            "Speciality":"String",
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
+        "Issues":{
+            "Symptoms":"String",
+            "Category":"String",
+            "Description":"String"
         },
-        "Education":{   
-            "SchoolGrade":"String",
-            "DegreeGrade":"String",
-            "Major":"String"
-
-        },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
-    },
-    "helpdesk":{
-        "Basic":{
-            "Fname ":"String",
-            "Mname ":"String",
-            "Lname ":"String",
-            "DateOfBirth ":"Date",
-            "Phone ":"Number",
-            "Email ":"String",
-            "Address ":"String",
-            "City ":"String",
-            "State ":"String",
-            "ZipCode ":"String",
-            "Country ":"String"
-        },
-        "Documents":{
-            "Speciality":"String",
-            "AdharNum ":"Number",
-            "BloodGroup":"String",
-            "Documents":"Image"
-        },
-        "Education":{   
-            "SchoolGrade":"String",
-            "DegreeGrade":"String",
-            "Major":"String"
-
-        },
-        "Images":{
-            "DocName":"Image"
-        },
-        "Other":"JsonObject"
+        "Prescription":"String"
     }
-
 }

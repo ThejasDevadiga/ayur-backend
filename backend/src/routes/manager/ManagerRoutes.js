@@ -31,11 +31,11 @@ const {
     deletePatientData
 }= require('../../controllers/Receptionist/receptionsDelete')
 
-router.post('/api/manager/get-patient-details',auth,getPatientData)//Done//tested
-router.put('/api/manager/update-patient-details',auth,updatePatientData)//Done//tested  
-router.delete('/api/manager/delete-patient-details',auth,deletePatientData)//Done//tested
-router.post('/api/manager/insert-employee-details',auth,insertEmployeeData)//Done//tested
-router.put('/api/manager/update-employee-details',auth,updateEmployeeData)//Done//tested
-router.delete('/api/manager/delete-employee-details',auth,deleteEmployeeData)//Done//tested
-router.get('/api/manager/get-employee-details',auth,getEmployeeData)//Done//tested
+router.get('/api/manager/get-patient-details',getPatientData)//Done//tested
+router.put('/api/manager/update-patient-details',updatePatientData)//Done//tested  
+router.delete('/api/manager/delete-patient-details',deletePatientData)//Done//tested
+router.post('/api/manager/insert-employee-details',insertEmployeeData)//Done//tested
+router.put('/api/manager/update-employee-details',updateEmployeeData)//Done//tested
+router.delete('/api/manager/delete-employee-details',deleteEmployeeData)//Done//tested
+router.get('/api/manager/get-employee-details',getEmployeeData)//Done//tested
 module.exports = router;

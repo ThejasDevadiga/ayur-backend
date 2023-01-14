@@ -1,15 +1,5 @@
 const mongoose = require('mongoose');
-const patientShema = mongoose.Schema({
-    PatientID:{
-            type:String,
-            required:true,
-            unique:true
-    },
-    Status:{
-        type:String,
-        required:true,
-        default:"Waiting"
-    },
+const reqAppointment = mongoose.Schema({
     Basic:
     {
         Fname: {
@@ -24,10 +14,6 @@ const patientShema = mongoose.Schema({
             type: String,
             required: true,
         },
-        DateOfBirth: {
-            type: Date,
-            required: true,
-        },
         Gender:{
             type:String,
             required:true,
@@ -35,10 +21,19 @@ const patientShema = mongoose.Schema({
         Phone:{
             type:Number,
             required:true,
-        }
+        },
+        DateofBirth:{
+            type:Date,
+            required:true,
+        },
+    
     },
     
     Issues:{
+        Category:{
+            type:String,
+            default:'',
+        },
         DiagnosisTime:{
             type:String,
             default: ''
@@ -46,10 +41,6 @@ const patientShema = mongoose.Schema({
         DiagnosisDate:{
             type:String,
             default: ''
-        },
-        Category:{
-            type:String,
-            default:'',
         },
         Description:{
             type:String,
@@ -60,12 +51,36 @@ const patientShema = mongoose.Schema({
             default:''
         }
     },
+    Warden:{
+        Name:{
+            type:String,
+            required:true
+        },
+        EmployeeID:{
+            type:String,
+            required:true
+        }
+    },
+    Details:{
+        DoctorName:{
+            type:String,
+            required:true
+        },
+        TimeSlot:{
+            type:String,
+            required:true
+        },
+        Department:{
+            type:String,
+            required:true
+        }
+    }
 },
 {
     timestamps: true,
 
 });
 
-const Patient = mongoose.model('Patient', patientShema)
+const ReqAppointment = mongoose.model('reqAppointment', reqAppointment)
 
-module.exports = Patient;
+module.exports = ReqAppointment;

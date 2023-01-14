@@ -1,6 +1,4 @@
-const PatientShema = require('../../models/Patient/PatientDataSchema')
-const WaitingSchema = require('../../models/Patient/waitingPatientList')
-const ConsultPatient = require('../../models/Patient/ConsultPatientList')
+const ReceptionistSchema = require('../../models/Patient/waitingPatientList')
 const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
  
@@ -84,13 +82,4 @@ const deletePatientData = asyncHandler(async (req, res) => {
         }
     }
 })
-
-const DeleteAppointment  = asyncHandler(async (req, res, next) => {
-  res.status(200).json({
-      acknowledged : true,
-      message : 'Data Added Successfully',
-      token: generateToken(requestedId)
-})
-})
-
-module.exports = {deletePatientData,proceedWaitingToConsult,DeleteAppointment};
+module.exports = {deletePatientData,proceedWaitingToConsult};

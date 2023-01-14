@@ -1,7 +1,9 @@
 import '../sidebar/sidebar.css'
 import Button from 'react-bootstrap/Button';
 import './consultant.css'
+
 function Consultant(params) {
+    
     return (
     <>
         <div className="sidebar close">

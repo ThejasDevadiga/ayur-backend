@@ -57,5 +57,13 @@ const updatePatientData = asyncHandler(async (req, res, next) => {
       }
 })
 
+const updateTimeSlots  = asyncHandler(async (req, res, next) => {
+    res.status(200).json({
+        acknowledged : true,
+        message : 'Data Added Successfully',
+        token: generateToken(requestedId)
+})
+})
 
-module.exports = {updatePatientData}
+
+module.exports = {updatePatientData,updateTimeSlots}

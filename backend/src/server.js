@@ -26,7 +26,6 @@ app.use(express.json());
 
 app.use(cors());
 
-
 app.use('/',ConsultantRoutes)
 app.use('/',HelpDeskRoutes)
 app.use('/',ManagerRoutes)

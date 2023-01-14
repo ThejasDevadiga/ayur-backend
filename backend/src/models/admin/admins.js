@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
-const StaffList = mongoose.Schema({
+const Admin = mongoose.Schema({
+    Name:{
+        type:String,
+        required:true,
+    },
     EmployeeID:{
         type:String,
         required:true,
@@ -19,6 +23,6 @@ const StaffList = mongoose.Schema({
 });
 
 
-const StaffLists = mongoose.model('StaffList', StaffList)
+const Admins = mongoose.model('AdminList', Admin)
 
-module.exports = StaffLists;
+module.exports = Admins;

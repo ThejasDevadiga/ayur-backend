@@ -51,12 +51,12 @@ const insertEmployeeData = asyncHandler(async (req, res) => {
       }
     }
       else if(Role=="consultant"){
-        const findConsultants = await consultants.findOne({EmployeeId});
+        const findConsultants = await consultants.findOne({EmployeeID:EmployeeId});
         if (findConsultants) {
           throw new Error("Consultant already exists")
         }
         const Consresult = await consultants.create({
-            EmployeeId: Empresult.EmployeeId,
+            EmployeeID: Empresult.EmployeeId,
             Department:"Hospital",
             Status:"Ready",
         });

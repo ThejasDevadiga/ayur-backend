@@ -1,13 +1,71 @@
+import React, { useState, useEffect } from "react";
 import '../sidebar/sidebar.css'
 import './receptionist.css'
 import Button from 'react-bootstrap/Button';
-
+import makeRequest from '../requestHandler/makeRequest'
 function Receptionist(params) {
+    const [patientData, setPatientData]=useState([]);
+    const [consultants, setConsultants]=useState([]);
+    const getConsutlants = async()=>{
+        try {
+            const url =  "http://localhost:5000/api/Receptionist/available-doctor";
+            const id = "Hello";
+            const payload = {
+                "requestedId":id,
+                "filter":{  
+                },
+                "projection":
+                {
+                    "_id":0
+                }
+            }
+      
+            const response = await makeRequest("post",url, payload);
+            if (response == null) {
+              console.log("Can't fetch the data");
+            }
+            setConsultants( response.data);
+          } catch (e) { 
+            console.log("Can't fetch the data : ", e);
+          }
+        };
+    const getPatientData = async()=>{
+        try {
+            const url =  "http://localhost:5000/api/manager/get-patient-details";
+            const id = "Hello";
+            const payload = {
+                "requestedId":id,
+                "filter":{},
+                "projection":{
+                    "_id":0
+                }
+            };
+      
+            const patResponse = await makeRequest("post",url, payload);
+            // console.log("Fetched data :", patResponse);
+            if (patResponse == null) {
+              console.log("Can't fetch the data");
+            }
+            setPatientData( patResponse.data);
+          } catch (e) { 
+            console.log("Can't fetch the data : ", e);
+          }
+        };
+        
+        
+
+        useEffect(() => {
+            getPatientData();
+            getConsutlants();
+          }, []);
+          
     return (
         <>
-        <div className="sidebar close">
-            
+        {console.log("pppppppppp",patientData)}
+        
+        <div className="sidebar close"> 
             <div className="logo-details">
+            {console.log("qqqqqqqqqq",consultants)}
                 <i className="fab fa-atlassian fa-bars"></i>
              </div>
         
@@ -32,191 +90,74 @@ function Receptionist(params) {
             </ul>
         </div>
 
-
-
-        
         <section className="home-section">
-        <div class="sub-section">
+        <div className="sub-section">
 
 
-        <div class="lft-sec">
-            <table class="patient-table">
-                <thead>
+        <div className="lft-sec">
+            <table className="patient-table">
+              <tr>
                     <th>S.No</th>
                     <th>NAME</th>
                     <th>PID</th>
                     <th>Ph.No</th>
                     <th>Details</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                  
-                    <tr>
-                        <td>8</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>patient-data</td>
-                        <td>  <Button className='button' variant="primary">Primary</Button>{' '}</td>
-                    </tr>
-                    
+                    <th>Action</th>
 
-                   
-                </tbody>
+                </tr>
+                    {
+                    patientData.map((patient) => (
+                            
+                                <tr>
+                                    <td>{0}</td>
+                                    <td>{patient.Basic.Fname} {patient.Basic.Mname}</td>
+                                    <td>{patient.PatientID}</td>
+                                    <td>{patient.Basic.phone}</td>
+                                    <td>  <Button className='button' variant="primary">Details</Button>{' '}</td>
+                                    <td>  <Button className='button' variant="primary">Update</Button>{' '}
+                                    <Button className='button' variant="primary">Delete</Button>{' '}</td>
+                                    </tr>
+                  ))}
+                    
+                
             </table>
         </div>
 
-        <div class="people-count">
-            <div class="people-counts men-count"><h1>Men</h1><h2>4500</h2></div>
-            <div class="people-counts women-count"><h1>Women</h1><h2>3000</h2></div>
-            <div class="people-counts child-count"><h1>Children</h1><h2>1850</h2></div>
+        <div className="people-count">
+            <div className="people-counts men-count"><h1>Men</h1><h2>4500</h2></div>
+            <div className="people-counts women-count"><h1>Women</h1><h2>3000</h2></div>
+            <div className="people-counts child-count"><h1>Children</h1><h2>1850</h2></div>
         </div>
 
 
-        <div class="doctor-status">
-            <table class="patient-table">
-                <thead>
+
+        <div className="doctor-status">
+            <table className="patient-table">
+           
+
+                <tr>
                     <th>S.No</th>
                     <th>NAME</th>
                     <th>EMP ID</th>
-                    <th>Ph.No</th>
+                    <th>Department</th>
                     <th>Status</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td>doctor</td>
-                        <td><div class="status"></div></td>
-                    </tr>
-                    
+                </tr>
+    
 
-                   
-                </tbody>
+                {
+                    consultants.map((consultant) => (
+                    <tr>
+                        <td>0</td>
+                        <td>doctor</td>
+                        <td>{consultant.EmployeeID}</td>
+                        <td>{consultant.Department}</td>
+                        <td>{consultant.Status}</td>
+                    </tr>
+                   ))}
             </table>
         </div>
-       
     </div>
         </section>
-        
         </>
     ) 
 }

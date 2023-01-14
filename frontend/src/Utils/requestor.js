@@ -1,33 +1,18 @@
-var axios = require('axios');
-var generateToken = require('../Utils/generateToken')
-function requestor(data,method,url){
-// var data = JSON.stringify({
-//   "requestedId": "requestingPatientsList",
-//   "filter": {},
-//   "projection": {
-//     "_id": 0
-//   }
-// });
-
-var config = {
-  method: method,
-  url: url,
-  headers: { 
-    'authorization':generateToken("requestingPatientsList"), 
-    'Access-Control-Request-Headers': '*', 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-})
+var myHeaders = new Headers();
+function requestor(method, data, url, header){
+  var raw = data
+  myHeaders.append("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkhlbGxvIiwiaWF0IjoxNjcyOTk0NTI0LCJleHAiOjE2NzU1ODY1MjR9.tZfxL6NwPVl3IvCxjgZXECSPTBo5ST4Pw9wkbe3jV7k");
+  myHeaders.append("Access-Control-Request-Headers", "*");
+  myHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: method,
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
-
-
-// export {requestor}

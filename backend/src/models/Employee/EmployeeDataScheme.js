@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const employeeShema = mongoose.Schema({
-    EmployeeId:{
+    EmployeeID:{
         type:String,
         required:true,
         unique:true
@@ -39,14 +39,8 @@ const employeeShema = mongoose.Schema({
             required:true,
         },
         Address: {
-            line1:{
                 type:String,
                 required:true,
-            },
-            line2:{
-                type:String,
-                required:true,
-            },
         },
         City: {
             type: String,
@@ -64,49 +58,22 @@ const employeeShema = mongoose.Schema({
             type: String,
             required: true,
         }, 
-        BloodGroup:{
+    },
+    Department:{
+        Name:{
             type:String,
-            required:true,
+            required:true
         },
-        AdharNumber:{
-            type:Number,
-            required:true,
+        DepartmentID:{
+            type:String,
+            required:true
         },
     },
-    Role:{
+    Designation:{
         type:String,
-        required:true,
+        required:true
     },
-    Speciality:{
-        Education:{
-            type:String,
-            required:true,
-        },
-        Section:{
-            type:String,
-            required:true,
-        },
-        Department:{
-            type:String,
-            required:true,
-        },
-        WorkExperience:{
-            type:String,
-            required:true,
-        },
-        Designation:{
-            type:String,
-            required:true,
-        },
-        DateofJoin:{
-            type:String,
-            default:Date(Date.now()).toString(),
-        }
-    },
-    other:{
-        type:Object, 
-        
-    }, 
+     
 },
 {
     timestamps: true,

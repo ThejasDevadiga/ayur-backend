@@ -38,7 +38,12 @@ const deleteEmployeeData = asyncHandler(async (req, res) => {
     }
 })
 
+const DeleteAppointments=asyncHandler(async(req,res)=>{
+
+})
+
 module.exports = {
-    deleteEmployeeData
+    deleteEmployeeData,
+    DeleteAppointments
 }
 

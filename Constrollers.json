@@ -1,0 +1,208 @@
+{  
+    "Warden":{
+        "GET":{
+            
+        },
+        "POST":{
+            "MakeAppointment":{
+
+            }
+        },
+        "PUT":{
+            "updateAppointment":{
+
+            }
+        
+        },
+        "DELETE":{
+             
+            "DeleteAppointment":{
+
+            }
+        }
+    },
+    "Receptionist":{
+        "GET":{
+            "getPatientData":{
+
+            },
+
+            "AvailableDoctor":{
+
+            },
+            "AvailableTimeSlots":{
+
+            },
+            "AppointmentsList":{
+
+            },
+            "WardenDetails":{
+
+            },
+            "EmployeeData":{
+                
+            }
+        },
+        "POST":{
+            "AddPatientData":{
+
+            },
+            "AddPatientToconsultant":{
+
+            },
+            "MoveToApproved":{
+
+            },
+            "AcknoledgeWarden":{
+
+            }
+        },
+        "PUT":{
+            "UpdatePatientsData":{
+
+            },
+            "updateTimeSlots":{
+
+            }
+             
+
+        },
+        "DELETE":{
+            "DeleteAppointment":{
+
+            },
+            "deletePatientData":{
+
+            },
+            "proceedWaitingToConsult":{
+
+            }
+            
+        }
+    },"Consultant":{
+        "GET":{
+            "AppointmentList":{
+
+            },
+            "PatientDetail":{
+
+            },
+            "consultingPatientList":{
+
+            }
+            
+
+        },
+        "POST":{
+            
+            "uploadReport":{
+
+            }
+        },
+        "PUT":{
+            "UploadPrescription":{
+
+            }
+
+        },
+        "DELETE":{
+            "DeletePrescription":{
+
+            }
+            
+        }
+    },
+    "Admin":{
+        "GET":{
+            "EmployeesList":{
+
+            },
+            "EmployeeData":{
+
+            },
+            "PatientsList":{
+
+            },
+            "PatientData":{
+
+            } ,
+            "AppointmentsList":{
+
+            }
+
+        },
+        "POST":{
+            "AddPatientData":{
+
+            },
+            "AddPatientToconsultant":{
+
+            },
+            "MoveToApproved":{
+
+            },
+            "AcknoledgeWarden":{
+
+            },
+            "MakeAppointment":{
+
+            }
+
+        },
+        "PUT":{
+            "updateAppointment":{
+
+            },
+             
+            "UpdatePatientsData":{
+
+            },
+            "updateTimeSlots":{
+
+            },
+           "UpdatePatientDetails":{
+            
+           }
+
+        },
+        "DELETE":{
+            "DeletePatientDetails":{
+
+            },
+            "DeleteEmployeeData":{
+
+            },
+            "DeleteAppointments":{
+
+            }
+        }
+    },
+    "Manager":{
+        "GET":{
+            "getEmployeeData":{
+
+            },
+            "getEmployeeStatus":{
+
+            }
+        },
+        "POST":{
+            "insertEmployeeData":{
+
+            }
+        },
+        "PUT":{
+            "updateEmployeeData":{
+
+            }
+        },
+        "DELETE":{
+            "deleteEmployeeData":{
+
+            },
+            "DeleteAppointments":{
+
+            }
+        }
+    }
+}

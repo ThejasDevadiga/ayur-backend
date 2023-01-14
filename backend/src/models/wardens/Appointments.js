@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const patientShema = mongoose.Schema({
+const appointments = mongoose.Schema({
     PatientID:{
             type:String,
             required:true,
@@ -28,44 +28,30 @@ const patientShema = mongoose.Schema({
             type: Date,
             required: true,
         },
+        phone: {
+            type: Number,
+            required: true,
+        },
         Gender:{
             type:String,
             required:true,
         },
-        Phone:{
-            type:Number,
-            required:true,
-        }
     },
-    
-    Issues:{
-        DiagnosisTime:{
+    Disease:{
+        Symptoms:{
             type:String,
-            default: ''
-        },
-        DiagnosisDate:{
-            type:String,
-            default: ''
-        },
-        Category:{
-            type:String,
-            default:'',
+            required:true
         },
         Description:{
             type:String,
-            default: ''
-        },
-        Symptoms:{
-            type:String,
-            default:''
+            required:true,
         }
     },
 },
 {
     timestamps: true,
-
 });
 
-const Patient = mongoose.model('Patient', patientShema)
+const Appointments = mongoose.model('appointments', appointments)
 
-module.exports = Patient;
+module.exports = Appointments;

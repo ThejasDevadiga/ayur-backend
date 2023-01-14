@@ -1,10 +1,9 @@
-const PatientDetails = require('../../models/Patient/PatientDataSchema')
-const WaitingPatientList = require('../../models/Patient/waitingPatientList')
+const ReceptionistPatients = require('../../models/wardens/')
 const generateId = require('../../utils/GenerateId')
 const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
  
-const AddPatientData = asyncHandler(async (req, res) => {
+const insertPatientData = asyncHandler(async (req, res) => {
   const requestedId = req.body
   try{  
   const {
@@ -95,33 +94,5 @@ const AddPatientData = asyncHandler(async (req, res) => {
     }
 })
 
-const AddPatientToconsultant  = asyncHandler(async (req, res, next) => {
-  res.status(200).json({
-      acknowledged : true,
-      message : 'Data Added Successfully',
-      token: generateToken(requestedId)
-})
-})
-const MoveToApproved  = asyncHandler(async (req, res, next) => {
-  res.status(200).json({
-      acknowledged : true,
-      message : 'Data Added Successfully',
-      token: generateToken(requestedId)
-})
-})
 
-const AcknoledgeWarden  = asyncHandler(async (req, res, next) => {
-  res.status(200).json({
-      acknowledged : true,
-      message : 'Data Added Successfully',
-      token: generateToken(requestedId)
-})
-})
-
-
-module.exports = {
-            AddPatientData,
-            AddPatientToconsultant,
-            MoveToApproved,
-            AcknoledgeWarden,
-};
+module.exports = {insertPatientData};

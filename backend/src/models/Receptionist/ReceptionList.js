@@ -5,7 +5,7 @@ const receptioninstList = mongoose.Schema({
         required:true,
         unique:true
     },
-    Department:{
+    Name:{
         type:String,
         required:true,
     },

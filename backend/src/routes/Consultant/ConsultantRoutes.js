@@ -8,7 +8,7 @@ const {
     consultingPatientList
 } = require('../../controllers/consultant/conRead')
 
-router.get('/api/consultant/patient-details',auth,getPatientDetails)//Done
-router.get('/api/consultant/get-consulting-patients',auth,consultingPatientList)//Done//tested
+router.get('/api/consultant/patient-details',getPatientDetails)//Done
+router.get('/api/consultant/get-consulting-patients',consultingPatientList)//Done//tested
 
 module.exports = router;

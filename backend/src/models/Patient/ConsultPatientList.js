@@ -5,7 +5,35 @@ const ConsultPatientShema = mongoose.Schema({
         required:true,
         unique:true
     },
-    Status:{
+    Basic:{
+        Name:{
+            type:String,
+            required:true,
+        },
+        DateofBirth:{
+            type:Date,
+            required:true,
+        },
+        phone:{
+            type:Number,
+            required:true
+        }
+    },
+    Issues:{
+        Symptoms:{
+            type:String,
+            required:true
+        },
+        Category:{
+            type:String,
+            required:true
+        },
+        Description:{
+            type:String,
+            required:true
+        }
+    },
+    Prescription:{
         type:String,
         required:true
     } 
