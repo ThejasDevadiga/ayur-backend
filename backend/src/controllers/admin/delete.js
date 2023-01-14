@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
  
 
 const DeletePatientDetails=asyncHandler(async(req,res)=>{
-
+    
 
 })
 
