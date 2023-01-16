@@ -30,7 +30,7 @@ const proceedWaitingToConsult = asyncHandler(async(req,res) =>{
               res.status(200).json({
                 acknowledged : true,
                 message : 'Data Added Successfully',
-                token: generateToken(requestedId)
+                
           })
               }
               else {

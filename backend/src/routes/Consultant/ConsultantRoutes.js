@@ -4,11 +4,11 @@ const auth = require('../../middlewares/authMiddleware')
 
 
 const {
-    getPatientDetails,
+    PatientDetails,
     consultingPatientList
-} = require('../../controllers/consultant/conRead')
+} = require('../../controllers/consultant/get')
 
-router.get('/api/consultant/patient-details',getPatientDetails)//Done
+router.get('/api/consultant/patient-details',PatientDetails)//Done
 router.get('/api/consultant/get-consulting-patients',consultingPatientList)//Done//tested
 
 module.exports = router;

@@ -7,29 +7,30 @@ dotenv.config();
 const {
     deleteEmployeeData
 
-} = require('../../controllers/manager/manDelete')
+} = require('../../controllers/manager/delete')
 
 const {
-    insertEmployeeData
-} = require('../../controllers/manager/manInsert')
+    insertEmployeeData,
+    
+} = require('../../controllers/manager/post')
 
 
 const {
     getEmployeeData,
-} = require('../../controllers/manager/manRead')
+} = require('../../controllers/manager/get')
 
 const {
     updateEmployeeData
-} = require('../../controllers/manager/manUpdate')
+} = require('../../controllers/manager/put')
 const {
     getPatientData
-} = require('../../controllers/Receptionist/receptionsRead')
+} = require('../../controllers/Receptionist/get')
 const {
     updatePatientData
-}= require('../../controllers/Receptionist/receptionsUpdate')
+}= require('../../controllers/Receptionist/put')
 const {
     deletePatientData
-}= require('../../controllers/Receptionist/receptionsDelete')
+}= require('../../controllers/Receptionist/delete')
 
 router.get('/api/manager/get-patient-details',getPatientData)//Done//tested
 router.put('/api/manager/update-patient-details',updatePatientData)//Done//tested  

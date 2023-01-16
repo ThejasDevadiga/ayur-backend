@@ -99,14 +99,14 @@ const AddPatientToconsultant  = asyncHandler(async (req, res, next) => {
   res.status(200).json({
       acknowledged : true,
       message : 'Data Added Successfully',
-      token: generateToken(requestedId)
+      
 })
 })
 const MoveToApproved  = asyncHandler(async (req, res, next) => {
   res.status(200).json({
       acknowledged : true,
       message : 'Data Added Successfully',
-      token: generateToken(requestedId)
+      
 })
 })
 
@@ -114,7 +114,7 @@ const AcknoledgeWarden  = asyncHandler(async (req, res, next) => {
   res.status(200).json({
       acknowledged : true,
       message : 'Data Added Successfully',
-      token: generateToken(requestedId)
+      
 })
 })
 

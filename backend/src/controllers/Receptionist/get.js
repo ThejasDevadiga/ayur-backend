@@ -1,4 +1,3 @@
-const waitingPatients = require('../../models/Patient/waitingPatientList')
 const generateToken = require('../../utils/generateToken')
 const asyncHandler = require("express-async-handler");
 const patientData = require('../../models/Patient/PatientDataSchema')

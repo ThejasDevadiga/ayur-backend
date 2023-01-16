@@ -51,7 +51,7 @@ const updateEmployeeData = asyncHandler(async (req, res, next) => {
         })
       }
 })
- 
+
 module.exports  = {
     updateEmployeeData
-}
+}        

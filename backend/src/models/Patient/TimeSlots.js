@@ -24,6 +24,6 @@ const TimeSlot = mongoose.Schema({
     timestamps: true
 });
 
-const ConsultingPatient = mongoose.model('ConsultPatient', ConsultPatientShema)
+const TimeSlots = mongoose.model('TimeSlot', TimeSlot)
 
-module.exports = ConsultingPatient;
+module.exports = TimeSlots;

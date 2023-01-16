@@ -9,5 +9,5 @@ data = JSON.stringify({
 });
 
 
-requestor("POST",data,url,myHeaders)
+requestor("POST",data,url)
 
