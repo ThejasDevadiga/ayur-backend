@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js ",
     "scripts": {
-        "start": "nodemon src/server.js"
+        "start": "nodemon ./server.js"
     },
     "author": "Thejas Deltan",
     "license": "ISC",
@@ -23,6 +23,7 @@
         "http-proxy-middleware": "^2.0.6",
         "jsonwebtoken": "^9.0.0",
         "mongoose": "^6.3.6",
-        "nodemon": "^2.0.16"
+        "nodemon": "^2.0.16",
+        "open": "^8.4.0"
     }
 }

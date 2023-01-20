@@ -6,6 +6,7 @@ const renderLogin  = asyncHandler(async (req, res, next) => {
         root: path.resolve('./src/views/Login/')
     };
 
+    
     var fileName = 'login.html';
     res.sendFile(fileName, options, function (err) {
         if (err) {
