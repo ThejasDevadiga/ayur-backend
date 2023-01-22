@@ -11,7 +11,7 @@ const ConsultantRoutes = require("./src/routes/Consultant/ConsultantRoutes");
 const HelpDeskRoutes = require("./src/routes/Receptionist/ReceptionistRoutes");
 const ManagerRoutes = require("./src/routes/manager/ManagerRoutes");
 const UserRoutes = require('./src/routes/user/userRoutes')
-const loginView = require('./src/routes/view/login/loginRoutes')
+const loginView = require('./client/routes/login/loginRoutes')
 const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
 dotenv.config();
@@ -25,8 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors());
+app.set('views', 'views');
+app.set('view engine', 'pug');
+
 console.log(__dirname);
-app.use(express.static(__dirname + '\\public')); //__dir and not _dir
+app.use("/static",express.static('public'));  
 
 // Backend routes 
 app.use('/',ConsultantRoutes)
@@ -36,11 +39,15 @@ app.use('/',UserRoutes)
 
 //Frontend routes
 app.use('/',loginView)
-
+// app.get('/hello', function (req, res) {
+//     res.render('index', { title: 'Hello', message: 'Hello there!' })
+//   });
 
 app.use(notFound);
 
 app.use(errorHandler);
+
+
 
 const PORT = process.env.PORT || 5001;
 // WebServer(`http://localhost:${PORT}/`)
