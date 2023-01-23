@@ -2,22 +2,29 @@
 *{
   font-family:'Avantgarde', 'TeX Gyre Adventor',' URW Gothic L', 'sans-serif';
 }
-
+body{
+  margin: 0px;
+}
 
 .loginform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self:  center;
   max-width: 600px;
+  justify-content: center;
+  align-items: center;
   min-width: 400px;
   max-height: 700px;
   width: 35%;
   height: 80%;
   margin: 100px auto;
-  background-color: #FFFFFF;
+  background-color: #e8ebfda7;
   border-radius: 25px;
-  box-shadow: 2px 2px 10px rgb(4, 16, 95);
-  padding-left: 5rem;
-  
-  
+  box-shadow: 2px 2px 10px rgb(4, 16, 95); 
 }
+
+
 .space{
   min-height: 1rem;
   width: 100%;
@@ -26,31 +33,30 @@
 #headerTitle{
   text-align: center;
   font-family:'Avantgarde', 'TeX Gyre Adventor',' URW Gothic L', 'sans-serif';
-  padding: 2rem 0;
-  margin: 0;
   font-size: 3rem;
+  color: #091540;
  
 }
 
 .row{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 2rem;
-  max-width: 100%;
-  
+  width: 90%;
 }
 
 input{
   width: 80%;
   box-sizing: border-box;
 	border: none;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   padding-left: 2 rem;
   padding-bottom: 1rem;
   box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
   transition: box-shadow 0.2s ease-in;
   text-align:center;
+  border-radius: 10px;
 }
 
 input:focus{
@@ -67,12 +73,24 @@ input:hover::-webkit-input-placeholder,
 input:focus::-webkit-input-placeholder{
   opacity: 0;
 }
+#myForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 label{
   align-self: start;
   padding-left: 4.5rem;
   padding-bottom: 0.5rem;
   color: rgba(187,187,187,0.9);
+}
+#alert{
+  color: red;
+  margin: 5px;
+  font-size: 15px;
 }
 
 button{

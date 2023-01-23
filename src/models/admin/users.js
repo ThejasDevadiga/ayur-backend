@@ -7,6 +7,11 @@ const User = mongoose.Schema({
     Password:{
         type:String,
         required:true
+    },
+    Designation:{
+        type:String,
+        require:true,
+        default:"-"
     }
 },
 {

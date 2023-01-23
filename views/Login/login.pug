@@ -9,18 +9,19 @@ html(lang="en")
 		title LOGIN FORM
 	body
 		.loginform
-			h2#headerTitle Login page
+			h1#headerTitle Login page
 			form#myForm(method="post")
-				div(className="row")
+				.row
 					label Username
 					input#username(type="text", placeholder="Enter the username", name="username", required)
 				.space
-				div(className="row")
+				.row
 					label Password
 					input#password(type="password", placeholder="Enter the password", name="password", required)
 				.space
-				#button(className="row")
+				p#alert 
+				#button(class="row")
 					button(type="submit") Submit
-		script(src="/static/js/Utils/generateToken.js")
-		script(src="/static/js/Utils/requestor.js")
-		script(src="/static/js/login/login.js")
+		script(src="/js/Utils/generateToken.js")
+		script(src="/js/Utils/requestor.js")
+		script(src="/js/login/login.js")

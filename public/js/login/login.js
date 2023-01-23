@@ -1,3 +1,4 @@
+
 window.addEventListener("load", () => {
     async  function sendData() {
      const userName = document.getElementById("username").value;
@@ -16,10 +17,25 @@ window.addEventListener("load", () => {
     if(data.acknowledged){  
      sessionStorage.setItem("token",data.token)
      sessionStorage.setItem("user",data.user)
-     location.href= "../Consultant/HTML/consultant"
+     sessionStorage.setItem("userROle",data.userROle)
+     if(data.userROle=='admin'){
+        location.href= "#admin"
+     }
+     else if(data.userROle=='consultant'){
+      location.href= "#consultant"
+     }
+     else if(data.userROle=='reception'){
+      location.href= "#reception"
     }
+    else if(data.userROle=='warden'){
+      location.href= "#warden"
+      }
     else{
-      alert("Invalid User")
+      document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
+    }
+  }
+    else{
+      document.getElementById("alert").innerHTML = data.message;
     }
      }
    

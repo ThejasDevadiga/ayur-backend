@@ -12,6 +12,9 @@ const HelpDeskRoutes = require("./src/routes/Receptionist/ReceptionistRoutes");
 const ManagerRoutes = require("./src/routes/manager/ManagerRoutes");
 const UserRoutes = require('./src/routes/user/userRoutes')
 const loginView = require('./client/routes/login/loginRoutes')
+const consultantView = require('./client/routes/consultant/consultantRoutes')
+
+
 const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
 dotenv.config();
@@ -29,7 +32,7 @@ app.set('views', 'views');
 app.set('view engine', 'pug');
 
 console.log(__dirname);
-app.use("/static",express.static('public'));  
+app.use(express.static('public'));  
 
 // Backend routes 
 app.use('/',ConsultantRoutes)
@@ -39,6 +42,8 @@ app.use('/',UserRoutes)
 
 //Frontend routes
 app.use('/',loginView)
+app.use('/',consultantView)
+
 // app.get('/hello', function (req, res) {
 //     res.render('index', { title: 'Hello', message: 'Hello there!' })
 //   });

@@ -16,20 +16,20 @@ const validateUser = asyncHandler(async(req,res)=>{
       } = req.body;
     const findUser = await user.findOne({Username:username});
     if (!findUser) {
-      throw new Error("Invalid username!!!")
+      throw new Error("Invalid username and password !")
     }
     else{
         if (findUser.Password==password ){
             res.status(200).json({
                 acknowledged : true,
                 token:generateToken(username),
-                userROle:"",
+                userROle:findUser.Designation,
                 userName:username,
                 message : "Successfully logged in"
               })
         }
         else{
-            throw new Error("Invalid password!!!")
+            throw new Error("Invalid password !")
         }
     }
     }

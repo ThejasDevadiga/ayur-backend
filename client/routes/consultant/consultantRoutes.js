@@ -3,10 +3,10 @@ const router = express.Router()
 const dotenv = require('dotenv');
 dotenv.config();
 const {
-    renderLogin
-} = require('../../controller/login/login')
+    consultHome
+} = require('../../controller/consultant/consult')
 
-router.get('/views/login/login.pug',renderLogin)
+router.get('/views/consultant/consultant.pug',consultHome)
 
 
 module.exports = router;
