@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
     async  function sendData() {
      const userName = document.getElementById("username").value;
@@ -19,17 +18,20 @@ window.addEventListener("load", () => {
      sessionStorage.setItem("user",data.user)
      sessionStorage.setItem("userROle",data.userROle)
      if(data.userROle=='admin'){
-        location.href= "#admin"
+        location.href= "/views/Admin/admin.pug"
      }
      else if(data.userROle=='consultant'){
-      location.href= "#consultant"
+      location.href= "/views/Consultant/consultant.pug"
      }
      else if(data.userROle=='reception'){
-      location.href= "#reception"
+      location.href= "/views/Receptionist/receptionist.pug"
     }
     else if(data.userROle=='warden'){
-      location.href= "#warden"
+      location.href= "/views/Warden/warden.pug"
       }
+    else if(data.userROle=='manager'){
+        location.href= "/views/Manager/manager.pug"
+        }
     else{
       document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
     }

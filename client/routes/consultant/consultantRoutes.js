@@ -6,7 +6,7 @@ const {
     consultHome
 } = require('../../controller/consultant/consult')
 
-router.get('/views/consultant/consultant.pug',consultHome)
+router.get('/views/Consultant/consultant.pug',consultHome)
 
 
 module.exports = router;
