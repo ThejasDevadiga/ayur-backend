@@ -1,209 +1,73 @@
-title Table 04
+title #{title}
 meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
 link(href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700", rel="stylesheet", type="text/css")
 link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
 link(rel="stylesheet", href="/css/components/scheduleTable.css")
+style.
+  
+  td{
+          width: 50px;
+          height: 50px;
+      }
+  
 section.ftco-section
   .container.schedule-table
-    .row.justify-content-center
-      .col-md-6.text-center.mb-5
-        h2.heading-section APPOINTMENTS
     .row
-      .col-md-15
-        h4.text-center.mb-4 Class Schedule Table
+      .col-md-12
+        br
         .table-wrap
           table.table.table-bordered.text-center
             thead
               tr
-                th Time
-                th Monday
-                th Tuesday
-                th Wednesday
-                th Thursday
-                th Friday
-                th Saturday
-                th Sunday
+                th Time solts
+                th #{listOfDates[0]}-#{month}-#{year}
+                th #{listOfDates[1]}-#{month}-#{year}
+                th #{listOfDates[2]}-#{month}-#{year}
+                th #{listOfDates[3]}-#{month}-#{year}
+                th #{listOfDates[4]}-#{month}-#{year}
+                th #{listOfDates[5]}-#{month}-#{year}
+                th #{listOfDates[6]}-#{month}-#{year}
+                th #{listOfDates[7]}-#{month}-#{year}
+                th #{listOfDates[8]}-#{month}-#{year}
+                th #{listOfDates[9]}-#{month}-#{year}
             tbody
                 - var time = 8
-
-                each val,key in appointments
+                - m = 0
+                while m<9
                     tr
-                        td #{time}.00-#{time+1}.00
-                    
-                        each val2,key2 in val 
-                            td.text-center
-                
-                                if val2.status=='1'
-                                    .img.rounded-circle.mb-2(style="background-color:green")
-                                else
-                                    .img.rounded-circle.mb-2(style="background-color:red")
-                                a(href="#")
-                                    strong #{val2.name}
-                                    br
+                      td #{time}.00-#{time+1}.00
+                        - n=0
+                        while n<10
+                          td.text-center
+                            for val of appointments
+                              if val.date==listOfDates[n] && val.time==time
+                                a(href="#").cardDetails
+                                  .img.rounded-circle.mb-2(style="background-color:green;background-image:url('/images/icon.png')") 
+                                .card-container
+                                  .image-container
+                                    img(class="rounded-circle" src=val.imgUrl, alt="Image not found" width="200px" height="200px")
+                                  .detail-container 
+                                    h2.profile-name #{val.name}
+                                    h4 #{val.number}
+                                    p #{val.description}
+
+                          - n++    
                         - time++
+                    - m++
 
-
-                                
-                        
-                            
-
-                    
-
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-   tr
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-   tr
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-   tr
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-   tr
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td
-            //-       i.fa.fa-close
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
-            //-     td.text-center
-            //-       .img.rounded-circle.mb-2(style="background-color:green")
-            //-       a(href="#")
-            //-         strong Yoga training
-            //-         br
-            //-         | 7 am-6 am
             tfoot
               tr
                 th
-                  a(href="#")
-                    i.fa.fa-long-arrow-left
-                    |  September
+                th
+                th
+                th YEAR
+                th 
+                  p #{year}
                 th
                 th
                 th
-                th
-                th
-                th
-                  a(href="#")
-                    | November 
-                    i.fa.fa-long-arrow-right
+.dummy-card-container.text-center
+
+
+
