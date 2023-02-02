@@ -1,118 +1,111 @@
+ 
 
-.table-wrapper{
-  margin: 2% 40% 10% 10%;
-  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
-  max-height: 70vh;
-}
-
-.fl-table {
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: normal;
-  border: none;
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 100%;
-  white-space: nowrap;
-  background-color: white;
-}
-
-.fl-table td, .fl-table th {
+  body {
+    counter-reset: my-sec-counter;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: #2b236b;
+   }
+ .header{
+  font-size: 3rem;
+  font-weight: 900;
+  color:#2b236b;
   text-align: center;
-  padding: 25px;
-}
-
-.fl-table td {
-  border-right: 1px solid #f8f8f8;
-  font-size: 10px;
-}
-
-.fl-table thead th {
-  color: #ffffff;
-  background: #4FC3A1;
-}
-
-
-.fl-table thead th:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-
-.fl-table tr:nth-child(even) {
-  background: #F8F8F8;
-}
-
-/* Responsive */
-
-@media (max-width: 767px) {
-  .fl-table {
-      display: block;
+  margin-top: 2rem;
+ }
+  table { 
+    width: 100%; 
+    border-collapse: collapse;
+    color: rgb(43, 35, 107); 
+  }
+ 
+  th { 
+    color: rgb(36, 41, 95); 
+    font-weight: bold; 
+    cursor: cell;
     
   }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    box-sizing: border-box;
+  }
+  
+  tr:nth-of-type(odd) { 
+    background: rgb(222, 222, 222); 
+  }
 
-  .table-wrapper:before{
-      text-align: right;
-      font-size: 11px;
-      color: white;
-      margin-left: 1rem;
-      padding: 0 0 0;
-      width: 100%;
+  .container{
+    margin-top: 5rem;
+    /* box-shadow: 2px 2px 10px rgb(151, 151, 151); */
+    border-radius: 15px; 
+    background-color: rgb(255, 255, 255);
   }
-  .table-wrapper{
-    margin: 2% 0 0 15%;
-    max-height: 55vh;
+  
+  @media
+  only screen 
+  and (max-width: 760px), (min-device-width: 168px) 
+  and (max-device-width: 1024px)  {
+
+    table {
+      margin-top: 106px;
+    }
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    text-align: center;
+    font-size: medium;
+    font-weight: 700;
   }
-  .fl-table thead, .fl-table tbody, .fl-table thead th {
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin: 0 0 1rem 0;
+    overflow: auto;
+    border-bottom: 1px solid #ccc;
+  }
+    
+    
+    
+    tbody tr:before {
+      counter-increment: my-sec-counter;
+      content: "";
+      background-color:#333;
       display: block;
+      height: 1px;
+    }
+
+    
+  tr:nth-child(odd) {
+    background: rgb(219, 226, 255);
   }
-  .fl-table thead th:last-child{
-      border-bottom: none;
+  
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    margin-right: 0%;
+    display: block;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    box-sizing:border-box;
   }
-  .fl-table thead {
-      float: left;
+
+  td:before {
+    /* Top/left values mimic padding */
+    font-weight: bold;
+    width: 50%;
+    float:left;
+    box-sizing:border-box;
+    padding-left: 5px;
   }
-  .fl-table tbody {
-      width: auto;
-      position: relative;
-      overflow-x: auto;
-  }
-  .fl-table td, .fl-table th {
-      padding: 20px .625em .625em .625em;
-      height: 60px;
-      vertical-align: middle;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      overflow-y: auto;
-      width: 90px;
-      font-size: 13px;
-      text-overflow: ellipsis;
-  }
-  .fl-table thead th {
-      text-align: left;
-      border-bottom: 1px solid #f7f7f9;
-  }
-  .fl-table tbody tr {
-      display: table-cell;
+  
       
-  }
-  tbody{
-    width: 180px;
-  }
-  .fl-table tbody tr:nth-child(odd) {
-      background: none;
-  }
-  .fl-table tr:nth-child(even) {
-      background: transparent;
-  }
-  .fl-table tr td:nth-child(odd) {
-      background: #F8F8F8;
-      border-right: 1px solid #E6E4E4;
-  }
-  .fl-table tr td:nth-child(even) {
-      border-right: 1px solid #E6E4E4;
-  }
-  .fl-table tbody td {
-      display: block;
-      text-align: center;
-  }
 }

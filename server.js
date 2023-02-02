@@ -52,16 +52,16 @@ app.use('/',managerView)
 app.use('/',wardenView)
 
 const testFun = require('./test/functions')
-app.get('/template/test/:id',testFun)
+
+app.get('/test',testFun)
+
 app.use(notFound);
 
 app.use(errorHandler);
 
-
 // write a code for render a file
 
-
 const PORT = process.env.PORT || 5001;
-// WebServer(`http://localhost:5000/template/test/2023-01-21`)
+// WebServer(`http://localhost:5000/test`)
 console.log(`http://localhost:${PORT}/`);
 app.listen(PORT, console.log(`Server port ${PORT}`));

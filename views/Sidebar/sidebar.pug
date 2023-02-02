@@ -1,40 +1,28 @@
 link(rel="stylesheet", type="text/css", href="/css/sidebar/sidebar.css")
 link(rel="stylesheet", type="text/css", href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
-nav.main-menu
-  div
-    a.logo(href="#") 
-      i.fa.fa-home.fa-lg
-  .settings
-  .scrollbar#style-1
-    ul
-      each val,key in controlles
-        li
-          a(href=val.linkUrl)
-            i.fa.fa-lightbulb-o.fa-lg
-             
-            span.nav-text #{val.linkName}
-              
-      //- li 
-      //-   a(href="#")
-      //-     i.fa.fa-user.fa-lg
-      //-     span.nav-text Login
-      //- li
-      //-   a(href="#")
-      //-     i.fa.fa-envelope-o.fa-lg
-      //-     span.nav-text Contact
-      //- li
-      //-   a(href="#")
-      //-     i.fa.fa-heart-o.fa-lg
-      //-     span.nav-text Like
-      li
-        a
-          i
-
-  ul.logout
-    li
-      a(href="/")
+link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
+script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+link(rel="stylesheet", href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css")
+script(type="text/javascript", src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js")
+script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+.container
+  nav.main-menu.sidebar
+    div
+      a.logo(href="#") 
         i.fa.fa-home.fa-lg
-        span.nav-text   Log Out
-
-
-            
+    .settings
+    .scrollbar#style-1
+      ul
+        each val,key in controlles
+          li
+            a(href=val.linkUrl)
+              i.fa.fa-lightbulb-o.fa-lg
+              span.nav-text #{val.linkName}
+        li
+          a
+            i
+    ul.logout
+      li
+        a(href="/")
+          i.fa.fa-home.fa-lg
+          span.nav-text   Log Out

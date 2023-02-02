@@ -4,102 +4,74 @@ meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=
 link(href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700", rel="stylesheet", type="text/css")
 link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
 link(rel="stylesheet", href="/css/components/form.css")
-//- .container
-//-   form
-//-     .row
-//-       h4 Account
-//-       .input-group.input-group-icon
-//-         input(type="text", placeholder="Full Name")
-//-         .input-icon
-//-           i.fa.fa-user
-//-       .input-group.input-group-icon
-//-         input(type="email", placeholder="Email Adress")
-//-         .input-icon
-//-           i.fa.fa-envelope
-//-       .input-group.input-group-icon
-//-         input(type="password", placeholder="Password")
-//-         .input-icon
-//-           i.fa.fa-key
-//-     .row
-//-       .col-half
-//-         h4 Date of Birth
-//-         .input-group
-//-           .col-third
-//-             input(type="text", placeholder="DD")
-//-           .col-third
-//-             input(type="text", placeholder="MM")
-//-           .col-third
-//-             input(type="text", placeholder="YYYY")
-//-       .col-half
-//-         h4 Gender
-//-         .input-group
-//-           input#gender-male(type="radio", name="gender", value="male")
-//-           label(for="gender-male") Male
-//-           input#gender-female(type="radio", name="gender", value="female")
-//-           label(for="gender-female") Female
-//-     .row
-//-       h4 Payment Details
-//-       .input-group
-//-         input#payment-method-card(
-//-           type="radio",
-//-           name="payment-method",
-//-           value="card",
-//-           checked="true"
-//-         )
-//-         label(for="payment-method-card")
-//-           span
-//-             i.fa.fa-cc-visa
-//-             | Credit Card
-//-         input#payment-method-paypal(
-//-           type="radio",
-//-           name="payment-method",
-//-           value="paypal"
-//-         )
-//-         label(for="payment-method-paypal") 
-//-           span
-//-             i.fa.fa-cc-paypal
-//-             | Paypal
-//-       .input-group.input-group-icon
-//-         input(type="text", placeholder="Card Number")
-//-         .input-icon
-//-           i.fa.fa-credit-card
-//-       .col-half
-//-         .input-group.input-group-icon
-//-           input(type="text", placeholder="Card CVC")
-//-           .input-icon
-//-             i.fa.fa-user
-//-       .col-half
-//-         .input-group
-//-           select
-//-             option 01 Jan
-//-             option 02 Jan
-//-           select
-//-             option 2015
-//-             option 2016
-//-     .row
-//-       h4 Terms and Conditions
-//-       .input-group
-//-         input#terms(type="checkbox")
-//-         label(for="terms") I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.
-
-
 .container
-    .input-group.input-group-icon
-        input(type="text", placeholder="Full Name")
-        .input-icon
+  form
+    h3 PERSONAL DETAILS
+    hr(size, color="#bdbdbd") 
+    .row
+      h4  Full Name
+      
+      .col-third
+        .input-group.input-group-icon
+          input(type="text", placeholder="Full Name")
+          .input-icon
             i.fa.fa-user
-    .input-group.row
-        input#gender-male(type="radio", name="gender", value="male")
-        label(for="gender-male") Male
-        input#gender-female(type="radio", name="gender", value="female")
-        label(for="gender-female") Female
+      .col-third
+        .input-group.input-group-icon
+          input(type="text", placeholder="Middle Name")
+          .input-icon
+            i.fa.fa-user
+      .col-third
+        .input-group.input-group-icon
+          input(type="text", placeholder="Last Name")
+          .input-icon
+            i.fa.fa-user
+      //-     i.fa.fa-key
+         
+    .row
+      .col-third
+        h4 Date of Birth
+        input(type="date")
+      .col-half
+        h4 Gender
+        .input-group
+          input#gender-male(type="radio", name="gender", value="male")
+          label(for="gender-male") Male
+          input#gender-female(type="radio", name="gender", value="female")
+          label(for="gender-female") Female
+    h3 TIMINGS 
+    hr(size, color="#bdbdbd") 
     .row
       .col-half
-        h4 Date of Birth
+        h4 Date
         .input-group
-          .col-third
-            input(type="text", placeholder="DD")
-          .col-third
-            input(type="text", placeholder="MM")
-          .col-third
-            input(type="text", placeholder="YYYY")
+          input(type="date")
+      .col-half
+        h4 Time
+        .input-group
+          input(type="time", placeholder="Card CVC")
+    h3 DOCTOR DETAILS
+    hr(size, color="#bdbdbd")
+    .row
+      .col-half
+        h4 Department name
+        .input-group
+          select
+            each val, index in ['Department1', 'Department2', 'Department3','Department4','Department5']
+              option #{val}
+      .col-half
+        h4 Doctor name
+        .input-group
+          select
+            each val, index in ['Doctor1', 'Doctor2', 'Doctor3','Doctor4','Doctor5']
+              option #{val}
+    hr(size, color="#bdbdbd")  
+    .row
+      h4 Terms and Conditions
+      .input-group
+        input#terms(type="checkbox")
+        label(for="terms") I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.
+    .row.button
+      .col-half
+        input(type="button", value="SUBMIT")
+    .row
