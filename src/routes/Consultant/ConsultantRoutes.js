@@ -10,5 +10,4 @@ const {
 
 router.get('/api/consultant/patient-details',PatientDetails)//Done
 router.get('/api/consultant/get-consulting-patients',consultingPatientList)//Done//tested
-
 module.exports = router;

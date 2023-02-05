@@ -1,0 +1,180 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700", rel="stylesheet", type="text/css")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/css/consultant/uploadReport.css")
+        title #{title}
+       
+            
+             
+  
+    body 
+        .container
+            .d
+                h3 REPORTS
+                hr(size, color="#bdbdbd")
+                .row
+                    h4  Full Name
+                    .col-third
+                        .input-group.input-group-icon
+                            input#distext(type="text", placeholder=patientName disabled )
+                            .input-icon
+                                i.fa.fa-user
+                    .col-third
+                        .input-group.input-group-icon
+                            input#distext(type="text", placeholder=email disabled )
+                            .input-icon
+                                i.fa.fa-email
+                    .col-third
+                        .input-group.input-group-icon
+                            input#distext(type="text", placeholder=phoneNumber disabled )
+                            .input-icon
+                                i.fa.fa-phone
+                h3 DETAILS
+                hr(size, color="#bdbdbd")
+                form#listDrug(method="POST")
+                    .row
+                        .col-third
+                            h4 Name of the drug
+                            .input-group
+                                select.name#drugName
+                                    each val, index in ['Drug Name 1','Drug Name 2','Drug Name 3','Drug Name 4','Drug Name 5','Drug Name 6','Drug Name 7']
+                                        option #{val}
+                        .col-fifth
+                            h4 Quantity
+                            .input-group 
+                                input#drugQuantity.quantity.name(type="number" min="1" value='1' required)  
+
+                        .col-third
+                            .row
+                                .col-third.time
+                                    h4 Morning
+                                    .input-group
+                                        input#mor(type="checkbox" )
+                                        label(for="mor") 
+                                .col-third.time
+                                    h4 Afternoon
+                                    .input-group 
+                                        input#aft(type="checkbox"   )
+                                        label(for="aft") 
+                                .col-third.time
+                                    h4 Evening
+                                    .input-group 
+                                        input#eve(type="checkbox"  )
+                                        label(for="eve") 
+                    .row 
+                        .col-half
+                            h4 Note
+                            .input-group.input-group-icon
+                                input#note(type="text",name="note" )
+                                .input-icon
+                                    i.fa.fa-text 
+
+                        .col-fifth
+                            h4  Submit
+                            .row    
+                                input#submit(for="listDrug" type="submit" val="addDrug"  onSubmit=addDrug )
+                p#alert(style="color:red;")
+                h3 DRUGS
+                hr(size, color="#bdbdbd")
+
+                .container#Drugtable
+                    h4 List of the drug
+                    table
+                        thead
+                            tr
+                            th Name of the Drug
+                            th Quantity 
+                            th Timing
+                            th Note
+                            th Action
+                        tbody
+                            script.
+                                    var listAsString = sessionStorage.getItem("drugList");
+      
+                                    var listOfObjects = JSON.parse(listAsString);
+      
+                                    for (var i = 0; i < listOfObjects.length; i++) {
+                                        var obj = listOfObjects[i];
+                                        document.write("<tr>");
+                                        document.write("<td>" + obj.drugName + "</td>");
+                                        document.write("<td>" + obj.drugQuantity + "</td>");
+                                        document.write("<td>" + obj.drugTiming[0]+'---'+ obj.drugTiming[2]+'---'+ obj.drugTiming[4] + "</td>");
+                                        document.write("<td>" + obj.drugNote + "</td>");
+                                        document.write("<td><button id='button'onclick='deleteItem(" + i + ")'>Delete</button></td>");
+                                        document.write("</tr>");
+                                    }
+    script(src="/js/consultants/consults.js")
+//-   form
+//-     h3 PERSONAL DETAILS
+//-     .row
+//-       h4  Full Name
+      
+//-       .col-third
+//-         .input-group.input-group-icon
+//-           input(type="text", placeholder="Full Name")
+//-           .input-icon
+//-             i.fa.fa-user
+//-       .col-third
+//-         .input-group.input-group-icon
+//-           input(type="text", placeholder="Middle Name")
+//-           .input-icon
+//-             i.fa.fa-user
+//-       .col-third
+//-         .input-group.input-group-icon
+//-           input(type="text", placeholder="Last Name")
+//-           .input-icon
+//-             i.fa.fa-user
+//-       //-     i.fa.fa-key
+         
+//-     .row
+//-       .col-third
+//-         h4 Date of Birth
+//-         input(type="date")
+//-       .col-half
+//-         h4 Gender
+//-         .input-group
+//-           input#gender-male(type="radio", name="gender", value="male")
+//-           label(for="gender-male") Male
+//-           input#gender-female(type="radio", name="gender", value="female")
+//-           label(for="gender-female") Female
+//-     h3 TIMINGS 
+//-     hr(size, color="#bdbdbd") 
+//-     .row
+//-       .col-half
+//-         h4 Date
+//-         .input-group
+//-           input(type="date")
+//-       .col-half
+//-         h4 Time
+//-         .input-group
+//-           input(type="time", placeholder="Card CVC")
+//-     h3 DOCTOR DETAILS
+//-     hr(size, color="#bdbdbd")
+//-     .row
+//-       .col-half
+//-         h4 Department name
+//-         .input-group
+//-           select
+//-             each val, index in ['Department1', 'Department2', 'Department3','Department4','Department5']
+//-               option #{val}
+//-       .col-half
+//-         h4 Doctor name
+//-         .input-group
+//-           select
+//-             each val, index in ['Doctor1', 'Doctor2', 'Doctor3','Doctor4','Doctor5']
+//-               option #{val}
+//-     hr(size, color="#bdbdbd")  
+//-     .row
+//-       h4 Terms and Conditions
+//-       .input-group
+//-         input#terms(type="checkbox")
+//-         label(for="terms") I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.
+//-     .row.button
+//-       .col-half
+//-         input(type="button", value="SUBMIT")
+//-     .row
+

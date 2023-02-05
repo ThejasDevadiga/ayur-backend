@@ -1,5 +1,13 @@
+const  addToLocal = require("./fun")
+
+
 const testFun = (req, res) => {
-  
+  res.render('Consultant/uploadReport',{
+    patientName : "Name of the patient",
+    email:"abcd@test.com",
+    phoneNumber:9876543210,
+    fun:addToLocal
+  })
 };
 
 module.exports = testFun;

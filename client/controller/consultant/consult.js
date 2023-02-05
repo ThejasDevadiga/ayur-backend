@@ -27,7 +27,7 @@ today =  yyyy + '-' + mm + '-' +dd;
       },
       4: {
         linkName: "Upload report",
-        linkUrl: "#",
+        linkUrl: "/views/Consultant/Prescribe.pug",
       },
     }
   })
@@ -170,7 +170,14 @@ const PatientDetails = (req,res) =>{
   })
 }
 
+const addPrescription = (req,res)=>{
+  res.render('Consultant/uploadReport',{
+    patientName : "Name of the patient",
+    email:"abcd@test.com",
+    phoneNumber:9876543210,
+  })
+}
 
 module.exports = {
-  consultHome,AppointmentTable,PatientDetails
+  consultHome,AppointmentTable,PatientDetails,addPrescription
 };

@@ -22,7 +22,7 @@ const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
 dotenv.config();
 
-connectDB();
+// connectDB();
 
 const app = express();
 
@@ -63,5 +63,5 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
 // WebServer(`http://localhost:5000/test`)
-console.log(`http://localhost:${PORT}/`);
+console.log(`http://localhost:${PORT}/test`);
 app.listen(PORT, console.log(`Server port ${PORT}`));

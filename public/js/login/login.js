@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
          username:userName,
          password:password
        });
-   
+
     var  data = await requestor("POST",raw,"http://localhost:5000/api/user/validate-user")
     data = JSON.parse(data)
     console.log(data);
