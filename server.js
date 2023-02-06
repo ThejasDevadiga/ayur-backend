@@ -22,7 +22,7 @@ const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
 dotenv.config();
 
-// connectDB();
+connectDB();
 
 const app = express();
 

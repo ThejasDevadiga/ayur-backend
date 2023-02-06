@@ -6,7 +6,7 @@ const testFun = (req, res) => {
     patientName : "Name of the patient",
     email:"abcd@test.com",
     phoneNumber:9876543210,
-    fun:addToLocal
+    patientID:"pat1234567890"
   })
 };
 

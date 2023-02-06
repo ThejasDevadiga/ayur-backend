@@ -1,4 +1,18 @@
+
 window.addEventListener("load", () => {
+  async function getDrugsList(){
+    var  raw = JSON.stringify({
+      requestedId:"Hello",
+      filter:{},
+      projection:{_id:0}
+    });
+  
+  var  res = await requestor("POST",raw,"http://localhost:5000/api/consultant/drugs-list")
+  res = JSON.parse(res)
+  sessionStorage.setItem("availableDrug",JSON.stringify(res.data));
+  }
+  getDrugsList()
+ 
     async  function addDrugtoList() {
         const drugName = document.getElementById("drugName").value;
         const drugQuantity = document.getElementById("drugQuantity").value;
@@ -8,7 +22,7 @@ window.addEventListener("load", () => {
         const drugTiming = drugMorn+'-'+drugAftr+'-'+drugEve;
         const drugNote = document.getElementById("note").value;
         if (sessionStorage.getItem("drugList")==null){
-            var drugDet = JSON.stringify([{drugName,drugQuantity,drugTiming,drugNote}])
+            var drugDet = JSON.stringify(Array({drugName,drugQuantity,drugTiming,drugNote}))
                 sessionStorage.setItem("drugList",drugDet);
         }
         else{
@@ -30,40 +44,75 @@ window.addEventListener("load", () => {
             sessionStorage.setItem("drugList",listAsString)
             
         }
-        
-        
-        document.getElementById("alert").innerHTML = 'lol'
-        location.reload();
-    //    console.log("submitter");
-    //    var  raw = JSON.stringify({
-    //      requestedId:"Hello",
-    //      username:userName,
-    //      password:password
-    //    });
 
-    // var  data = await requestor("POST",raw,"http://localhost:5000/api/user/validate-user")
-    // data = JSON.parse(data)
-    // console.log(data);
-    // if(data.acknowledged){  
-    //  sessionStorage.setItem("token",data.token)
+        // document.getElementById("alert").innerHTML = 'Drug added'
+        location.reload();
+     }
+   
+      const Drugform = document.getElementById("listDrug");
+     
+      Drugform.addEventListener("submit", (event) => {
+       event.preventDefault();
+        addDrugtoList();
+     });
+     
+     
+    });
+ // ------------------------------------------------------------------
+
+ 
+    window.addEventListener("load", () => {
+async  function MakeReport() {
+    console.log("making report");
+    // document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
     
-    // else{
-    //   document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
-    // }
+    const patientName = document.getElementById("name").value;
+    const patientID = document.getElementById("pid").value;
+    const patientPhone = document.getElementById("phone").value;
+
+    // Retrieve the string from session storage
+    var listAsString = sessionStorage.getItem("drugList");
+    // Convert the string back to a list of JSON objects
+    const drugList = JSON.parse(listAsString);
+    
+  console.log(drugList);
+   var  raw = JSON.stringify({
+     requestedId:"Hello",
+    patientName,
+    patientID,
+    drugList
+   });
+
+var  data = await requestor("POST",raw,"http://localhost:5000/api/consultant/makePrescription")
+data = JSON.parse(data)
+document.getElementById("alert").innerHTML = data;
+console.log(data);
+if(data.acknowledged){  
+//  sessionStorage.removeItem("drugList")
+//  location.href = "/views/Consultant/consultant.pug"
+}
+
+
+// else{
+//   document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
+// }
 //   }
 //     else{
 //       document.getElementById("alert").innerHTML = data.message;
 //     }
-     }
-   
-      const form = document.getElementById("listDrug");
-     
-     form.addEventListener("submit", (event) => {
+ 
+
+}
+
+const Reportform = document.getElementById("makeReport");
+     Reportform.addEventListener("submit", (event) => {
        event.preventDefault();
-       addDrugtoList();
+       MakeReport();
      });
-   
    });
+
+
+
 
    function deleteItem(index) {
     // Retrieve the string from session storage

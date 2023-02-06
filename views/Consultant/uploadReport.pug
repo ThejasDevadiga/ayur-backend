@@ -7,80 +7,98 @@ html(lang="en")
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="stylesheet", href="/css/consultant/uploadReport.css")
         title #{title}
-       
-            
-             
-  
+        script(src="/js/Utils/generateToken.js")
+        script(src="/js/Utils/requestor.js")      
+        script(src="/js/consultants/consults.js")
+ 
     body 
         .container
             .d
                 h3 REPORTS
                 hr(size, color="#bdbdbd")
-                .row
-                    h4  Full Name
-                    .col-third
-                        .input-group.input-group-icon
-                            input#distext(type="text", placeholder=patientName disabled )
-                            .input-icon
-                                i.fa.fa-user
-                    .col-third
-                        .input-group.input-group-icon
-                            input#distext(type="text", placeholder=email disabled )
-                            .input-icon
-                                i.fa.fa-email
-                    .col-third
-                        .input-group.input-group-icon
-                            input#distext(type="text", placeholder=phoneNumber disabled )
-                            .input-icon
-                                i.fa.fa-phone
+                form#makeReport
+                    .row
+                        h4  Full Name
+                        .col-third
+                            .input-group.input-group-icon
+                                input#name.distext(type="text", value=patientName name="name" form="makeReport" disabled )
+                                .input-icon
+                                    i.fa.fa-user
+                        .col-third
+                            .input-group.input-group-icon
+                                input#email.distext(type="text", value=email name="email" form="makeReport" disabled )
+                                .input-icon
+                                    i.fa.fa-email
+                        .col-third
+                            .input-group.input-group-icon
+                                input#phone.distext(type="text", value=phoneNumber name="phone" form="makeReport" disabled )
+                                .input-icon
+                                    i.fa.fa-phone
+                        .col-forth.hidden 
+                            .input-group.input-group-icon
+                                input#pid.distext(type="text", value=patientID name="phone" form="makeReport" disabled )
+                                .input-icon
+                                    i.fa.fa-phone
+                    //- .row.center
+                    //-     .col-forth
+                    //-         h4
+                    //-         h4
+                    //-         input#submit(for="makeReport" type="submit" val="makeReport" form="makeReport"  onSubmit=makeReport )
                 h3 DETAILS
                 hr(size, color="#bdbdbd")
-                form#listDrug(method="POST")
+                form#listDrug
                     .row
                         .col-third
                             h4 Name of the drug
                             .input-group
-                                select.name#drugName
-                                    each val, index in ['Drug Name 1','Drug Name 2','Drug Name 3','Drug Name 4','Drug Name 5','Drug Name 6','Drug Name 7']
-                                        option #{val}
+                                select.name#drugName(form="listDrug")
+                                    script.
+                                            var listAsString = sessionStorage.getItem("availableDrug");
+                                            var listOfObjects = JSON.parse(listAsString);
+                                            
+                                            for (var i = 0; i < listOfObjects.length; i++) {
+                                                document.write("<option>" + listOfObjects[i].drugName + "</option>");
+                                            }
+                                    //- each val in availableDrugs
+                                    //-     option #{val}
                         .col-fifth
                             h4 Quantity
                             .input-group 
-                                input#drugQuantity.quantity.name(type="number" min="1" value='1' required)  
+                                input#drugQuantity.quantity.name(type="number" min="1" value='1' form="listDrug" required)  
 
                         .col-third
                             .row
                                 .col-third.time
                                     h4 Morning
                                     .input-group
-                                        input#mor(type="checkbox" )
+                                        input#mor(type="checkbox"  form="listDrug")
                                         label(for="mor") 
                                 .col-third.time
                                     h4 Afternoon
                                     .input-group 
-                                        input#aft(type="checkbox"   )
+                                        input#aft(type="checkbox" form="listDrug"  )
                                         label(for="aft") 
                                 .col-third.time
                                     h4 Evening
                                     .input-group 
-                                        input#eve(type="checkbox"  )
+                                        input#eve(type="checkbox" form="listDrug" )
                                         label(for="eve") 
                     .row 
                         .col-half
                             h4 Note
                             .input-group.input-group-icon
-                                input#note(type="text",name="note" )
+                                input#note(type="text",name="note" form="listDrug" )
                                 .input-icon
                                     i.fa.fa-text 
 
                         .col-fifth
                             h4  Submit
                             .row    
-                                input#submit(for="listDrug" type="submit" val="addDrug"  onSubmit=addDrug )
-                p#alert(style="color:red;")
+                                input#submit(for="listDrug" type="submit" val="addDrug" form="listDrug"  onSubmit=addDrug )
+                 
                 h3 DRUGS
                 hr(size, color="#bdbdbd")
-
+                h4
                 .container#Drugtable
                     h4 List of the drug
                     table
@@ -93,10 +111,12 @@ html(lang="en")
                             th Action
                         tbody
                             script.
+ 
                                     var listAsString = sessionStorage.getItem("drugList");
-      
                                     var listOfObjects = JSON.parse(listAsString);
-      
+                                    //- console.log(listOfObjects.length)
+                                    if(listOfObjects!=undefined){
+                                        if(listOfObjects.length!=0){
                                     for (var i = 0; i < listOfObjects.length; i++) {
                                         var obj = listOfObjects[i];
                                         document.write("<tr>");
@@ -107,7 +127,36 @@ html(lang="en")
                                         document.write("<td><button id='button'onclick='deleteItem(" + i + ")'>Delete</button></td>");
                                         document.write("</tr>");
                                     }
-    script(src="/js/consultants/consults.js")
+                                    }
+                                    else{
+                                        document.write("<tr>");
+                                        document.write("<td>No</td>");
+                                        document.write("<td>items</td>");
+                                        document.write("<td>are</td>");
+                                        document.write("<td>selected</td>");
+                                        document.write("<td>:)</td>");
+                                        document.write("</tr>");
+
+                                    }
+                                    }
+                                    else{
+                                        document.write("<tr>");
+                                        document.write("<td>No</td>");
+                                        document.write("<td>items</td>");
+                                        document.write("<td>are</td>");
+                                        document.write("<td>selected</td>");
+                                        document.write("<td>:)</td>");
+                                        document.write("</tr>");
+
+                                    }
+                h4                                    
+                hr(size, color="#bdbdbd")
+                .row.center
+                    .col-forth
+                        h4
+                        h4
+                        input#submit(for="makeReport" type="submit" val="makeReport" form="makeReport"  onSubmit=makeReport )
+    
 //-   form
 //-     h3 PERSONAL DETAILS
 //-     .row

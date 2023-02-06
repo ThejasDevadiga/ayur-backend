@@ -171,10 +171,14 @@ const PatientDetails = (req,res) =>{
 }
 
 const addPrescription = (req,res)=>{
+  
+   
   res.render('Consultant/uploadReport',{
     patientName : "Name of the patient",
     email:"abcd@test.com",
     phoneNumber:9876543210,
+    patientID:"PAlkT12345h6789Q",
+     
   })
 }
 
