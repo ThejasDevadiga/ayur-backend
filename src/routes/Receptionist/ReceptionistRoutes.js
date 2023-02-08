@@ -12,20 +12,19 @@ const {
 const {
     deletePatientData
 }= require('../../controllers/Receptionist/delete')
-// const {
-//     insertPatientData
-// }= require('../../controllers/Receptionist/post')
+const {
+    AddPatientData,makeAppointment
+}= require('../../controllers/Receptionist/post')
 const {
     availableDoctor,
     
 } = require('../../controllers/Receptionist/get')
 
-router.get('/api/manager/get-patient-details',getPatientData)//Done//tested
-router.put('/api/manager/update-patient-details',updatePatientData)//Done//tested  
-router.delete('/api/manager/delete-patient-details',deletePatientData)//Done//tested
-// router.post('/api/manager/insert-patient-details',insertPatientData)//Done//tested
+router.get('/api/Receptionist/get-patient-details',getPatientData)//Done//tested
+router.put('/api/Receptionist/update-patient-details',updatePatientData)//Done//tested  
+router.delete('/api/Receptionist/delete-patient-details',deletePatientData)//Done//tested
+router.post('/api/Receptionist/insert-patient-details',AddPatientData)//Done//tested
 router.post('/api/Receptionist/available-doctor', availableDoctor)//Done
-// router.get('/api/Receptionist/get-Employees-Data', getEmployeesData)//Done
-
+router.post('/api/Receptionist/make-Appointments', makeAppointment)//Done
 
 module.exports = router;

@@ -6,10 +6,11 @@ link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7
 link(rel="stylesheet", href="/css/components/form.css")
 script(src="/js/Utils/generateToken.js")
 script(src="/js/Utils/requestor.js")
-script(src="/js/receptionist/admissionPatient.js")
+script(src="/js/Manager/registerEmployee.js")
+
 .container
-  form#admissionForm
-    h3 PERSONAL DETAILS
+  form#regEmployeeForm
+    h3 EMPLOYEE DETAILS
     hr(size, color="#bdbdbd")
     .row
       .col-third
@@ -30,26 +31,50 @@ script(src="/js/receptionist/admissionPatient.js")
           input#Lname.req(type="text",name="LName" placeholder="Last Name")
           .input-icon
             i.fa.fa-user
-      //-     i.fa.fa-key
-    
+ 
     .row
       .col-third
         h4 Date of Birth<span style="color:red">&ensp;*</span>
         .input-group
           input#dob.req(type="date" name="dob")
-      .col-fourth
-        h4 Age<span style="color:red">&ensp;*</span>
-        .input-group 
-          input#age.req(type="number",name="number" placeholder="Age" min="1" max="100")
-      .col-third
+      .col-third 
         h4 Gender<span style="color:red">&ensp;*</span>
         .input-group
           input#gender-male.req(type="radio", name="gender", value="male")
           label(for="gender-male") Male
           input#gender-female.req(type="radio", name="gender", value="female")
           label(for="gender-female") Female
-    h3 ADDRESS    
-    hr(size, color="#bdbdbd")      
+      .col-fourth
+        h4 Age<span style="color:red">&ensp;*</span>
+        .input-group 
+          input#age.req(type="number",name="number" placeholder="Age" min="1" max="100")
+    .row
+      .col-half
+        h4 Phone number<span style="color:red">&ensp;*</span> 
+        .input-group.input-group-icon
+          input#phone.req(type="number",name="number" placeholder="Phone number")
+          .input-icon
+            i.fa.fa-phone
+    
+      .col-half
+        h4 Email<span style="color:red">&ensp;*</span>
+        .input-group.input-group-icon
+          input#Lname.req(type="text",name="Email" placeholder="Email address")
+          .input-icon
+            i.fa.fa-user
+      
+     
+    h3  
+    hr(size, color="#bdbdbd")  
+    .row
+      .col-half
+        h4 Address 
+        .input-group 
+          input#address.req(type="text" placeholder="Address" ) 
+      .col-third
+        h4 Zip<span style="color:red">&ensp;*</span>
+        .input-group 
+          input#city.req(type="number",name="Zip" placeholder="Zip Code"  )   
     .row
       .col-third
         h4 City<span style="color:red">&ensp;*</span>
@@ -64,18 +89,10 @@ script(src="/js/receptionist/admissionPatient.js")
         .input-group 
           input#country.req(type="text",name="city" placeholder="Country"  )
       
-    .row
-      .col-half
-        h4 Address 
-        .input-group 
-          input#address(type="text" placeholder="Address" )
-      .col-third 
-        h4 Phone number<span style="color:red">&ensp;*</span> 
-        .input-group.input-group-icon
-          input#phone.req(type="number",name="number" placeholder="Phone number")
-          .input-icon
-            i.fa.fa-phone
-
+      
+      
+    
+    p 
     hr(size, color="#bdbdbd")  
 
     .row

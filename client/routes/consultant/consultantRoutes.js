@@ -14,4 +14,5 @@ router.get('/views/Consultant/consultant.pug',consultHome)
 router.get('/views/Consultant/viewAppointment/:id',AppointmentTable)
 router.get('/views/Consultant/patientDetails.pug',PatientDetails)
 router.get('/views/Consultant/Prescribe.pug',addPrescription)
+
 module.exports = router;

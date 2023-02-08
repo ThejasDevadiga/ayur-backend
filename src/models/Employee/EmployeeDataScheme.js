@@ -55,7 +55,7 @@ const employeeShema = mongoose.Schema({
             required: true,
         },
         Zip: {
-            type: String,
+            type: Number,
             required: true,
         }, 
     },

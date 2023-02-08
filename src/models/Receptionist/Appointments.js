@@ -5,54 +5,54 @@ const appointments = mongoose.Schema({
             required:true,
             unique:true
     },
-    Status:{
+    PatientID:{
         type:String,
         required:true,
+    },
+    Status:{
+        type:String,
         default:"REQUESTED"
     },
-    Basic:
-    {
-        Fname: {
-            type: String,
-            required: true,
+    Timing:{
+        date:{
+            type:Date,
+            required:true
         },
-        Mname: {
-            type: String,
-            default: " "
-        },
-        Lname: {
-            type: String,
-            required: true,
-        },
-        DateOfBirth: {
-            type: Date,
-            required: true,
-        },
-        phone: {
-            type: Number,
-            required: true,
-        },
-        Gender:{
+        time:{
             type:String,
-            required:true,
+            required:true
+        }
+    },
+    Doctor:{
+        doctorID:{
+            type:String,
+            required:true
         },
+        doctorName:{
+            type:String,
+            required:true
+        },
+        department:{
+            type:String,
+            required:true
+        }
     },
     Disease:{
         Symptoms:{
-            type:String,
+            type:Array,
             required:true
         },
         Description:{
             type:String,
-            required:true,
+            default:"nothing",
         }
     },
     Warden:{
-        Name:{
+        WardenName:{
             type:String,
             required:true
         },
-        EmployeeID:{
+        WardenID:{
             type:String,
             required:true
         }

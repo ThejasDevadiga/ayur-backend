@@ -303,12 +303,12 @@ input[type="text"]{
 .col-third:last-of-type {
   padding-right: 0;
 }
-.col-forth {
+.col-fourth {
   padding-right: 10px;
   float: left;
   width: 25%;
 }
-.col-forth:last-of-type {
+.col-fourth:last-of-type {
   padding-right: 0;
 }
 
@@ -411,7 +411,7 @@ button:active {
     width: 100%;
     padding-right: 0;
   }
-  .col-forth{
+  .col-fourth{
     width: 100%;
     padding-right: 0;
   }
