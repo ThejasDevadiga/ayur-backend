@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 const ConsultantList = mongoose.Schema({
-    Name:{
-        type:String,
-        required:true,
-    },
-    EmployeeID:{
-        type:String,
+    ConsultantID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Employee",
         required:true,
         unique:true
     },

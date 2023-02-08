@@ -69,10 +69,13 @@ const patientShema = mongoose.Schema({
             required:true,
         }
     },
+    Appointments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'appointment'
+    }]
 },
 {
     timestamps: true,
-
 });
 
 const Patient = mongoose.model('Patient', patientShema)

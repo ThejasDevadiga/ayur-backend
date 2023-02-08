@@ -66,6 +66,42 @@ const EmployeeData  = asyncHandler(async (req, res, next) => {
     }
 })
 
+
+const PatientWithAppointments = asyncHandler(async(req,res,next)=>{
+    const {requestedId,patientID} = req.body;
+    if (!requestedId) {   
+        throw new Error("request id not found")
+    }
+    if (!patientID) {   
+        throw new Error("request id not found")
+    }
+    try {
+        const result = await patientData.findOne({ PatientID: patientID },{Basic:1,Appointments:1,_id:0})
+        .populate({
+          path: 'Appointments',
+          model: Appointment,
+        })
+        if (result){
+            res.status(200).json({
+                acknowledged: true,
+                data: result,
+                // token:generateToken(requestedId)
+            })
+        }
+        else{
+            throw new Error("Data not found")
+        }
+    }
+    catch (error) {
+        res.status(400).json({
+            acknowledged: true,
+            data: error.message,
+            // token:generateToken(requestedId)
+        })
+    }
+});
+
+
 const ReqAppointmentsList  = asyncHandler(async (req, res, next) => {
     const {requestedId} = req.body;
     if (requestedId) {   
@@ -220,6 +256,7 @@ const getPatientData = asyncHandler(async (req, res) => {
 
 module.exports = {getPatientData,
   availableDoctor,
+  PatientWithAppointments,
     EmployeeData,
     ReqAppointmentsList,
     AppAppointmentsList,

@@ -1,12 +1,21 @@
 const mongoose = require('mongoose');
 const Prescription = mongoose.Schema({
-    patientName:{
+    PrescriptionID:{
         type:String,
         required:true,
+        unique:true
     },
     patientID:{
-        type:String,
-        required:true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Patient'
+    },
+    consultantID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Employee"
+    },
+    AppointmentID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"appointment"
     },
     drugList:[{  
                 drugName:{
@@ -21,7 +30,11 @@ const Prescription = mongoose.Schema({
                     type:String,
                     required:true,
                 }
-        }]
+    }],
+    prescriptions:{
+        type:Array,
+    },
+    
 },
 {
     timestamps: true,

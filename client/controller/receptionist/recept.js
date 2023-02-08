@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const path = require("path");
+const requestor = require("../../utils/requestor");
 
 const receptHome = asyncHandler(async (req, res, next) => {
   var today = new Date();
@@ -7,7 +8,6 @@ const receptHome = asyncHandler(async (req, res, next) => {
   var dd = String(today.getDate()).padStart(2, "0");
   var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   var yyyy = today.getFullYear();
-
   today = yyyy + "-" + mm + "-" + dd;
   res.render("Receptionist/receptionist", {
     title: "Receptionist",
@@ -37,7 +37,7 @@ const receptHome = asyncHandler(async (req, res, next) => {
   });
 });
 
-const PatientDetails = (req, res) => {
+const PatientDetails =  asyncHandler(async (req, res, next)=> {
   res.render("Components/table", {
     heading: "Patient List",
     headName: ["Date", "Time", "Name", "Number", "Description"],
@@ -56,7 +56,6 @@ const PatientDetails = (req, res) => {
         number: 0987651234,
         description: "Description of patient",
       },
-
       {
         date: "21",
         time: 16,
@@ -116,9 +115,9 @@ const PatientDetails = (req, res) => {
       },
     ],
   });
-};
+});
 
-const DoctorDetails = (req, res) => {
+const DoctorDetails = asyncHandler(async (req, res, next) => {
   res.render("Components/table", {
     heading: "Patient List",
     headName: ["Date", "Time", "Name", "Number", "Description"],
@@ -197,9 +196,9 @@ const DoctorDetails = (req, res) => {
       },
     ],
   });
-};
+});
 
-const AppointmentTable = (req, res) => {
+const AppointmentTable =  asyncHandler(async (req, res, next) => {
   const fmDate = new Date(req.params["id"]);
   const toDate = new Date(req.params["id"]);
   toDate.setDate(toDate.getDate() + 10);
@@ -209,6 +208,24 @@ const AppointmentTable = (req, res) => {
     dates.push(count.getDate());
     count.setDate(count.getDate() + 1);
   }
+  // var raw = JSON.stringify({
+  //   requestedId: "Hello",
+  //   filter:{},
+  //   projection:{}
+  // });
+  // var result = await requestor(
+  //   "POST",
+  //   raw,
+  //   "http://localhost:5000/api/Receptionist/make-Appointments"
+  // );
+
+  // data = JSON.parse(result);
+  // console.log(data);
+  // if (data.acknowledged) {
+  //   document.getElementById("term").innerHTML = data;
+  //   location.href = "/views/Receptionist/receptionist.pug";
+  // }
+
   res.render("Components/scheduleTable", {
     title: "Schedules",
     heading:
@@ -229,12 +246,14 @@ const AppointmentTable = (req, res) => {
     month: fmDate.getMonth() + 1,
     year: fmDate.getFullYear(),
     frmDate: fmDate.getDate(),
+
+    
     appointments: [
       {
         date: "21",
         time: 8,
         name: "Name of user",
-        imgUrl: "https://www.w3schools.com/howto/img_avatar.png",
+        imgUrl: "/images/img_avatar.png",
         number: 0987651234,
         description: "Description of user",
       },
@@ -243,7 +262,7 @@ const AppointmentTable = (req, res) => {
         date: "21",
         time: 16,
         name: "Name of user",
-        imgUrl: "https://www.w3schools.com/howto/img_avatar.png",
+        imgUrl: "/images/img_avatar.png",
         number: 0987651234,
         description: "Description of user",
       },
@@ -251,7 +270,7 @@ const AppointmentTable = (req, res) => {
         date: "30",
         time: 8,
         name: "Name of user",
-        imgUrl: "https://www.w3schools.com/howto/img_avatar.png",
+        imgUrl: "/images/img_avatar.png",
         number: 0987651234,
         description: "Description of user",
       },
@@ -259,15 +278,15 @@ const AppointmentTable = (req, res) => {
         date: "30",
         time: 16,
         name: "Name of user",
-        imgUrl: "https://www.w3schools.com/howto/img_avatar.png",
+        imgUrl: "/images/img_avatar.png",
         number: 0987651234,
         description: "Description of user",
       },
     ],
   });
-};
+});
 
-const bookAppointment = (req, res) => {
+const bookAppointment =  asyncHandler(async (req, res, next) => {
   const patientID =req.params["pid"];
   const patientName = req.params["name"];
   res.render("receptionist/bookAppointment", {
@@ -275,15 +294,15 @@ const bookAppointment = (req, res) => {
     patientId:patientID,
     patientName:patientName
   });
-};
+});
 
-const patientAddmission = (req, res) => {
+const patientAddmission =  asyncHandler(async (req, res, next) => {
   res.render("Components/form", {});
-};
+});
 
-const preAppointment = (req,res)=>{
+const preAppointment =  asyncHandler(async (req, res, next)=>{
   res.render("Receptionist/pre-Appointment",{})
-}
+})
 
 module.exports = {
   receptHome,

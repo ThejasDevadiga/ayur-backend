@@ -2,38 +2,57 @@ const generateId = require("../../utils/GenerateId");
 const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
 const Prescriptions = require('../../models/Consultant/prescriptions')
-
-
+const PatientShema = require('../../models/Patient/PatientDataSchema')
+const EmployeeSchema = require('../../models/Employee/EmployeeDataScheme')
 const makePrescription = asyncHandler(async (req, res, next) => {
-  const { requestedId, patientName, patientID, drugList } = req.body;
+    try {
+    const {
+      requestedId,
+    PrescriptionID,
+    patientId,
+    consultantId,
+    AppointmentId,
+    drugList,
+    prescriptions,
+    } = req.body;
 
-  // const findPatient = await Prescriptions.findOne({ patientID });
-
-  // if (findPatient) {
-  //   throw new Error("Patient already exists in the prescription list");
-  // }
- 
-  try {
-    const prescription = await Prescriptions.create({
-      patientName: patientName,
-      patientID: patientID,
-      drugList: drugList,
-    });
-
-    if(prescription) {
-      res.status(200).json({
-        acknowledged: true,
-        message: "Prescription added successfully",
-      });
-    } else {
-      throw new Error("Error while adding prescription");
-    }
-  } catch (err) {
-    res.status(400).json({
-      acknowledged: false,
-      message: err.message,
-    });
+   // Check if required fields are provided
+  if (!requestedId || !PrescriptionID || !patientId || !consultantID || !AppointmentID) {
+    throw new Error("Required fields missing");
   }
+  const patientResult = await PatientShema.findOne({ PatientID: patientId })
+  const patientID = patientResult._id
+  const employeeRes = await EmployeeSchema.findOne({ EmployeeID: consultantId })
+  const consultantID = employeeRes._id
+  const appointmentRes = await EmployeeSchema.findOne({ AppointmentID: AppointmentId })
+  const AppointmentID = appointmentRes._id
+  // Create new prescription object
+  const newPrescription = new Prescriptions({
+    PrescriptionID,
+    patientID,
+    consultantID,
+    AppointmentID,
+    drugList,
+    prescriptions,
+  });
+
+  // Save the new prescription
+  const result = await newPrescription.save();
+  if (!result) {
+    throw new Error("Error while adding data");
+  }
+
+  res.status(200).json({
+    acknowledged: true,
+    message: "Prescription data added successfully",
+  });
+  
+} catch (err) {
+  res.status(400).json({
+    acknowledged: false,
+    message: "Error while adding data",
+  });
+}
 });
 
 module.exports = {

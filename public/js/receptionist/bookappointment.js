@@ -1,5 +1,4 @@
-const generateId = require('../Utils/generateId')
-
+ 
 window.addEventListener("load", () => {
   sessionStorage.setItem((key = "Role"), (value = "warden"));
   sessionStorage.setItem((key = "userName"), (value = "user123455"));
@@ -24,6 +23,7 @@ window.addEventListener("load", () => {
 
   async function appointmentPatient() {
     const PatientID = document.getElementById("pid").value;
+    const PatientName = document.getElementById("name").value;
     const date = document.getElementById("apntDate").value;
     const time = document.getElementById("apntTime").value;
     const department = document.getElementById("department").value;
@@ -33,37 +33,35 @@ window.addEventListener("load", () => {
     const doctorID = document.getElementById("doctorID").value;
     const WardenName = sessionStorage.getItem("userName");
     const WardenID = sessionStorage.getItem("userId");
-    const AppointmentID = generateId("APNT")
+    const AppointmentID = GenerateId("APNT")
 
-    document.getElementById("term").innerHTML = [
-      PatientID, //
-      AppointmentID, //
-      date, //
-      time, //
-      doctorID, //
-      doctorName, //
-      department, //
-      Symptoms, //
-      Description,
-      WardenName, //
-      WardenID, //
-    ];
+    // document.getElementById("term").innerHTML = [
+    //   PatientID, //
+    //   PatientName,
+    //   AppointmentID, //
+    //   date, //
+    //   time, //
+    //   doctorID, //
+    //   doctorName, //
+    //   department, //
+    //   Symptoms, //
+    //   Description,
+    //   WardenName, //
+    //   WardenID, //
+    // ];
+
 
     var raw = JSON.stringify({
       requestedId: "Hello",
-      PatientID, //
-      AppointmentID, //
-      date, //
-      time, //
-      doctorID, //
-      doctorName, //
-      department, //
-      Symptoms, //
+      PatientID, 
+      AppointmentID, 
+      date, 
+      time, 
+      doctorID, 
+      Symptoms, 
       Description,
-      WardenName, //
-      WardenID, //
+      WardenID, 
     });
-
     var result = await requestor(
       "POST",
       raw,

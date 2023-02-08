@@ -1,4 +1,3 @@
-const generateId = require('../Utils/generateId')
 
 // window.addEventListener("load", () => {
 
@@ -60,7 +59,7 @@ window.addEventListener("load", () => {
     const state = document.getElementById("state").value;
     const country = document.getElementById("country").value;
     const address = document.getElementById("address").value;
-    const PatientId = generateId("PAT");
+    const PatientId = GenerateId("PAT");
     // document.getElementById("term").innerHTML = [
     //   patientFname,
     //   patientMname,
@@ -80,6 +79,7 @@ window.addEventListener("load", () => {
     // Convert the string back to a list of JSON objects
     // const drugList = JSON.parse(listAsString);
     //     console.log(drugList);
+
     var raw = JSON.stringify({
       requestedId: "Hello",
       PatientId:PatientId,
@@ -113,7 +113,7 @@ window.addEventListener("load", () => {
         } else {
           alert("Error while fetching the details!!!");
         }
-        
+ 
   }
   const admissionForm = document.getElementById("admissionForm");
   admissionForm.addEventListener("submit", (event) => {

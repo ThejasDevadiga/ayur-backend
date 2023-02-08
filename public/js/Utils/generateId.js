@@ -1,4 +1,4 @@
-const GenerateId = (name)=>{
+function GenerateId(name){
     const date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth()+1;
@@ -27,4 +27,3 @@ const GenerateId = (name)=>{
       
     return `AYUR${day}${month}${year}-${name}-${hour}${minute}-${second}`;
 }
-module.exports = GenerateId

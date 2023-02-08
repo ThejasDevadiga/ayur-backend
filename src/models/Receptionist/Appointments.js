@@ -1,67 +1,53 @@
-const mongoose = require('mongoose');
-const appointments = mongoose.Schema({
-    AppointmentID:{
-            type:String,
-            required:true,
-            unique:true
+const mongoose = require("mongoose");
+const appointmentSchema = mongoose.Schema(
+  {
+    AppointmentID: {
+      type: String,
+      unique: true,
+      required: true,
     },
-    PatientID:{
-        type:String,
-        required:true,
+    DoctorID: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Employee",
     },
-    Status:{
-        type:String,
-        default:"REQUESTED"
+    WardenID: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Employee",
     },
-    Timing:{
-        date:{
-            type:Date,
-            required:true
-        },
-        time:{
-            type:String,
-            required:true
-        }
+    
+    Status: {
+      type: String,
+      default: "REQUESTED",
     },
-    Doctor:{
-        doctorID:{
-            type:String,
-            required:true
-        },
-        doctorName:{
-            type:String,
-            required:true
-        },
-        department:{
-            type:String,
-            required:true
-        }
+    Timing: {
+      date: {
+        type: Date,
+        required: true,
+      },
+      time: {
+        type: String,
+        required: true,
+      },
     },
-    Disease:{
-        Symptoms:{
-            type:Array,
-            required:true
-        },
-        Description:{
-            type:String,
-            default:"nothing",
-        }
-    },
-    Warden:{
-        WardenName:{
-            type:String,
-            required:true
-        },
-        WardenID:{
-            type:String,
-            required:true
-        }
-    }
-},
-{
-    timestamps: true,
-});
 
-const Appointments = mongoose.model('appointments', appointments)
+    Disease: {
+      Symptoms: {
+        type: Array,
+        required: true,
+      },
+      Description: {
+        type: String,
+        default: "nothing",
+      },
+    },
+
+    
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Appointments = mongoose.model("appointment", appointmentSchema);
 
 module.exports = Appointments;
