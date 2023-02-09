@@ -1,28 +1,24 @@
 const mongoose = require('mongoose');
 const TimeSlot = mongoose.Schema({
-    Fromtime:{
-        type:Date,
-        required:true,
-        unique:true
-    },
-    Range:{
+    slot:{
         type:Number,
-        required:true,
-        default:15
+        required:true
+    },
+    date:{
+        type:String,
+        required:true
     },
     Status:{
         type:String,
-        required:true,
-        default:"Free"
+        default:"busy",
     },
-    PatientID:{
-        type:String,
-        required:true
-    }
+    
+
 },
 {
     timestamps: true
 });
+TimeSlot.index({slot:1,date:1},{unique: true})
 
 const TimeSlots = mongoose.model('TimeSlot', TimeSlot)
 

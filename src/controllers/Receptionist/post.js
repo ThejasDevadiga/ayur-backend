@@ -3,7 +3,8 @@ const Appointments = require("../../models/Receptionist/Appointments");
 const generateId = require("../../utils/GenerateId");
 const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
-
+const Consultants = require("../../models/Consultant/consultantList");
+const Wardens = require("../../models/wardens/wardensList")
 const AddPatientData = asyncHandler(async (req, res) => {
   try {
     const requestedId = req.body;
@@ -136,10 +137,24 @@ const AcknoledgeWarden = asyncHandler(async (req, res, next) => {
         Description,
         WardenID,
       } = req.body;
+      const PatResult = await PatientDetails.findOne({PatientID:PatientID});
+      if(!PatResult){
+        throw new Error(`Couldn't find the Patient`)
+      }
+      const WdnResult = await Wardens.findOne({EmployeeID:WardenID});
+      if(!WdnResult){
+        throw new Error(`Couldn't find the Warden`)
+      }
+      const WardenId = WdnResult._id
+      const PatientId = PatResult._id
+      // console.log(DocResult,WdnResult);
+      // console.log(doctorId,WardenId);
+
       const result = await Appointments.create({
         AppointmentID: AppointmentID,
         DoctorID:doctorID,
-        WardenID: WardenID,
+        WardenID: WardenId,
+        PatientID:PatientId,
         Timing: {
           date: date,
           time: time,

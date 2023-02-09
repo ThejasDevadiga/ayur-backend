@@ -35,7 +35,7 @@ script(src="/js/receptionist/bookAppointment.js")
       .col-half
         h4 Symptoms <span style="color:red">&ensp;*</span>
         .input-group
-          select#symptoms.req
+          select#symptoms.req( required)
             each val, index in ['Symptoms1', 'Symptoms2', 'Symptoms3','Symptoms4','Symptoms5']
               option #{val}
       .col-half 
@@ -50,31 +50,29 @@ script(src="/js/receptionist/bookAppointment.js")
       .col-third
         h4 Date<span style="color:red">&ensp;*</span>
         .input-group
-          input#apntDate.req(type="date" name="apntDate")
-      .col-third 
+          input#apntDate.req(type="date" name="apntDate" required)
+      .col-fourth
         .input-group
       .col-third
         h4 Time<span style="color:red">&ensp;*</span>
         .input-group
-          input#apntTime.req(type="time",name="apntTime")
-        
+          select#apntTime.req(required)
     h3 DOCTOR DETAILS
     hr(size, color="#bdbdbd")
     .row
       .col-half
         h4 Department name  <span style="color:red">&ensp;*</span>
         .input-group
-          select#department.req
-            each val, index in ['Department1', 'Department2', 'Department3','Department4','Department5']
+          select#department.req(required)
+            each val, index in ["Select Department",'Hospital', 'Department2', 'Department3','Department4','Department5']
               option #{val}
                
       .col-half
         h4 Doctor name<span style="color:red">&ensp;*</span>
         .input-group
-          select#doctorName.req
-            each val, index in ['Doctor1', 'Doctor2', 'Doctor3','Doctor4','Doctor5']
-              option #{val}
-          input#doctorID(type="text",value="doctorID" style="display:none") 
+          select#doctorName.req(required)
+            
+             
     h3 TERMS
     hr(size, color="#bdbdbd")
     .row

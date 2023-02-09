@@ -34,11 +34,11 @@ today =  yyyy + '-' + mm + '-' +dd;
 })
 
 const AppointmentTable=(req,res)=>{
-     const fmDate = new Date(req.params['id'])
-  const toDate = new Date(req.params['id'])
+     const fmDate = new Date(req.params['date'])
+  const toDate = new Date(req.params['date'])
   toDate.setDate(toDate.getDate() + 10)
   let dates = []
-  const count=new Date(req.params['id'])
+  const count=new Date(req.params['date'])
   while(count.getTime() <= toDate.getTime()){
     dates.push(count.getDate());
     count.setDate(count.getDate()+1)

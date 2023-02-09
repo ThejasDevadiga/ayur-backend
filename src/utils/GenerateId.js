@@ -27,5 +27,5 @@ const GenerateId = (name)=>{
       
     return `AYUR${day}${month}${year}-${name}-${hour}${minute}-${second}`;
 }
-module.exports = GenerateId
- 
+// module.exports = GenerateId
+ console.log(GenerateId("EMP"));

@@ -11,7 +11,7 @@ const WardenList = mongoose.Schema({
         }
     },
     Hostel:{
-        Name:{
+        HostelName:{
             type:String,
             required:true,
         },
@@ -23,17 +23,9 @@ const WardenList = mongoose.Schema({
     },
     EmployeeID:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     }, 
-    
-    wardenPassword:{
-        type:String,
-        required:true,
-    },
-    HostelName:{
-        type:String,
-        required:true,
-    }
 },
 {
     timestamps: true,

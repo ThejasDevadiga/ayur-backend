@@ -17,6 +17,7 @@ section.ftco-section
       .col-md-12
         br
         .table-wrap
+          h4(style="color:white;font-size:35") #{heading}
           table.table.table-bordered.text-center
             thead
               tr
@@ -48,9 +49,9 @@ section.ftco-section
                                   .image-container
                                     img(class="rounded-circle" src=val.imgUrl, alt="Image not found" width="200px" height="200px")
                                   .detail-container 
-                                    h2.profile-name #{val.name}
-                                    h4 #{val.number}
-                                    p #{val.description}
+                                    h2.profile-name #{val.Name}
+                                    h4 #{val.PhoneNo}
+                                    p AGE :#{val.Age} ID: #{val.ID}
 
                           - n++    
                         - time++

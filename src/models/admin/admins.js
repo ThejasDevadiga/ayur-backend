@@ -5,7 +5,8 @@ const Admin = mongoose.Schema({
         required:true,
     },
     EmployeeID:{
-        type:String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Employee",
         required:true,
         unique:true
     },

@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const auth = require('../../middlewares/authMiddleware')
 dotenv.config();
 const {
-    getPatientData,PatientWithAppointments
+    getPatientData,PatientWithAppointments,AllottedTimeSlots
 } = require('../../controllers/Receptionist/get')
 const {
     updatePatientData
@@ -16,14 +16,19 @@ const {
     AddPatientData,makeAppointment,
 }= require('../../controllers/Receptionist/post')
 const {
-    availableDoctor,
+    availableDoctor,getAppointmentDetails
 } = require('../../controllers/Receptionist/get')
-
-router.get('/api/Receptionist/get-patient-details',getPatientData)//Done//tested
+const {
+    DepartmentsList
+} = require('../../controllers/departments/get')
+router.post('/api/Receptionist/get-patient-details',getPatientData)//Done//tested
 router.put('/api/Receptionist/update-patient-details',updatePatientData)//Done//tested  
 router.delete('/api/Receptionist/delete-patient-details',deletePatientData)//Done//tested
 router.post('/api/Receptionist/insert-patient-details',AddPatientData)//Done//tested
 router.post('/api/Receptionist/available-doctor', availableDoctor)//Done
 router.post('/api/Receptionist/make-Appointments', makeAppointment)//Done
 router.post('/api/Receptionist/patient-AppointmentList',PatientWithAppointments)
+router.post('/api/Receptionist/allotted-Timeslots',AllottedTimeSlots)
+router.post('/api/Receptionist/department-list',DepartmentsList)
+router.post('/api/Receptionist/get-appointment-details',getAppointmentDetails)
 module.exports = router;

@@ -8,20 +8,25 @@ const appointmentSchema = mongoose.Schema(
     },
     DoctorID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Employee",
+      ref: "ConsultantList",
+      required:true
     },
     WardenID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Employee",
+      ref: "WardenLists",
     },
-    
+    PatientID: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Patients",
+      require:true
+    },
     Status: {
       type: String,
       default: "REQUESTED",
     },
     Timing: {
       date: {
-        type: Date,
+        type: String,
         required: true,
       },
       time: {
