@@ -5,27 +5,16 @@ const wardenHome = asyncHandler(async (req, res, next) => {
   res.render("Warden/warden", {
     title: "Warden",
     user: "Thejas Devadiga",
-    controlles: {
-      1: {
-        linkName: "Patient Details",
-        linkUrl: "#",
-      },
-      2: {
-        linkName: "Appointments",
-        linkUrl: "#",
-      },
-      3: {
-        linkName: "Drugs",
-        linkUrl: "#",
-      },
-      4: {
-        linkName: "Upload report",
-        linkUrl: "#",
-      },
-    }
+    
   })
 })
 
+
+// patientHistory
+const patientHistory  = asyncHandler(async (req, res, next) => {  
+  res.render('warden/history', { title: 'Hello', message: 'Hello there!' })
+})
+
 module.exports = {
-  wardenHome,
+  wardenHome,patientHistory
 };

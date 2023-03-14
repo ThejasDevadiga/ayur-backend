@@ -12,6 +12,11 @@ const User = mongoose.Schema({
         type:String,
         require:true,
         default:"-"
+    },
+    Status:{
+        type:String,
+        require:true,
+        default:'INACTIVE'
     }
 },
 {

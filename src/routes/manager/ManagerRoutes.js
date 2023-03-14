@@ -16,7 +16,7 @@ const {
 
 
 const {
-    getEmployeeData,
+    getEmployeeData,getDrugDetails
 } = require('../../controllers/manager/get')
 
 const {
@@ -28,6 +28,7 @@ const {
 const {
     updatePatientData
 }= require('../../controllers/Receptionist/put')
+
 const {
     deletePatientData
 }= require('../../controllers/Receptionist/delete')
@@ -39,4 +40,5 @@ router.post('/api/manager/insert-employee-details',insertEmployeeData)//Done//te
 router.put('/api/manager/update-employee-details',updateEmployeeData)//Done//tested
 router.delete('/api/manager/delete-employee-details',deleteEmployeeData)//Done//tested
 router.get('/api/manager/get-employee-details',getEmployeeData)//Done//tested
+router.post('/api/manager/get-drug-details',getDrugDetails)//Done//tested
 module.exports = router;

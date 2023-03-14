@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "63c3df73dc47ab09ad4b3a2b"
+  },
+  "Username": "admin123",
+  "Password": "admin123",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673781107274"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673781107274"
+    }
+  },
+  "__v": 0,
+  "Designation": "admin"
+}]

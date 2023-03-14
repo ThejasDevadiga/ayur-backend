@@ -1,30 +1,28 @@
-
-let arrow = document.querySelectorAll(".arrow");
-for (var i = 0; i < arrow.length; i++) {
-  arrow[i].addEventListener("click", (e) => {
-    let arrowParent = e.target.parentElement.parentElement; 
-    arrowParent.classList.toggle("showMenu");
-  });
-}
-
-let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".fa-bars");
-console.log(sidebarBtn);
-sidebarBtn.addEventListener("click", () => {
-sidebar.classList.toggle("close");
-});
-
-$(document).ready(function(){
-    $('.menu').on('click', function() {
-		$('.bar').toggleClass('animate');
-        $('.expand-menu').toggleClass('animate');
-        $('.expand-menu .nav-link').toggleClass('animate');
-        setTimeout(function(){
-            $('.expand-menu .nav-link').toggleClass('animate-show');
-        },500)
-	})
+window.addEventListener("load", () => {
+  const logOut = document.getElementById("logout");
+  logOut.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const userName = sessionStorage.userID
+    var raw = JSON.stringify({
+      requestedId: "Hello",
+      userID: userName,
+    });
+    var data = await requestor(
+      "POST",
+      raw,
+      "http://localhost:5000/api/user/logOut-user"
+    );
+    data = JSON.parse(data);
     
-})
-
-
-  
+    if (data.acknowledged) {
+      sessionStorage.clear()
+      if(data.message = 'Successfully logged out'){
+        console.log("Success");
+      }
+      location.href = "http://localhost:5000/views/login/login.pug"
+    }
+    else{
+       alert("Error while logging out!!")
+    }
+  });
+});

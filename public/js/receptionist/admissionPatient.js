@@ -166,9 +166,9 @@ window.addEventListener("load", () => {
     data = JSON.parse(result);
     // console.log(data);
     if (data.acknowledged) {
-      
-      location.href =
-        "/views/Receptionist/book-appointment/" +
+      var Role = sessionStorage.getItem("Role");
+        location.href =
+        "/views/"+Role+"/book-appointment/" +
         data.PatientId +
         "&" +
         data.PatientName;

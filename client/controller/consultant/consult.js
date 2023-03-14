@@ -23,7 +23,7 @@ today =  yyyy + '-' + mm + '-' +dd;
       },
       3: {
         linkName: "Drugs",
-        linkUrl: "#",
+        linkUrl: "/views/Consultant/drug-details",
       },
       4: {
         linkName: "Upload report",
@@ -32,6 +32,7 @@ today =  yyyy + '-' + mm + '-' +dd;
     }
   })
 })
+
 
 const AppointmentTable=(req,res)=>{
      const fmDate = new Date(req.params['date'])

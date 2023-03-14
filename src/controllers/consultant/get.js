@@ -8,6 +8,7 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
   if (!requestedId && !filter) {
     throw new Error(" Requesting Id, Filter, projections are  required");
   }
+  const projection = {};
   try {
     const result = await patientData.find({ filter }, { projection });
     if (result == []) {

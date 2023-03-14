@@ -5,10 +5,10 @@ const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
 const Consultants = require("../../models/Consultant/consultantList");
 const Wardens = require("../../models/wardens/wardensList")
+
 const AddPatientData = asyncHandler(async (req, res) => {
   try {
     const requestedId = req.body;
-
     const {
       PatientId,
       Fname,

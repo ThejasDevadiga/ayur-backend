@@ -9,7 +9,8 @@ window.addEventListener("load", () => {
       var yyyy = today.getFullYear();
       
       date =  yyyy + '-' + mm + '-' +dd;
-        location.href =    "/views/Receptionist/viewAppointment/"+date+"&"+doctorID
+      const Role = sessionStorage.getItem("Role")
+        location.href =    "/views/"+Role+"/viewAppointment/"+date+"&"+doctorID
       }
       const preScheduleForm = document.getElementById("preScheduleForm");
       preScheduleForm.addEventListener("submit", (event) => {

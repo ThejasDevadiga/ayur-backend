@@ -11,6 +11,8 @@ const ConsultantRoutes = require("./src/routes/Consultant/ConsultantRoutes");
 const HelpDeskRoutes = require("./src/routes/Receptionist/ReceptionistRoutes");
 const ManagerRoutes = require("./src/routes/manager/ManagerRoutes");
 const UserRoutes = require('./src/routes/user/userRoutes')
+const wardenRoutes = require('./src/routes/Warden/warden')
+
 const loginView = require('./client/routes/login/loginRoutes')
 const consultantView = require('./client/routes/consultant/consultantRoutes')
 const receptionistView = require('./client/routes/receptionist/receptionistRoutes')
@@ -42,7 +44,7 @@ app.use('/',ConsultantRoutes)
 app.use('/',HelpDeskRoutes)
 app.use('/',ManagerRoutes)
 app.use('/',UserRoutes)
-
+app.use('/',wardenRoutes)
 //Frontend routes
 app.use('/',loginView)
 app.use('/',consultantView)

@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "63e122a828520692a89cf581"
+  },
+  "drugID": "DRG0001",
+  "drugName": "Paracitamol1"
+},{
+  "_id": {
+    "$oid": "63e1315d28520692a89cf582"
+  },
+  "drugID": "DRG0002",
+  "drugName": "Paracitamol2"
+},{
+  "_id": {
+    "$oid": "63e131a928520692a89cf583"
+  },
+  "drugID": "DRG0003",
+  "drugName": "Paracitamol3"
+}]

@@ -1,0 +1,157 @@
+[{
+  "_id": {
+    "$oid": "63dfba84c0f371f2a3e11533"
+  },
+  "patientName": "Name of the patient",
+  "patientID": "PAlkT12345h6789Q",
+  "drugList": [
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "0-0-0",
+      "_id": {
+        "$oid": "63dfba84c0f371f2a3e11534"
+      }
+    },
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "0-0-0",
+      "_id": {
+        "$oid": "63dfba84c0f371f2a3e11535"
+      }
+    },
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "0-0-0",
+      "_id": {
+        "$oid": "63dfba84c0f371f2a3e11536"
+      }
+    },
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "0-0-0",
+      "_id": {
+        "$oid": "63dfba84c0f371f2a3e11537"
+      }
+    },
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "0-0-0",
+      "_id": {
+        "$oid": "63dfba84c0f371f2a3e11538"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675606660223"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675606660223"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dfcc21fdff1cc73a0ef13c"
+  },
+  "patientName": "Name of the patient",
+  "patientID": "PAlkT12345h6789Q",
+  "drugList": [
+    {
+      "drugName": "Drug Name 7",
+      "drugQuantity": "66",
+      "drugTiming": "1-0-1",
+      "_id": {
+        "$oid": "63dfcc21fdff1cc73a0ef13d"
+      }
+    },
+    {
+      "drugName": "Drug Name 4",
+      "drugQuantity": "1",
+      "drugTiming": "1-0-0",
+      "_id": {
+        "$oid": "63dfcc21fdff1cc73a0ef13e"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675611169130"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675611169130"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dfcd41fdff1cc73a0ef140"
+  },
+  "patientName": "Name of the patient",
+  "patientID": "PAlkT12345h6789Q",
+  "drugList": [
+    {
+      "drugName": "Drug Name 7",
+      "drugQuantity": "66",
+      "drugTiming": "1-0-1",
+      "_id": {
+        "$oid": "63dfcd41fdff1cc73a0ef141"
+      }
+    },
+    {
+      "drugName": "Drug Name 4",
+      "drugQuantity": "1",
+      "drugTiming": "1-0-0",
+      "_id": {
+        "$oid": "63dfcd41fdff1cc73a0ef142"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675611457768"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675611457768"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63e0dcd84461dcb7b49790c8"
+  },
+  "patientName": "Name of the patient",
+  "patientID": "PAlkT12345h6789Q",
+  "drugList": [
+    {
+      "drugName": "Drug Name 1",
+      "drugQuantity": "1",
+      "drugTiming": "1-1-0",
+      "_id": {
+        "$oid": "63e0dcd84461dcb7b49790c9"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675680984417"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675680984417"
+    }
+  },
+  "__v": 0
+}]

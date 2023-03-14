@@ -15,8 +15,9 @@ window.addEventListener("load", () => {
     console.log(data);
     if(data.acknowledged){  
      sessionStorage.setItem("token",data.token)
-     sessionStorage.setItem("user",data.user)
+     sessionStorage.setItem("userID",data.userName)
      sessionStorage.setItem("userROle",data.userROle)
+
      if(data.userROle=='admin'){
         location.href= "/views/Admin/admin.pug"
      }
@@ -40,11 +41,9 @@ window.addEventListener("load", () => {
       document.getElementById("alert").innerHTML = data.message;
     }
      }
-   
-     // Get the form element
+ 
      const form = document.getElementById("myForm");
-   
-     // Add 'submit' event handler
+ 
      form.addEventListener("submit", (event) => {
        event.preventDefault();
        sendData();

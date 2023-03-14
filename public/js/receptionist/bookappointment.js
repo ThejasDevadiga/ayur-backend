@@ -167,17 +167,18 @@ window.addEventListener("load", () => {
     }
   });
 
-  sessionStorage.setItem((key = "Role"), (value = "warden"));
-  sessionStorage.setItem((key = "userName"), (value = "user123455"));
-  sessionStorage.setItem(
-    (key = "userId"),
-    (value = "AYUR08022023-EMP-1958-07")
-  );
+  // sessionStorage.setItem((key = "Role"), (value = "warden"));
+  // sessionStorage.setItem((key = "userName"), (value = "user123455"));
+  // sessionStorage.setItem(
+  //   (key = "userId"),
+  //   (value = "AYUR08022023-EMP-1958-07")
+  // );
 
   const Role = sessionStorage.getItem("Role");
   if (Role == "receptionist") {
     document.getElementById("receptionist").checked = true;
   } else if (Role == "warden") {
+    console.log("warden");
     document.getElementById("warden").checked = true;
   }
 
@@ -229,7 +230,7 @@ window.addEventListener("load", () => {
       Symptoms,
       Description,
       WardenID,
-    });
+    })
     var result = await requestor(
       "POST",
       raw,
@@ -240,9 +241,21 @@ window.addEventListener("load", () => {
     // console.log(data);
     if (data.acknowledged) {
       document.getElementById("term").innerHTML = data;
-      location.href = "/views/Receptionist/receptionist.pug";
+      const Role = sessionStorage.getItem("Role")
+      if (Role === "Receptionist") {
+        location.href = "/views/"+Role+"/receptionist.pug";
+      }
+      else if(Role === "Manager"){
+        location.href = "/views/"+Role+"/manager.pug";
+      }
+      else if(Role === "Admin"){
+        location.href = "/views/"+Role+"/admin.pug";
+      }
+      else{
+        location.href = "/views/login/login.pug";
+      }
     } else {
-      alert(data.message);
+      alert(data.message);  
     }
   }
 

@@ -4,8 +4,95 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD", crossorigin="anonymous")        
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN", crossorigin="anonymous")           
+        link(rel="stylesheet", href="/css/warden/warden.css")
+        script(src="/js/warden/warden.js")
+
         title Document
-    body 
+    body
         include ../Navbar/navbar.pug
-        include ../Sidebar/sidebar.pug 
         
+        ul.nav.nav-pills.nav-fill.gap-2.p-1.small.shadow-sm#pillNav2(role="tablist", style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: #293369; --bs-nav-pills-link-active-bg: var(--bs-white);")
+                li.nav-item(role="presentation")
+                    button.nav-link.active.rounded-5#home-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="true", data-tab="section-1") Home
+                li.nav-item(role="presentation")
+                    button.nav-link.rounded-5#profile-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="false", data-tab="section-2") Notifications
+                li.nav-item(role="presentation")
+                    button.btn.dropdown-toggle.nav-link(type="button", role="tab" ,data-bs-toggle="dropdown", aria-expanded="false") Action
+                    ul.dropdown-menu
+                        li
+                            button.dropdown-item.tab(type="button" ,data-bs-toggle="tab", data-tab="section-3") Make Appointment
+                             
+                        li
+                            button.dropdown-item.tab(type="button" ,data-bs-toggle="tab", data-tab="section-4") Registration
+                        li
+                            button.dropdown-item.tab(type="button" ,data-bs-toggle="tab", data-tab="section-5") History
+        .tab-content#section-1
+            .appointments 
+                h4.heading Appointments 
+                
+                ul.appointmentList
+                
+        .tab-content#section-2(style="display:none;")
+            .timeline
+                .timeline-item
+                    .timeline-date 
+                        .notif-date Jan 1, 2022
+                    .timeline-content
+                        h6.notif Appointment with Dr. Smith
+                        p Diagnosed with high blood pressure. Prescribed medication.
+                .timeline-item
+                    .timeline-date 
+                        .notif-date Mar 15, 2022
+                    .timeline-content
+                        h6.notif Emergency Room Visit
+                        p Severe chest pain. Admitted to hospital for tests.
+                .timeline-item
+                    .timeline-date  
+                        .notif-date Apr 1, 2022
+                    .timeline-content
+                        h6.notif Follow-up Appointment with Dr. Smith
+                        p Test results indicate heart condition. Referred to specialist.
+
+        .tab-content#section-3(style="display:none;")
+            include ../Receptionist/pre-Appointment.pug
+        .tab-content#section-4(style="display:none;")
+            include ../Components/form.pug
+        .tab-content#section-5(style="display:none;")
+            .appointments 
+                h4.heading Appointments history
+                ul.appointment-history
+   
+script.
+
+        // Get all the tab buttons
+        var tabs = document.querySelectorAll('.tab');
+
+      // Loop through the tabs and add a click event listener
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          // Get the ID of the tab content to show
+          var tabId = this.dataset.tab;
+    
+          // Hide all tab content
+          var tabContents = document.querySelectorAll('.tab-content');
+          tabContents.forEach(function(tabContent) {
+            tabContent.style.display = 'none';
+          });
+    
+          // Show the selected tab content
+          var selectedTabContent = document.getElementById(tabId);
+          selectedTabContent.style.display = 'block';
+    
+          // Remove the active class from all tabs
+          tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+          });
+    
+          // Add the active class to the clicked tab
+          this.classList.add('active');
+        });
+      });
+  
+  

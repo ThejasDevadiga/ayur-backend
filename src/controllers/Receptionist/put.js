@@ -3,6 +3,7 @@ const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
 const generateId = require("../../utils/GenerateId");
 const TimeSlot = require("../../models/Patient/TimeSlots");
+
 const updatePatientData = asyncHandler(async (req, res, next) => {
   const { requestedId, PatientId, updateBasic, updateDocument, updateDisease } =
     req.body;

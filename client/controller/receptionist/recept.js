@@ -49,7 +49,7 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
     "http:localhost:5000/api/Receptionist/get-patient-details"
   );
   result = JSON.parse(patData).data;
-  console.log(result);
+  
   function extractBasicData(data) {
     return data.map((item) => {
       const {
@@ -207,10 +207,10 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
   );
   result  =  JSON.parse(result)
   if (result.acknowledged) {
-    console.log(result);
+     
     data = result.data
     data =extractedData( data)
-    // console.log(data);
+    
   
   res.render("Components/scheduleTable", {
     title: "Schedules",

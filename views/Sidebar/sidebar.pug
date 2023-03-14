@@ -5,6 +5,8 @@ script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
 link(rel="stylesheet", href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css")
 script(type="text/javascript", src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js")
 script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+script(type="text/javascript", src="/js/sidebar/sidebar.js")
+script(src="/js/Utils/requestor.js")
 .container
   nav.main-menu.sidebar
     div
@@ -18,11 +20,12 @@ script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2
             a(href=val.linkUrl)
               i.fa.fa-lightbulb-o.fa-lg
               span.nav-text #{val.linkName}
+
         li
           a
             i
-    ul.logout
+    ul#logout.logout
       li
-        a(href="/")
+        a
           i.fa.fa-home.fa-lg
           span.nav-text   Log Out

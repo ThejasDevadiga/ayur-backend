@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "PatientID": "AYUR08022023-PAT-1416-44",
+  "Status": "Registered",
+  "Basic": {
+    "Fname": "test",
+    "Mname": "test",
+    "Lname": "test",
+    "DateOfBirth": {
+      "$date": {
+        "$numberLong": "1675382400000"
+      }
+    },
+    "Gender": "male",
+    "Phone": 1234567890,
+    "Email": "email",
+    "Age": 35,
+    "Address": "test",
+    "City": "test",
+    "State": "test",
+    "Country": "test",
+    "Zip": 12345
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675846004399"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675924285240"
+    }
+  },
+  "__v": 0,
+  "Appointments": [
+    {
+      "$oid": "63e3c6a26226d3b230824b69"
+    },
+    {
+      "$oid": "63e3f3adf258cf8f7e231440"
+    },
+    {
+      "$oid": "63e4933d7d8d7648abd3e4f6"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "PatientID": "AYUR08022023-PAT-1416-45",
+  "Status": "Registered",
+  "Basic": {
+    "Fname": "test",
+    "Mname": "test",
+    "Lname": "test",
+    "DateOfBirth": {
+      "$date": {
+        "$numberLong": "1675382400000"
+      }
+    },
+    "Gender": "male",
+    "Phone": 1234567890,
+    "Email": "email",
+    "Age": 35,
+    "Address": "test",
+    "City": "test",
+    "State": "test",
+    "Country": "test",
+    "Zip": 12345
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675846004399"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675947715949"
+    }
+  },
+  "__v": 0,
+  "Appointments": [
+    {
+      "$oid": "63e4950b490ba7c04961c741"
+    },
+    {
+      "$oid": "63e49684490ba7c04961c756"
+    },
+    {
+      "$oid": "63e4969c490ba7c04961c75d"
+    },
+    {
+      "$oid": "63e4eec3309d6cf57b90f3f1"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63e494408caa5130071a71cc"
+  },
+  "PatientID": "AYUR08022023-PAT-1416-46",
+  "Status": "Registered",
+  "Basic": {
+    "Fname": "test",
+    "Mname": "test",
+    "Lname": "test",
+    "DateOfBirth": {
+      "$date": {
+        "$numberLong": "1675382400000"
+      }
+    },
+    "Gender": "male",
+    "Phone": 1234567890,
+    "Email": "email",
+    "Age": 35,
+    "Address": "test",
+    "City": "test",
+    "State": "test",
+    "Country": "test",
+    "Zip": 12345
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675846004399"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675928531320"
+    }
+  },
+  "__v": 0,
+  "Appointments": [
+    {
+      "$oid": "63e4957e490ba7c04961c748"
+    },
+    {
+      "$oid": "63e4964e490ba7c04961c74f"
+    },
+    {
+      "$oid": "63e4a3d3c295fbba01c05e11"
+    }
+  ]
+}]
