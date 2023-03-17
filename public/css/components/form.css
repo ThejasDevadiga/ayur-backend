@@ -14,6 +14,11 @@ h4 {
   font-weight: 600;
   font-size: 16px;
   color: #25358f;
+  margin-left: 1rem;
+}
+h3{
+  margin-left: 1rem;
+  padding-top: 1rem;
 }
 .notif {
   font-weight: 600;

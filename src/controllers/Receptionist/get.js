@@ -256,7 +256,7 @@ const getAppointmentDetails = asyncHandler(async (req, res) => {
       throw new Error("Error while finding the patientData");
     }
   } catch (error) {
-    res.status(400).json({
+    res.status(500).json({
       acknowledged: false,
       message: error.message,
       token: generateToken(requestedId),

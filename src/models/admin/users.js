@@ -17,7 +17,11 @@ const User = mongoose.Schema({
         type:String,
         require:true,
         default:'INACTIVE'
-    }
+    },
+    EmployeeID: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Employee'
+    }]
 },
 {
     timestamps: true,

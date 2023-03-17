@@ -7,7 +7,7 @@ link(rel="stylesheet", href="http://cdn.datatables.net/1.10.2/css/jquery.dataTab
 script(type="text/javascript", src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js")
 script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
 link.css(rel="stylesheet", href="/css/Components/table.css")
-
+script(src="/js/table/table.js") 
 .container
   .row.header
     p #{heading}
@@ -17,6 +17,7 @@ link.css(rel="stylesheet", href="/css/Components/table.css")
         th No.
         for val of headName
           th #{val}
+        th Action
     tbody
       -var num=1
       for val of appointments 
@@ -25,8 +26,9 @@ link.css(rel="stylesheet", href="/css/Components/table.css")
           for n in val
             td
               p #{n}
-        
-
+          td 
+            button(type="button" class=buttonClass) #{buttonName}
+            //- "pat-list"
 script.
   
   $(document).ready(function(){

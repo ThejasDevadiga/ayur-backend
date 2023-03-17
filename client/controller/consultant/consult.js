@@ -1,13 +1,15 @@
 const asyncHandler = require("express-async-handler");
 const path = require("path");
+const requestor = require("../../utils/requestor");
+
 
 const consultHome = asyncHandler(async (req, res, next) => {
   var today = new Date();
   // today.setDate(today.getDate() -3)
 var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
-
+const docID = req.params["id"]
 today =  yyyy + '-' + mm + '-' +dd;
   res.render("Consultant/consultant", {
     title: "Consultant",
@@ -17,14 +19,14 @@ today =  yyyy + '-' + mm + '-' +dd;
         linkName: "Patient Details",
         linkUrl: '/views/Consultant/patientDetails.pug',
       },
-      2: {
-        linkName: "view Appointments",
-        linkUrl: "/views/Consultant/viewAppointment/"+today,
-      },
-      3: {
-        linkName: "Drugs",
-        linkUrl: "/views/Consultant/drug-details",
-      },
+      // 2: {
+      //   linkName: "view Appointments",
+      //   linkUrl: "/views/Consultant/viewAppointment/"+today+"&"+docID,
+      // },
+      // 3: {
+      //   linkName: "Drugs",
+      //   linkUrl: "#",
+      // },
       4: {
         linkName: "Upload report",
         linkUrl: "/views/Consultant/Prescribe.pug",
@@ -34,142 +36,157 @@ today =  yyyy + '-' + mm + '-' +dd;
 })
 
 
-const AppointmentTable=(req,res)=>{
-     const fmDate = new Date(req.params['date'])
-  const toDate = new Date(req.params['date'])
-  toDate.setDate(toDate.getDate() + 10)
-  let dates = []
-  const count=new Date(req.params['date'])
-  while(count.getTime() <= toDate.getTime()){
-    dates.push(count.getDate());
-    count.setDate(count.getDate()+1)
-  }
-  res.render("Components/scheduleTable", {
-    title: "Schedules",
-    heading: "Appointments from "+fmDate.getDate()+"-"+(fmDate.getMonth()+1)+"-"+fmDate.getFullYear()+ " to "+toDate.getDate()+"-"+(toDate.getMonth()+1)+"-"+toDate.getFullYear(),
-    listOfDates:dates,
-    date:fmDate,
-    month:fmDate.getMonth()+1,
-    year:fmDate.getFullYear(),
-    frmDate:fmDate.getDate(),
-    appointments: [
-      {
-        date:"21",
-        time:8,
-        name:"Name of user",
-        imgUrl:"https://www.w3schools.com/howto/img_avatar.png",
-        number:0987651234,
-        description:"Description of user"
-      },
-      
-      {
-        date:"21",
-        time:16,
-        name:"Name of user",
-        imgUrl:"https://www.w3schools.com/howto/img_avatar.png",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:8,
-        name:"Name of user",
-        imgUrl:"https://www.w3schools.com/howto/img_avatar.png",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:16,
-        name:"Name of user",
-        imgUrl:"https://www.w3schools.com/howto/img_avatar.png",
-        number:0987651234,
-        description:"Description of user"
-      },
-    ],
-  });
-}
+ 
+  const AppointmentTable = asyncHandler(async (req, res, next) => {
+    const fmDate = new Date(req.params["date"]);
+    const toDate = new Date(req.params["date"]);
+    const doctorID = req.params["docId"]
+    toDate.setDate(toDate.getDate() + 10);
+    let dates = [];
+    const count = new Date(req.params["date"]);
+    while (count.getTime() <= toDate.getTime()) {
+      dates.push(count.getDate());
+      count.setDate(count.getDate() + 1);
+    }
 
-const PatientDetails = (req,res) =>{
-  res.render("Components/table",{  
-    heading:"Patient List",
-    headName:["Date","Time","Name","Number","Description"],
-    appointments: [
-      {
-        date:"30",
-        time:16,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"21",
-        time:8,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
+  console.log(fmDate);
+    function extractedData(data) {
+      return data.map((item) => {
+        const {
+          Timing:{date,time},
+          PatientID:{Basic: { Fname, Mname, Lname, Gender, Phone, Age },PatientID,Status},
+        } = item;
+        return {
+          Name: Fname + " " + Mname + " " + Lname,
+          Sex: Gender,
+          PhoneNo: Phone,
+          Age:Age,
+          ID: PatientID,
+          Status:Status,
+          date:date.slice(8,10),
+          month:date.slice(5,7),
+          year:date.slice(0,4),
+          time:parseInt(time),
+          imgUrl: "/images/img_avatar.png"
+        };
+      });
+    }
+  
+    var raw = JSON.stringify({
+      requestedId: "Hello",
+      DoctorId:doctorID
+    });
+    var result = await requestor(
+      "POST",
+      raw,
+      "http://localhost:5000/api/Receptionist/get-appointment-details"
+    );
+    result  =  JSON.parse(result)
+    if (result.acknowledged) {
+       
+      data = result.data
+      data =extractedData( data)
       
-      {
-        date:"21",
-        time:16,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:8,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:16,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"21",
-        time:8,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
+    
+      console.log(data);
+    res.render("Components/scheduleTable", {
+      title: "Schedules",
+      heading:
+        "Appointments from " +
+        fmDate.getDate() +
+        "-" +
+        (fmDate.getMonth() + 1) +
+        "-" +
+        fmDate.getFullYear() +
+        " to " +
+        toDate.getDate() +
+        "-" +
+        (toDate.getMonth() + 1) +
+        "-" +
+      toDate.getFullYear(),
+      listOfDates: dates,
+      date: fmDate,
+      month: fmDate.getMonth() + 1,
+      year: fmDate.getFullYear(),
+      frmDate: fmDate.getDate(),
       
-      {
-        date:"21",
-        time:16,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:8,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"30",
-        time:16,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-      {
-        date:"21",
-        time:8,
-        name:"Name of user",
-        number:0987651234,
-        description:"Description of user"
-      },
-    ],
-  })
-}
+      appointments:data
+    });
+  }
+  else{
+    res.render("Components/scheduleTable", {
+      title: "Schedules",
+      heading:
+        "Appointments from " +
+        fmDate.getDate() +
+        "-" +
+        (fmDate.getMonth() + 1) +
+        "-" +
+        fmDate.getFullYear() +
+        " to " +
+        toDate.getDate() +
+        "-" +
+        (toDate.getMonth() + 1) +
+        "-" +
+      toDate.getFullYear(),
+      listOfDates: dates,
+      date: fmDate,
+      month: fmDate.getMonth() + 1,
+      year: fmDate.getFullYear(),
+      frmDate: fmDate.getDate(),
+  
+      appointments:[]
+    });
+  }
+  });
+
+const PatientDetails = asyncHandler(async(req,res) =>{
+  var raw = JSON.stringify({
+    requestedId: "Hello",
+    filter: {},
+    projection: { PatientID: 0 },
+  });
+  const patData = await requestor(
+    "POST",
+    raw,
+    "http://localhost:5000/api/Receptionist/get-patient-details"
+  );
+  result = patData
+  if (result==null){
+    res.render("Receptionist/receptionist", {})
+  }
+  function extractBasicData(data) {
+    return data.map((item) => {
+      const {
+        Basic: { Fname, Mname, Lname, DateOfBirth, Gender, Phone, Age, City },
+        PatientID,
+        Status,
+        Appointments,
+      } = item;
+
+      return {
+        Name: Fname + " " + Mname + " " + Lname,
+        Sex: Gender,
+        "Ph.No": Phone,
+        DOB: DateOfBirth.slice(0, 10),
+        Age,
+        City: City,
+        ID: PatientID,
+        Status,
+        Appointments: Appointments.length,
+      };
+    });
+  }
+  const resp = extractBasicData(result);
+
+  res.render("Components/table", {
+    heading: "Patient List",
+    headName: Object.keys(resp[0]),
+    appointments: resp,
+    buttonName:"Appointment",
+    buttonClass:"prescription"
+  });
+})
 
 const addPrescription = (req,res)=>{
   

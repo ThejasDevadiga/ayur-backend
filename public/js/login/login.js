@@ -16,13 +16,14 @@ window.addEventListener("load", () => {
     if(data.acknowledged){  
      sessionStorage.setItem("token",data.token)
      sessionStorage.setItem("userID",data.userName)
+     sessionStorage.setItem("EmpId",data.userId)
      sessionStorage.setItem("userROle",data.userROle)
 
      if(data.userROle=='admin'){
         location.href= "/views/Admin/admin.pug"
      }
      else if(data.userROle=='consultant'){
-      location.href= "/views/Consultant/consultant.pug"
+      location.href= "/views/Consultant/consultant/:"+data.userId
      }
      else if(data.userROle=='reception'){
       location.href= "/views/Receptionist/receptionist.pug"

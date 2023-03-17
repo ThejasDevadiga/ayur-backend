@@ -10,8 +10,10 @@ window.addEventListener("load", () => {
       
       date =  yyyy + '-' + mm + '-' +dd;
       const Role = sessionStorage.getItem("Role")
-        location.href =    "/views/"+Role+"/viewAppointment/"+date+"&"+doctorID
+        location.href = "/views/"+Role+"/viewAppointment/"+date+"&"+doctorID
       }
+
+      
       const preScheduleForm = document.getElementById("preScheduleForm");
       preScheduleForm.addEventListener("submit", (event) => {
         event.preventDefault();

@@ -2,6 +2,8 @@ const generateId = require("../../utils/GenerateId");
 const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
 const user = require("../../models/admin/users");
+const Employee  = require('../../models/Employee/EmployeeDataScheme')
+const { model } = require("mongoose");
 
 const validateUser = asyncHandler(async (req, res) => {
   const { requestedId } = req.body;
@@ -10,7 +12,12 @@ const validateUser = asyncHandler(async (req, res) => {
   }
   try {
     const { username, password } = req.body;
-    const findUser = await user.findOne({ Username: username });
+    const findUser = await user.find({ Username: username })
+    .populate({
+      path:"EmployeeData",
+      model:Employee
+    })
+    
     if (!findUser) {
       throw new Error("Invalid username and password !");
     } else {
@@ -29,6 +36,7 @@ const validateUser = asyncHandler(async (req, res) => {
             token: generateToken(username + findUser.Designation),
             userROle: findUser.Designation,
             userName: username,
+            userId: findUser.EmployeeID,
             message: "Successfully logged in",
           });
         }

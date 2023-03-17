@@ -6,19 +6,16 @@ dotenv.config();
 const {
     consultHome,
     AppointmentTable,
-    addPrescription
+    addPrescription,
+    PatientDetails
 } = require('../../controller/consultant/consult')
-const {
-    PatientDetails,
-   
-  } = require("../../controller/receptionist/recept");
 
 const {
     drugDetails
 } = require('../../controller/manager/manager')
 
 router.get('/views/Consultant/consultant.pug',consultHome)
-router.get('/views/Consultant/viewAppointment/:date&:docId',AppointmentTable)
+// router.get('/views/Consultant/viewAppointment/:date&:docId',AppointmentTable)
 router.get('/views/Consultant/patientDetails.pug',PatientDetails)
 router.get('/views/Consultant/Prescribe.pug',addPrescription)
 router.get('/views/Consultant/drug-details',drugDetails)

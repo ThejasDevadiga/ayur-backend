@@ -1,25 +1,26 @@
+const axios = require('axios');
 
- async function requestor(type, raw, url){
-  var myHeaders = new Headers();
- 
-   myHeaders.append("Access-Control-Request-Headers", "*");
-   myHeaders.append("Content-Type", "application/json");
-    var requestOptions = {
-    //  mode: "no-cors",
-     method: type,
-     headers: myHeaders,
-     body:raw,
-     redirect: 'follow'
-   };
-   console.log(requestOptions);
-   
-  return  await fetch(url, requestOptions)
-   .then(response => response.text())
-     .then(result => {return result} )
-     .catch(error =>{ console.log('error', error); return null});
-    
- }
- 
+async function requestor(type, raw, url) {
+  const headers = {
+    'Access-Control-Request-Headers': '*',
+    'Content-Type': 'application/json'
+  };
+  const config = {
+    method: type,
+    headers,
+    data: raw,
+    url
+  };
+  // console.log(config);
 
+  try {
+    const response = await axios(config);
+    // console.log(response.data);
+    return response.data.data;
+  } catch (error) {
+    console.error('Error :', error.response.data.message);
+    return null;
+  }
+}
 
-module.exports = requestor
+module.exports = requestor;

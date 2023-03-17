@@ -46,10 +46,12 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
   const patData = await requestor(
     "POST",
     raw,
-    "http:localhost:5000/api/Receptionist/get-patient-details"
+    "http://localhost:5000/api/Receptionist/get-patient-details"
   );
-  result = JSON.parse(patData).data;
-  
+  result = patData
+  if (result==null){
+    res.render("Receptionist/receptionist", {})
+  }
   function extractBasicData(data) {
     return data.map((item) => {
       const {
@@ -78,12 +80,16 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
     heading: "Patient List",
     headName: Object.keys(resp[0]),
     appointments: resp,
+    buttonName:"Book Appointment",
+    buttonClass:"pat-list"
   });
 });
 
 const DoctorDetails = asyncHandler(async (req, res, next) => {
   res.render("Components/table", {
     heading: "Patient List",
+    buttonName:"Appointment",
+    buttonClass:"doc-list",
     headName: ["Date", "Time", "Name", "Number", "Description"],
     appointments: [
       {
@@ -91,6 +97,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 16,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -98,6 +105,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 8,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
 
@@ -106,6 +114,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 16,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -113,6 +122,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 8,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -120,6 +130,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 16,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -127,6 +138,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 8,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
 
@@ -135,6 +147,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 16,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -142,6 +155,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 8,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -149,6 +163,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 16,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
       {
@@ -156,6 +171,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
         time: 8,
         name: "Name of doctor",
         number: 0987651234,
+        EmployeeID:"EMP-2018-120293",
         description: "Description of doctor",
       },
     ],
@@ -205,11 +221,11 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
     raw,
     "http://localhost:5000/api/Receptionist/get-appointment-details"
   );
-  result  =  JSON.parse(result)
-  if (result.acknowledged) {
-     
-    data = result.data
-    data =extractedData( data)
+  // result  =  JSON.parse(result)
+  console.log("res",result);
+  if ( result!=null) {
+    
+    data =extractedData( result)
     
   
   res.render("Components/scheduleTable", {
@@ -237,21 +253,12 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
   });
 }
 else{
+  
   res.render("Components/scheduleTable", {
     title: "Schedules",
     heading:
-      "Appointments from " +
-      fmDate.getDate() +
-      "-" +
-      (fmDate.getMonth() + 1) +
-      "-" +
-      fmDate.getFullYear() +
-      " to " +
-      toDate.getDate() +
-      "-" +
-      (toDate.getMonth() + 1) +
-      "-" +
-    toDate.getFullYear(),
+      "Something went wrong!!!" ,
+     
     listOfDates: dates,
     date: fmDate,
     month: fmDate.getMonth() + 1,
@@ -262,6 +269,8 @@ else{
   });
 }
 });
+
+
 // imgUrl: "/images/img_avatar.png",
 const bookAppointment = asyncHandler(async (req, res, next) => {
   const patientID = req.params["pid"];
