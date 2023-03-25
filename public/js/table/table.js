@@ -9,10 +9,10 @@ window.addEventListener("load", () => {
       const Name = values[0];
       const PID = values[6];
       window.location.href =
-        "/views/Receptionist/book-appointment/" + Name + "&" + PID;
+        "/views/Receptionist/book-appointment/" + PID + "&" + Name;
     });
   });
-
+  
   const docList = document.querySelectorAll(".doc-list");
   docList.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -42,7 +42,7 @@ prescriptions.forEach((btn) => {
     const values = Array.from(row.querySelectorAll("td p")).map(
       (p) => p.textContent
     );
-    const docID = values[4];
+    const docID = values[0];
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0"); 

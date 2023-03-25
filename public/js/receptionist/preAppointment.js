@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
   const Role = sessionStorage.getItem("Role");
-  if (Role == "receptionist") {
+  if (Role == "Receptionist") {
     document.getElementById("receptionist").checked = true;
-  } else if (Role == "warden") {
+  } else if (Role == "Warden") {
      document.getElementById("warden").checked = true;
   }
     async function preappointmentForm() {

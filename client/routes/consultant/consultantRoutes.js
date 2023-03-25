@@ -17,7 +17,7 @@ const {
 router.get('/views/Consultant/consultant.pug',consultHome)
 // router.get('/views/Consultant/viewAppointment/:date&:docId',AppointmentTable)
 router.get('/views/Consultant/patientDetails.pug',PatientDetails)
-router.get('/views/Consultant/Prescribe.pug',addPrescription)
+router.get('/views/Consultant/Prescribe/:id',addPrescription)
 router.get('/views/Consultant/drug-details',drugDetails)
 
 console.log(process.env.HOST+'/views/Consultant/consultant.pug');

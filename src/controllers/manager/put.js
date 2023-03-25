@@ -14,7 +14,7 @@ const updateEmployeeData = asyncHandler(async (req, res, next) => {
 
     try{
         const FoundResult = await EmployeeShema.findOne( {EmployeeId:EmployeeId})
-        console.log(FoundResult);
+        // console.log(FoundResult);
             if (!FoundResult){
             throw new Error("Employee could not be found")
         } 

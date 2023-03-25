@@ -1,14 +1,9 @@
 link(rel="stylesheet", type="text/css", href="/css/sidebar/sidebar.css")
-link(rel="stylesheet", type="text/css", href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
-link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
-script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
-link(rel="stylesheet", href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css")
-script(type="text/javascript", src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js")
-script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+
 script(type="text/javascript", src="/js/sidebar/sidebar.js")
 script(src="/js/Utils/requestor.js")
-.container
-  nav.main-menu.sidebar
+.sidebar
+  .nav.main-menu.sidebar-panel
     div
       a.logo(href="#") 
         i.fa.fa-home.fa-lg
@@ -29,3 +24,5 @@ script(src="/js/Utils/requestor.js")
         a
           i.fa.fa-home.fa-lg
           span.nav-text   Log Out
+  .home-section
+    p

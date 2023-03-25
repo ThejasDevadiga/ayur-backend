@@ -55,7 +55,7 @@ const logOutUser = asyncHandler(async (req, res) => {
       }
     );
     if (updateUser!=null) {
-      console.log(updateUser);
+      // console.log(updateUser);
       res.status(200).json({
       acknowledged: true,
       userName: userID,

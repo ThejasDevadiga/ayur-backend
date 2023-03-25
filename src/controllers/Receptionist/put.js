@@ -3,15 +3,16 @@ const generateToken = require("../../utils/generateToken");
 const asyncHandler = require("express-async-handler");
 const generateId = require("../../utils/GenerateId");
 const TimeSlot = require("../../models/Patient/TimeSlots");
+const Appointments = require('../../models/Receptionist/Appointments')
 
 const updatePatientData = asyncHandler(async (req, res, next) => {
   const { requestedId, PatientId, updateBasic, updateDocument, updateDisease } =
     req.body;
   try {
     const Findresult = await PatientShema.findOne({ PatientID: PatientId });
-    // console.log(Findresult);
+    
     if (!Findresult) {
-      res.status(400).json({
+      res.status(500).json({
         acknowledged: false,
         data: "Patient not found!",
         token: generateToken(requestedId),
@@ -52,14 +53,13 @@ const updatePatientData = asyncHandler(async (req, res, next) => {
 
 const updateTimeSlots = asyncHandler(async (req, res, next) => {
   try {
-    const { TimeSlotID, newStartTime, newEndTime } = req.body;
-    // Check if timeslot exists
+    const { TimeSlotID,  newStartTime, newEndTime } = req.body;
+
     const timeslot = await TimeSlot.findOne({ TimeSlotID: TimeSlotID });
     if (!timeslot) {
       throw new Error("TimeSlot not found");
     }
 
-    // Update the timeslot
     timeslot.startTime = newStartTime;
     timeslot.endTime = newEndTime;
     const updatedTimeSlot = await TimeSlot.save();
@@ -72,9 +72,46 @@ const updateTimeSlots = asyncHandler(async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       acknowledged: false,
+   
       message: "Error while updating timeslot",
     });
   }
 });
 
-module.exports = { updatePatientData, updateTimeSlots };
+const appointmentStatus = asyncHandler(async (req, res, next)=>{
+  try {
+    const { Status,ID, requestedId } = req.body;
+    if (!ID && !Status && !requestedId) {
+      throw new Error("ID,Status, requestedId not found");
+    }
+    // console.log(ID);
+    const appoints = await Appointments.findOne({ AppointmentID: ID });
+    // console.log(appoints);
+    if (appoints==null) {
+      throw new Error("Appointments not found");
+    }
+     appoints.Status = Status;
+
+     const updatedAppointment = await Appointments.updateOne(
+      { AppointmentID: ID },
+      appoints
+    );
+
+      res.status(200).json({
+      acknowledged: true,
+      message: "Appointment updated successfully",
+      data: updatedAppointment
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      acknowledged: false,
+      message: err.message,
+    });
+  }
+  
+})
+
+
+
+module.exports = { updatePatientData, updateTimeSlots,appointmentStatus };

@@ -9,9 +9,11 @@ const receptHome = asyncHandler(async (req, res, next) => {
   var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   var yyyy = today.getFullYear();
   today = yyyy + "-" + mm + "-" + dd;
+  
   res.render("Receptionist/receptionist", {
     title: "Receptionist",
     user: "Thejas Devadiga",
+    
     controlles: {
       1: {
         linkName: "Patient Details",
@@ -86,95 +88,28 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
 });
 
 const DoctorDetails = asyncHandler(async (req, res, next) => {
+  var raw = JSON.stringify({
+    requestedId: "Hello",
+    filter: {}, 
+    projection: {  },
+  });
+  const result = await requestor(
+    "POST",
+    raw,
+    "http://localhost:5000/api/Receptionist/get-doctor-list"
+  );
+   
+  if (result==null ){
+    res.render("Receptionist/receptionist", {})
+  }
+  const headings = Object.keys(result[0])
+   
   res.render("Components/table", {
     heading: "Patient List",
     buttonName:"Appointment",
     buttonClass:"doc-list",
-    headName: ["Date", "Time", "Name", "Number", "Description"],
-    appointments: [
-      {
-        date: "30",
-        time: 16,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "21",
-        time: 8,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-
-      {
-        date: "21",
-        time: 16,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "30",
-        time: 8,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "30",
-        time: 16,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "21",
-        time: 8,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-
-      {
-        date: "21",
-        time: 16,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "30",
-        time: 8,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "30",
-        time: 16,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-      {
-        date: "21",
-        time: 8,
-        name: "Name of doctor",
-        number: 0987651234,
-        EmployeeID:"EMP-2018-120293",
-        description: "Description of doctor",
-      },
-    ],
+    headName: headings,
+    appointments: result
   });
 });
 
@@ -222,7 +157,7 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
     "http://localhost:5000/api/Receptionist/get-appointment-details"
   );
   // result  =  JSON.parse(result)
-  console.log("res",result);
+  
   if ( result!=null) {
     
     data =extractedData( result)

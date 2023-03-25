@@ -7,7 +7,7 @@ const {
     getPatientData,PatientWithAppointments,AllottedTimeSlots
 } = require('../../controllers/Receptionist/get')
 const {
-    updatePatientData
+    updatePatientData,appointmentStatus
 }= require('../../controllers/Receptionist/put')
 const {
     deletePatientData
@@ -16,7 +16,7 @@ const {
     AddPatientData,makeAppointment,
 }= require('../../controllers/Receptionist/post')
 const {
-    availableDoctor,getAppointmentDetails
+    availableDoctor,getAppointmentDetails,getAppointmentList,ReqAppointmentsList,AppAppointmentsList,getDoctorList
 } = require('../../controllers/Receptionist/get')
 const {
     DepartmentsList
@@ -31,4 +31,9 @@ router.post('/api/Receptionist/patient-AppointmentList',PatientWithAppointments)
 router.post('/api/Receptionist/allotted-Timeslots',AllottedTimeSlots)
 router.post('/api/Receptionist/department-list',DepartmentsList)
 router.post('/api/Receptionist/get-appointment-details',getAppointmentDetails)
+router.post('/api/Receptionist/get-appointment-list',getAppointmentList)
+router.post('/api/Receptionist/req-appointment-list',ReqAppointmentsList)
+router.post('/api/Receptionist/app-appointment-list',AppAppointmentsList)
+router.put('/api/Receptionist/update-appointment-status',appointmentStatus)
+router.post('/api/Receptionist/get-doctor-list',getDoctorList)
 module.exports = router;

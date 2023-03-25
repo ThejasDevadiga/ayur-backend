@@ -1,5 +1,6 @@
 
 window.addEventListener("load", () => {
+  
   async function getDrugsList(){
     var  raw = JSON.stringify({
       requestedId:"Hello",
@@ -75,7 +76,7 @@ async  function MakeReport() {
     // Convert the string back to a list of JSON objects
     const drugList = JSON.parse(listAsString);
     
-  console.log(drugList);
+  // console.log(drugList);
    var  raw = JSON.stringify({
      requestedId:"Hello",
     patientName,
@@ -86,7 +87,7 @@ async  function MakeReport() {
 var  data = await requestor("POST",raw,"http://localhost:5000/api/consultant/makePrescription")
 data = JSON.parse(data)
 document.getElementById("alert").innerHTML = data;
-console.log(data);
+// console.log(data);
 if(data.acknowledged){  
 //  sessionStorage.removeItem("drugList")
 //  location.href = "/views/Consultant/consultant.pug"

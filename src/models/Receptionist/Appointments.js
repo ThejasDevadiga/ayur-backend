@@ -38,7 +38,7 @@ const appointmentSchema = mongoose.Schema(
     Disease: {
       Symptoms: {
         type: Array,
-        required: true,
+        default: [],
       },
       Description: {
         type: String,

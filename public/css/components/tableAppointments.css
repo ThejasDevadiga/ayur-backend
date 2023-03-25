@@ -1,0 +1,66 @@
+.table-appointments{
+    width: 100%;
+    height: 100%;
+  }
+  .table-appointments thead{
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 50px;
+  }
+  .table-appointments th{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .table-appointments  tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+   
+  }
+  .table-appointments tbody tr{
+    background-color: #d3d9f3;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    height: 3.8rem;
+  }
+  .table-appointments thead h4{
+    color:#7884b8;
+    font-weight: 600;
+  }
+
+.table-appointments tbody{   
+    width: 100%;
+    height: 3px;
+}
+.table-appointments td{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.8rem;
+    padding-left: 5px;
+   
+    
+}
+
+.table-appointments tbody  button{
+    border-radius: 5px;
+    width: 9rem;
+    border: none;
+    color: #2f4393;
+    background-color: #a2add8;
+  }
+
+  .table-appointments tbody  button:hover{
+    box-shadow: 3px 3px 10px #2f4393;
+  }
+  .table-appointments tbody h5{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #7884b8;
+  }

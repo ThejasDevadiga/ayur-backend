@@ -11,6 +11,7 @@ body{
     justify-content: space-between;
     padding-left: 1rem;
     overflow: hidden; 
+    margin-bottom: 0;
   }
   
 i{

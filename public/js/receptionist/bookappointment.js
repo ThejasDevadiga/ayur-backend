@@ -176,6 +176,7 @@ window.addEventListener("load", () => {
 
   const Role = sessionStorage.getItem("Role");
   if (Role == "receptionist") {
+    console.log("receptionist");
     document.getElementById("receptionist").checked = true;
   } else if (Role == "warden") {
     console.log("warden");

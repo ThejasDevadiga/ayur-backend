@@ -6,6 +6,11 @@ const managerHome = asyncHandler(async (req, res, next) => {
   res.render("Manager/manager", {
     title: "Manager",
     user: "Thejas Devadiga",
+    cardHeading:"Card testing",
+    cardTagline:"Card tagline is good",
+    cardDescription:"lorem gipsum doloro sit amet",
+    cardImg:"/images/classes-1.jpg",
+    cardBtnName:"Get details",
     controlles: {
       1: {
         linkName: "Patient Details",

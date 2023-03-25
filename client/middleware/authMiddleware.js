@@ -28,12 +28,12 @@ console.log("Requested ")
   } catch (e) {
     if (e instanceof jwt.TokenExpiredError) {
       //   console.log("Expired token used!");
-      res.status(400).json({
+      res.status(401).json({
         error: "Token expired!",
       });
     } else {
       //  console.log("ERROR : ",e);
-      res.status(400).json({
+      res.status(403).json({
         error: e.message,
       });
     }

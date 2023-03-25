@@ -10,10 +10,8 @@ window.addEventListener("load", () => {
          password:password
        });
 
-    var  data = await requestor("POST",raw,"http://localhost:5000/api/user/validate-user")
-    data = JSON.parse(data)
-    console.log(data);
-    if(data.acknowledged){  
+ 
+    if(data.acknowledged){   
      sessionStorage.setItem("token",data.token)
      sessionStorage.setItem("userID",data.userName)
      sessionStorage.setItem("EmpId",data.userId)
@@ -34,6 +32,7 @@ window.addEventListener("load", () => {
     else if(data.userROle=='manager'){
         location.href= "/views/Manager/manager.pug"
         }
+
     else{
       document.getElementById("alert").innerHTML = "Contact admin!  error:Unknown user";
     }
@@ -42,9 +41,9 @@ window.addEventListener("load", () => {
       document.getElementById("alert").innerHTML = data.message;
     }
      }
- 
+
      const form = document.getElementById("myForm");
- 
+
      form.addEventListener("submit", (event) => {
        event.preventDefault();
        sendData();

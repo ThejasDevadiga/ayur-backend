@@ -1,0 +1,17 @@
+ 
+.card{
+    border: none;
+    width: 18rem;
+    background-color: #bec3d1;
+    border-radius: 10px;
+}
+.card:hover{
+    background-color: #bec3d1;
+    width: 19rem;
+    box-shadow: 1px 1px 10px  black;
+    font-size:13px
+}
+.card img{
+    border-radius: 10px 10px 0 0 ;
+}
+ 

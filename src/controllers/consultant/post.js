@@ -16,7 +16,7 @@ const makePrescription = asyncHandler(async (req, res, next) => {
     prescriptions,
     } = req.body;
 
-   // Check if required fields are provided
+
   if (!requestedId || !PrescriptionID || !patientId || !consultantID || !AppointmentID) {
     throw new Error("Required fields missing");
   }
@@ -26,7 +26,8 @@ const makePrescription = asyncHandler(async (req, res, next) => {
   const consultantID = employeeRes._id
   const appointmentRes = await EmployeeSchema.findOne({ AppointmentID: AppointmentId })
   const AppointmentID = appointmentRes._id
-  // Create new prescription object
+  
+  
   const newPrescription = new Prescriptions({
     PrescriptionID,
     patientID,
@@ -36,7 +37,7 @@ const makePrescription = asyncHandler(async (req, res, next) => {
     prescriptions,
   });
 
-  // Save the new prescription
+  
   const result = await newPrescription.save();
   if (!result) {
     throw new Error("Error while adding data");

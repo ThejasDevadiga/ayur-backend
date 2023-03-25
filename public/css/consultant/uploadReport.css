@@ -416,4 +416,355 @@ button:active {
     padding-right: 0;
   }
 }
+
+
+
+
+
+/* 
+#toggleContainer label { 
+  text-align: center;
+}
+
+#container {
+  height: 85vh;
+  width: inherit;
+  box-sizing: border-box;
+  overflow-y:auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+#toggleContainer {
+  height: 10vh;
+  width: 50%;
+  display: flex;
+  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+    position: absolute;
+}
+
+#tilesContainer {
+  min-height: 90vh;
+  width: 60vw;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-content: center;
+  
+}
+
+.tileItem {
+  width: 250px;
+  height: 250px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #d2d2d2;
+  transition: all 0.5s ease;
+}
+
+.tileItem:hover {
+   transform: scale(1.05);
+  transition: all 0.5s ease;
+}
+
+#galleryContainer { 
+  
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#toggle {
+  height: 10vh;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+#tilesView {
+    display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#galleryView {
+  height: 90vh;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#outer3 {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  margin: 10px auto;
+  border-radius: 3px;
+  border: 2px solid white;
+  transition: all 0.5s;
+}
+
+#slider3 {
+  height: 36px;
+  width: 46px;
+  background-color: #2956b8;
+  border-radius: 3px;  
+  transition: all 0.5s;
+}
+
+#slider3.active {
+  -webkit-transform: translatex(50px);
+  -ms-transform: translatex(50px);
+  -o-transform: translatex(50px);
+  transform: translatex(50px);
+  transition: all 0.5s;
+  background-color: #2956b8;
+}
+
+#outer3.outerActive {
+  background-color: white;
+  border: 2px solid white;
+  transition: all 0.5s;
+}
+
+#mainView {
+  height: 500px;
+  width: 450px;  
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  margin-left: 10px;
+  margin-right: 10px;
+  z-index: 1;
+  padding: .5rem;
+  
+  transition: all 1s; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainView:hover {
+  transform: scale(1.1);
+  transition: all 1s;   
+}
+#mainView .heading{
+  font-size: .8rem;
+  height: 2%;
+  font-weight: bold;
+  text-align: center;
+  color: #828592;
+  
+}
+#mainView .header-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height:15%;
+  width: 100%;
+}
+#mainView .body-section{
+  height:60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#mainView .complaints{
+  height: 40%;
+  width: 100%;
  
+}
+
+#mainView .disease-data{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 25%;
+  width: 100%;
+}
+#mainView .description{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 70%;
+  width: 100%;
+}
+#mainView .prescription{
+  height: 60%;
+  width: 100%;
+}
+
+#mainView .foot-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height:5%;
+  width: 100%;
+}
+
+#leftView {
+  height: 150px;
+  width: 150px;
+
+  border-radius: 5px;
+  transform: skewy(5deg);
+  transform-origin: top right;
+  background-color: #2d397c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;  
+}
+
+#leftView:hover {
+  opacity: 1;
+  transition: all 1s;
+}
+
+#rightView {
+  height: 150px;
+  width: 150px;
+ 
+  border-radius: 5px;
+  transform: skewy(-5deg);
+  transform-origin: top left;
+  background-color: #2d397c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ transition: all 1s;
+}
+
+#rightView:hover {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.navBtns {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  opacity: 0.8;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+}
+
+.navBtns:hover {
+  opacity: 1;
+  transition: all 1s;
+  background-color: #2e4ba0;
+}
+
+#navLeft {
+  left: 50px;
+}
+
+#navRight {
+  right: 50px;
+}
+
+#linkTag { 
+  cursor: pointer;
+  z-index: 1;
+  box-sizing: border-box;
+} */
+
+.heading{
+  font-size: .8rem;
+  height: 2%;
+  font-weight: bold;
+  text-align: center;
+  color: #828592;
+  
+}
+.case-history{
+ display: grid;
+  column-gap: 10px;
+  text-align: center;
+  row-gap: 2rem;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+ 
+}
+.history{
+  border: 1px solid #2d397c;
+  padding: 2px;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 2px 2px 10px #2d397c;
+  
+}
+#case-container{
+  overflow-y: scroll;
+}
+.header-section{
+  display:flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 4rem;
+}
+.body-section{
+  height: 13rem;
+}
+.foot-section{
+  display:flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.complaints{
+  display:flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 50%;
+}
+.disease-data{
+    display:flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.symptoms{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: medium;
+  font-weight: 600;
+}
+.description{
+    display:flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 10%;
+}
+
+.prescription{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 40%;
+}

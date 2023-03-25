@@ -49,7 +49,7 @@ today =  yyyy + '-' + mm + '-' +dd;
       count.setDate(count.getDate() + 1);
     }
 
-  console.log(fmDate);
+  // console.log(fmDate);
     function extractedData(data) {
       return data.map((item) => {
         const {
@@ -88,7 +88,7 @@ today =  yyyy + '-' + mm + '-' +dd;
       data =extractedData( data)
       
     
-      console.log(data);
+      // console.log(data);
     res.render("Components/scheduleTable", {
       title: "Schedules",
       heading:
@@ -153,7 +153,7 @@ const PatientDetails = asyncHandler(async(req,res) =>{
   );
   result = patData
   if (result==null){
-    res.render("Receptionist/receptionist", {})
+    res.render("/", {})
   }
   function extractBasicData(data) {
     return data.map((item) => {
@@ -188,17 +188,59 @@ const PatientDetails = asyncHandler(async(req,res) =>{
   });
 })
 
-const addPrescription = (req,res)=>{
-  
+const addPrescription = asyncHandler(async(req,res)=>{
+  const PatientID =  req.params['id'];
+  // console.log(PatientID); 
+  var raw = JSON.stringify({
+    requestedId: "Hello",
+    patientID:PatientID
+  });
+  const result = await requestor(
+    "POST",
+    raw,
+    "http://localhost:5000/api/Receptionist/patient-AppointmentList"
+  );
+    // console.log(result);
+  if (result==null){
+    console.log("Data not found!");
+    // location.href = "/views/Consultant/consultant.pug"
+  }
+    const {
+      Basic: { Fname, Mname, Lname,Email, DateOfBirth, Gender, Phone, Age,Address, City,State },  
+      Appointments,
+
+    } = result;
+
+    const history = {
+      patientFName: Fname,
+      patientMName: Mname,
+      patientLName: Lname,
+      Sex: Gender,
+      PhNo: Phone,
+      DOB: DateOfBirth.slice(0, 10),
+      Age,
+      Email,
+      Address,
+      City: City,
+      State,
+      ID: PatientID,
+      Appointments: Appointments,
+    };
+    // console.log(history);
    
   res.render('Consultant/uploadReport',{
-    patientName : "Name of the patient",
-    email:"abcd@test.com",
-    phoneNumber:9876543210,
-    patientID:"PAlkT12345h6789Q",
-     
+    patientFName: history.patientFName,
+      patientMName: history.patientMName,
+      patientLName: history.patientLName,
+      Sex:history.Sex,
+      Age:history.Age,
+      DateOfBirth:history.DOB,
+    email:history.Email,
+    phoneNumber:history.PhNo,
+    patientID:PatientID,
+    Appointments:history.Appointments
   })
-}
+})
 
 module.exports = {
   consultHome,AppointmentTable,PatientDetails,addPrescription
