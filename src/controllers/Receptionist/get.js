@@ -6,7 +6,8 @@ const consultants = require("../../models/Consultant/consultantList");
 const Appointment = require("../../models/Receptionist/Appointments");
 const Wardens = require("../../models/wardens/wardensList");
 const TimeSlot = require("../../models/Patient/TimeSlots");
- 
+const Vitals = require('../../models/Receptionist/patientVitals')
+
 const availableDoctor = asyncHandler(async (req, res, next) => {
   try {
     const {requestedId, department, date, time } = req.body;
@@ -83,9 +84,14 @@ const PatientWithAppointments = asyncHandler(async (req, res, next) => {
         populate:{
           path: "DoctorID",
           model: consultants,
+        },
+        populate:{
+          path:"VitalsData",
+          model:Vitals
         }
       });
     if (result) {
+     
       res.status(200).json({
         acknowledged: true,
         data: result,

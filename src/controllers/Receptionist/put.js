@@ -15,7 +15,7 @@ const updatePatientData = asyncHandler(async (req, res, next) => {
       res.status(500).json({
         acknowledged: false,
         data: "Patient not found!",
-        token: generateToken(requestedId),
+       
       });
     }
     const updatedBasic = Object.assign(Findresult.Basic, updateBasic);

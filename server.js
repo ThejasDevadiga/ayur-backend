@@ -45,6 +45,7 @@ app.use('/',HelpDeskRoutes)
 app.use('/',ManagerRoutes)
 app.use('/',UserRoutes)
 app.use('/',wardenRoutes)
+
 //Frontend routes
 app.use('/',loginView)
 app.use('/',consultantView)
@@ -53,6 +54,13 @@ app.use('/',adminView)
 app.use('/',managerView)
 app.use('/',wardenView)
 
+// app.post("/api/consultant/todays-doctor-appointments",(req,res)=>{
+//     res.send({
+//         aknowledge:true,
+//         data:[],
+//         message:"empty"
+//     })
+// })
 const testFun = require('./test/functions')
 
 app.get('/test',testFun)

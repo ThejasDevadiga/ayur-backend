@@ -45,8 +45,12 @@ const appointmentSchema = mongoose.Schema(
         default: "nothing",
       },
     },
+    VitalsData: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "VitalSigns",
+      require:true
+    },
 
-    
   },
   {
     timestamps: true,

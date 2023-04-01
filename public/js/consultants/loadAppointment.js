@@ -65,8 +65,9 @@ window.addEventListener("load", async () => {
       const trElement = this.parentElement.parentElement;
        
       const patID = trElement.querySelectorAll('td')[4].innerText
+      const aptID = trElement.querySelectorAll('td')[0].innerText
       // console.log(patID);
-      location.href = '/views/Consultant/Prescribe/'+patID
+      location.href = '/views/Consultant/examin/'+patID+'&'+aptID
     });
   }
 });

@@ -1,40 +1,57 @@
-const mongoose = require('mongoose');
-
-const vitalSignsSchema = mongoose.Schema({
-  vitalDataID: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Patient',
-    required: true
-  },
-  temperature: {
-    type: Number,
-    required: true
-  },
-  pulse: {
-    type: Number,
-    required: true
-  },
-  bloodPressure: {
-    systolic: {
-      type: Number,
-      required: true
+const mongoose = require("mongoose");
+const vitalSignsSchema = mongoose.Schema(
+  {
+    vitalDataID: {
+      type: String,
+      required: true,
+      unique:true
     },
-    diastolic: {
+    PatientID: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Patients",
+      require: true,
+    },
+    temperature: {
+      type: String,
+      default:"98.6°F"
+    },
+    weight: {
       type: Number,
-      required: true
-    }
+      require: true,
+    },
+    height: {
+      type: Number,
+      require: true,
+    },
+    pulse: {
+      type: String,
+      required: true,
+    },
+    bloodPressure: {
+      systolic: {
+        type: String,
+        required: true,
+      },
+      diastolic: {
+        type: String,
+      },
+    },
+    respiratoryRate: {
+      type: String,
+      required: true,
+    },
+    
+    Date: {
+      type: Date,
+      default: new Date(Date.now()).toDateString(),
+    },
   },
-  respiratoryRate: {
-    type: Number,
-    required: true
-  },
-  oxygenSaturation: {
-    type: Number
+  {
+    timestamps: true,
+    strict: false,
   }
-}, {
-  timestamps: true
-});
+);
 
-const VitalSigns = mongoose.model('VitalSigns', vitalSignsSchema);
+const VitalSigns = mongoose.model("VitalSign", vitalSignsSchema);
 
 module.exports = VitalSigns;

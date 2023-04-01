@@ -198,7 +198,7 @@ const addPrescription = asyncHandler(async(req,res)=>{
   const result = await requestor(
     "POST",
     raw,
-    "http://localhost:5000/api/Receptionist/patient-AppointmentList"
+    "http://localhost:5000/api/consultant/patient-Appointments"
   );
     // console.log(result);
   if (result==null){
@@ -242,6 +242,62 @@ const addPrescription = asyncHandler(async(req,res)=>{
   })
 })
 
+const examinDate = asyncHandler(async(req,res)=>{
+  const PatientID =  req.params['patid'];
+  const appointmentID =  req.params['aptid'];
+  // console.log(PatientID); 
+  var raw = JSON.stringify({
+    requestedId: "Hello",
+    patientID:PatientID
+  });
+  const result = await requestor(
+    "POST",
+    raw,
+    "http://localhost:5000/api/consultant/patient-Appointments"
+  );
+    // console.log(result);
+  if (result==null){
+    console.log("Data not found!");
+    // return
+    // location.href = "/views/Consultant/consultant.pug"
+  }
+    const {
+      Basic: { Fname, Mname, Lname,Email, DateOfBirth, Gender, Phone, Age,Address, City,State },  
+      Appointments,
+
+    } = result;
+
+    const history = {
+      patientFName: Fname,
+      patientMName: Mname,
+      patientLName: Lname,
+      Sex: Gender,
+      PhNo: Phone,
+      DOB: DateOfBirth.slice(0, 10),
+      Age,
+      Email,
+      Address,
+      City: City,
+      State,
+      ID: PatientID,
+      Appointments: Appointments,
+    };
+    
+  res.render('Consultant/examin',{
+    patientFName: history.patientFName,
+      patientMName: history.patientMName,
+      patientLName: history.patientLName,
+      Sex:history.Sex,
+      Age:history.Age,
+      DateOfBirth:history.DOB,
+    email:history.Email,
+    phoneNumber:history.PhNo,
+    patientID:PatientID,
+    appointmentID:appointmentID,
+    Appointments:history.Appointments
+  })
+})
+
 module.exports = {
-  consultHome,AppointmentTable,PatientDetails,addPrescription
+  consultHome,AppointmentTable,PatientDetails,addPrescription,examinDate
 };
