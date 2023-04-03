@@ -20,6 +20,8 @@ const adminView = require('./client/routes/admin/adminRoutes')
 const managerView = require('./client/routes/manager/managerRoutes')
 const wardenView = require('./client/routes/warden/wardenRoutes')
 
+const visualRoutes = require('./src/routes/Visualise/visualroutes')
+
 const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
 dotenv.config();
@@ -54,6 +56,7 @@ app.use('/',adminView)
 app.use('/',managerView)
 app.use('/',wardenView)
 
+app.use('/',visualRoutes)
 // app.post("/api/consultant/todays-doctor-appointments",(req,res)=>{
 //     res.send({
 //         aknowledge:true,
