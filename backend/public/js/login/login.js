@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
     let result = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/user/validate-user"
+      "https://ayur.vercel.app/api/user/validate-user"
     );
     const data = JSON.parse(result);
     console.log(data);

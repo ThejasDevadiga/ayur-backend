@@ -17,7 +17,7 @@ window.addEventListener("load", async () => {
     var result = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/consultant/todays-doctor-appointments"
+      "https://ayur.vercel.app/api/consultant/todays-doctor-appointments"
     );
 
     data = JSON.parse(result);

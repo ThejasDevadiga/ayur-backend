@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     var result = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/warden/wardens-appointment"
+      "https://ayur.vercel.app/api/warden/wardens-appointment"
     );
     data = JSON.parse(result);
     if (data.acknowledged) {

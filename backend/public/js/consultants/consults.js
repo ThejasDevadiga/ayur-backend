@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
     var res = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/consultant/drugs-list"
+      "https://ayur.vercel.app/api/consultant/drugs-list"
     );
     res = JSON.parse(res);
     sessionStorage.setItem("availableDrug", JSON.stringify(res.data));

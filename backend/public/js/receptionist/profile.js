@@ -5,7 +5,7 @@ window.addEventListener("load", async () => {
     btn.addEventListener("click", function handleClick(event) {
       console.log(this.id);
       location.href =
-        "https://ayur.vercel.app//views/Consultant/report/" + this.id;
+        "https://ayur.vercel.app/views/Consultant/report/" + this.id;
     });
   });
 });

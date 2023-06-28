@@ -42,9 +42,9 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-    res.render('Login/home', { title: '', message: 'Hello there!' })
-});
+// app.get("/", (req, res) => {
+//     res.render('Login/home', { title: '', message: 'Hello there!' })
+// });
 // Backend routes
 app.use("/", ConsultantRoutes);
 app.use("/", HelpDeskRoutes);
@@ -81,7 +81,7 @@ app.use(errorHandler);
 
 // const PORT =  8001;
 
-// WebServer(`https://ayur.vercel.app//test`)
+// WebServer(`https://ayur.vercel.app/test`)
 // console.log(`http://localhost:${PORT}/test`);
 
 // app.listen(PORT, console.log(`Server port ${PORT}`));

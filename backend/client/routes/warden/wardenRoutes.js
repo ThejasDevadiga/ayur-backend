@@ -19,7 +19,7 @@ router.get("/views/Warden/make-registration", patientAddmission);
 router.get("/views/Warden/patient-history", patientHistory);
 router.get("/views/warden/book-appointment/:pid&:name", bookAppointment);
 
-console.log("https://ayur.vercel.app//views/Warden/warden.pug");
-console.log("https://ayur.vercel.app//views/Warden/patient-history");
+console.log("https://ayur.vercel.app/views/Warden/warden.pug");
+console.log("https://ayur.vercel.app/views/Warden/patient-history");
 
 module.exports = router;

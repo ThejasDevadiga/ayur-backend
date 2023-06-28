@@ -76,7 +76,7 @@ window.addEventListener("load", async () => {
       let result = await requestor(
         "POST",
         raw,
-        "https://ayur.vercel.app//api/Receptionist/consulted-appointments"
+        "https://ayur.vercel.app/api/Receptionist/consulted-appointments"
       );
       result = JSON.parse(result);
 
@@ -98,7 +98,7 @@ window.addEventListener("load", async () => {
       const result = await requestor(
         "POST",
         raw,
-        "https://ayur.vercel.app//api/Receptionist/get-patient-details"
+        "https://ayur.vercel.app/api/Receptionist/get-patient-details"
       );
       const patients = JSON.parse(result);
 
@@ -162,7 +162,7 @@ window.addEventListener("load", async () => {
       const result = await requestor(
         "POST",
         raw,
-        "https://ayur.vercel.app//api/Receptionist/get-doctor-list"
+        "https://ayur.vercel.app/api/Receptionist/get-doctor-list"
       );
       const doctors = JSON.parse(result);
 

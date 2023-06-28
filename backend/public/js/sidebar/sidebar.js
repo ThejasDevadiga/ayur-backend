@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     var data = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/user/logOut-user"
+      "https://ayur.vercel.app/api/user/logOut-user"
     );
     data = JSON.parse(data);
 
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
       if ((data.message = "Successfully logged out")) {
         console.log("Success");
       }
-      location.href = "https://ayur.vercel.app//views/login/login.pug";
+      location.href = "https://ayur.vercel.app/views/login/login.pug";
     } else {
       alert("Error while logging out!!");
     }

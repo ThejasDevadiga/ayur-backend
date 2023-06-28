@@ -65,7 +65,7 @@ window.addEventListener("load", () => {
     let result = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/consultant/upload-vitals-data"
+      "https://ayur.vercel.app/api/consultant/upload-vitals-data"
     );
 
     const data = JSON.parse(result);
@@ -199,7 +199,7 @@ window.addEventListener("load", () => {
     let res = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/consultant/drugs-list"
+      "https://ayur.vercel.app/api/consultant/drugs-list"
     );
     res = JSON.parse(res);
     sessionStorage.setItem("availableDrug", JSON.stringify(res.data));
@@ -304,7 +304,7 @@ window.addEventListener("load", () => {
     let data = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/consultant/makePrescription"
+      "https://ayur.vercel.app/api/consultant/makePrescription"
     );
     data = JSON.parse(data);
 

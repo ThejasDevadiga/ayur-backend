@@ -109,7 +109,7 @@ window.addEventListener("load", async () => {
   var result = await requestor(
     "POST",
     raw,
-    "https://ayur.vercel.app//api/Receptionist/get-hospital-list"
+    "https://ayur.vercel.app/api/Receptionist/get-hospital-list"
   );
 
   if (!result && result.acknowledged) {
@@ -184,7 +184,7 @@ window.addEventListener("load", async () => {
     var result = await requestor(
       "POST",
       raw,
-      "https://ayur.vercel.app//api/Receptionist/insert-patient-details"
+      "https://ayur.vercel.app/api/Receptionist/insert-patient-details"
     );
     data = JSON.parse(result);
     // console.log(data);

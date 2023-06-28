@@ -72,7 +72,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
   // const result = await requestor(
   //   "POST",
   //   raw,
-  //   "https://ayur.vercel.app//api/Receptionist/get-doctor-list"
+  //   "https://ayur.vercel.app/api/Receptionist/get-doctor-list"
   // );
 
   // if (result==null ){
@@ -134,7 +134,7 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
   let result = await requestor(
     "POST",
     raw,
-    "https://ayur.vercel.app//api/Receptionist/get-appointment-details"
+    "https://ayur.vercel.app/api/Receptionist/get-appointment-details"
   );
   // result  =  JSON.parse(result)
 
@@ -218,7 +218,7 @@ const profilePage = asyncHandler(async (req, res, next) => {
   let result = await requestor(
     "POST",
     raw,
-    "https://ayur.vercel.app//api/Receptionist/patient-AppointmentList"
+    "https://ayur.vercel.app/api/Receptionist/patient-AppointmentList"
   );
 
   // result  =  JSON.parse(result)

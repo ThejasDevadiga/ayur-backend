@@ -57,7 +57,7 @@ window.addEventListener("load", async () => {
 
   const patinetCounts = await loadData(
     raw,
-    "https://ayur.vercel.app//api/visualise/patient-count",
+    "https://ayur.vercel.app/api/visualise/patient-count",
     "POST"
   );
 
