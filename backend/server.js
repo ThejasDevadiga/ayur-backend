@@ -43,9 +43,11 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+app.use("/", asyncHandler(async (req, res, next) => {  
+    res.render('Login/home', { title: '', message: 'Hello there!' })
+}) 
+);
+
 
 // Backend routes
 app.use("/", ConsultantRoutes);
