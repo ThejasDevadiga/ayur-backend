@@ -43,7 +43,7 @@ console.log(__dirname);
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/home.pug");
+    res.render('Login/home', { title: '', message: 'Hello there!' })
 });
 // Backend routes
 app.use("/", ConsultantRoutes);
