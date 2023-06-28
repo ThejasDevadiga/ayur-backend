@@ -4,10 +4,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const {
-    renderLogin
+    renderLogin,renderdefault
 } = require('../../controller/login/login')
 
 router.get('/views/login/login.pug',renderLogin)
+router.get('/0',renderdefault)
 
 module.exports = router;
 

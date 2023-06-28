@@ -38,13 +38,13 @@ app.use(express.json());
 app.use(cors());
 app.set("views", "views");
 app.set("view engine", "pug");
-app.set('view engine', 'html');
+// app.set("view engine", "html");
 
 console.log(__dirname);
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+'/index.html')
+  res.sendFile(__dirname + "/index.html");
 });
 
 // Backend routes
