@@ -1,0 +1,696 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD", crossorigin="anonymous")        
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN", crossorigin="anonymous")           
+        link(rel="stylesheet", type="text/css", href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+        link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
+        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+        link(rel="stylesheet", href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css")
+        script(type="text/javascript", src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js")
+        script(type="text/javascript", src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+        link(rel="stylesheet", href="/css/consultant/examin.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js")
+
+        script(src="/js/consultants/examin.js") 
+        script(src="/js/Utils/generateId.js")
+        script(src="/js/Utils/requestor.js")
+        script(src="/js/receptionist/profile.js") 
+
+        title Document
+    body
+        .examin-section
+            ul.nav.nav-pills.nav-fill.gap-2.p-1.small.shadow-sm#pillNav2(role="tablist", style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: #293369; --bs-nav-pills-link-active-bg: var(--bs-white);")
+                    li.nav-item(role="presentation")
+                        button.nav-link.active.rounded-5#home-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="true", data-tab="section-1")
+                            p.navName Physical Exam
+                    li.nav-item(role="presentation")
+                        button.nav-link.rounded-5#Physical-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="false", data-tab="section-2") 
+                            p.navName History
+                    li.nav-item(role="presentation")
+                        button.nav-link.rounded-5#Systematic-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="false", data-tab="section-3") 
+                            p.navName Systematic Exam
+                    li.nav-item(role="presentation")
+                        button.nav-link.rounded-5#Treatment-tab2.tab(data-bs-toggle="tab", type="button", role="tab", aria-selected="false", data-tab="section-4")
+                            p.navName Treatment
+                
+            .tab-content#section-1
+                .tab-container
+                    .left-pane.physical-details-form#physical-details-form
+                        .details-heading
+                            h4  Physical Details 
+ 
+                        form.physical-form#physicalExam
+                            .row
+                                .col-third
+                                    h5 Height <span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#height.req(type="number",name="Height"  placeholder="Height" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                                .col-half
+                                    h5 Weight<span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#weight.req(type="number",name="Weight"  placeholder="Weight" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                            .row
+                                .col-third
+                                    h5 Blood pressure <span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#bp.req(type="text",name="BP"  placeholder="Blood pressure" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                                .col-third
+                                    h5 Pulse<span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#pulse.req(type="text",name="Pulse"  placeholder="Pulse rate" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                            .row
+                                .col-half
+                                    h5 Respiratory Rate <span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#resprate.req(type="text",name="RR"  placeholder="R. R" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                                .col-third
+                                    h5 Temperature<span style="color:red">&ensp;*</span> 
+                                    .input-group.input-group-icon
+                                        input#temp.req(type="text",name="Temp"  placeholder="Temperature" required )
+                                        .input-icon
+                                            i.fa.fa-user
+                            .row#submit-button
+                                input#submit-btn(type="submit" for="physicalExam")                
+ 
+                    .right-pane
+                        .details-heading 
+                            h5 PERSONAL DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header 
+                                    p Name :
+                                .text#name
+                                    p #{patientFName} #{patientMName} #{patientLName}
+                            .details-row.white 
+                                .header 
+                                    p Age :
+                                .text 
+                                    p #{Age}
+                            .details-row.white 
+                                .header 
+                                    p Gender :
+                                .text 
+                                    p #{Sex} 
+                            .details-row.white 
+                                .header 
+                                    p Phone No. :
+                                .text 
+                                    p #{phoneNumber}
+                            .details-row.white 
+                                .header 
+                                    p Email :
+                                .text 
+                                    p #{email}
+                            .details-row.white 
+                                .header 
+                                    p Patient ID :
+                                .text#patid
+                                    p #{patientID}
+                            .details-row.white 
+                                .header 
+                                    p Appointment ID :
+                                .text#aptid
+                                    p #{appointmentID}
+                             
+                            
+                        .details-heading 
+                            h5 VITALS DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header
+                                    p Weight :
+                                .text.recWeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Height :
+                                .text.recHeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Blood pressure :
+                                .text.recBp 
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Pulse :
+                                .text.recPulse
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p R. R. :
+                                .text.recRR 
+                                    p --
+                
+            .tab-content#section-2(style="display:none;")
+                .tab-container
+                    .left-pane#case-container
+                        .case-history  
+                          if Appointments  
+                            each appointment in Appointments
+                              .history
+                                .path
+                                    .column 
+                                        .line
+                                    .box 
+                                        .dot
+                                            .dot#white
+                                    .column 
+                                        .line
+                                .case-details 
+                                    .details-header
+                                        .case-name.
+                                             CASE HEADING 
+                                        .timing
+                                            .date
+                                                p #{appointment.Timing['date']}
+                                            .slot 
+                                                p #{appointment.Timing['time']}.00
+
+                                    .details-body
+                                        .profile
+                                            .doc-image
+                                                .rounded-box
+                                            .doc-name
+                                                p #{appointment.DoctorID['Name']}
+                                                p #{appointment.DoctorID['Department']}
+                                        .details
+                                            .complaint.details
+                                                h5 Complaint :
+                                                p  #{appointment.Disease['Description']}  
+                                            .prescription.details
+                                                h5 Prescription 
+                                                li Lorem ipsum dolor sit amet, 
+                                                li Lorem ipsum dolor sit amet, 
+                                                li Lorem ipsum dolor sit amet, 
+                                        .vitals 
+                                            .vital-details
+                                              if appointment.VitalsData
+                                                .details-row.white 
+                                                    .header 
+                                                        p Weight : 
+                                                    .text 
+                                                        p #{appointment.VitalsData['weight']}
+                                                .details-row.white 
+                                                    .header 
+                                                        p Height :
+                                                    .text 
+                                                        p #{appointment.VitalsData['height']}
+                                                .details-row.white 
+                                                    .header 
+                                                        p Blood pressure :
+                                                    .text 
+                                                        p #{appointment.VitalsData['bloodPressure']['systolic']}
+                                                .details-row.white 
+                                                    .header 
+                                                        p Pulse :
+                                                    .text 
+                                                        p #{appointment.VitalsData['pulse']} 
+                                                .details-row.white 
+                                                    .header 
+                                                        p R. R. :
+                                                    .text 
+                                                        p #{appointment.VitalsData['respiratoryRate']}
+                                    .details-footer 
+                                        button.viewApp(id=appointment['AppointmentID']) View more
+                                
+                    .right-pane
+                        .details-heading 
+                            h5 PERSONAL DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header 
+                                    p Name :
+                                .text 
+                                    p #{patientFName} #{patientMName} #{patientLName}
+                            .details-row.white 
+                                .header 
+                                    p Age :
+                                .text 
+                                    p #{Age}
+                            .details-row.white 
+                                .header 
+                                    p Gender :
+                                .text 
+                                    p #{Sex} 
+                            .details-row.white 
+                                .header 
+                                    p Phone No. :
+                                .text 
+                                    p #{phoneNumber}
+                            .details-row.white 
+                                .header 
+                                    p Email :
+                                .text 
+                                    p #{email}
+                            .details-row.white 
+                                .header 
+                                    p Patient ID :
+                                .text
+                                    p #{patientID}
+                            .details-row.white 
+                                .header 
+                                    p Appointment ID :
+                                .text
+                                    p #{appointmentID}
+                            
+                        .details-heading 
+                            h5 VITALS DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header
+                                    p Weight :
+                                .text.recWeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Height :
+                                .text.recHeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Blood pressure :
+                                .text.recBp 
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Pulse :
+                                .text.recPulse
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p R. R. :
+                                .text.recRR 
+                                    p --
+                           
+                
+
+            .tab-content#section-3(style="display:none;")
+                .tab-container
+                    .left-pane
+                        .details-heading
+                            h4  PRE REQUISITION FORM
+                        form(id="system-exam").req-form
+                            
+                            div.check-Box
+                               
+                                h5 HEAMATOLOGY TEST
+                                .test-radio-btn
+                                    h5 HEAMOGLOBIN
+                                    .input-group.test-selector
+                                        input#heamoglobin-yes(type="radio", for="system-exam", name="heamoglobin", value="Yes" required)
+                                        label(for="heamoglobin-yes") YES
+                                        input#heamoglobin-no(type="radio",for="system-exam",  name="heamoglobin", value="No" checked)
+                                        label(for="heamoglobin-no") NO 
+
+                                .test-radio-btn
+                                    h5 WBC COUNT
+                                    .input-group.test-selector
+                                        input#totwbc-yes(type="radio", for="system-exam",  name="totwbc", value="Yes" )
+                                        label(for="totwbc-yes") YES
+                                        input#totwbc-no(type="radio",for="system-exam",  name="totwbc", value="No" checked)
+                                        label(for="totwbc-no") NO 
+                                .test-radio-btn
+                                    h5 DIFFERENTIAL COUNT
+                                    .input-group.test-selector
+                                        input#diffcnt-yes(type="radio",for="system-exam",  name="diffcnt", value="Yes" )
+                                        label(for="diffcnt-yes") YES
+                                        input#diffcnt-no(type="radio",for="system-exam",  name="diffcnt", value="No" checked)
+                                        label(for="diffcnt-no") NO 
+                                .test-radio-btn
+                                    h5 ESR
+                                    .input-group.test-selector
+                                        input#esr-yes(type="radio",for="system-exam",  name="esr", value="Yes" )
+                                        label(for="esr-yes") YES
+                                        input#esr-no(type="radio",for="system-exam",  name="esr", value="No" checked)
+                                        label(for="esr-no") NO 
+                                .test-radio-btn
+                                    h5 PLATELET COUNT
+                                    .input-group.test-selector
+                                        input#pltCnt-yes(type="radio",for="system-exam",  name="pltCnt", value="Yes" )
+                                        label(for="pltCnt-yes") YES
+                                        input#pltCnt-no(type="radio",for="system-exam",  name="pltCnt", value="No" checked)
+                                        label(for="pltCnt-no") NO 
+                                .test-radio-btn
+                                    h5 M P
+                                    .input-group.test-selector
+                                        input#mp-yes(type="radio",for="system-exam",  name="mp", value="Yes" )
+                                        label(for="mp-yes") YES
+                                        input#mp-no(type="radio",for="system-exam",  name="mp", value="No" checked)
+                                        label(for="mp-no") NO 
+                                .test-radio-btn
+                                    .input-group 
+                                .test-radio-btn
+                                    h5 MICROBIAL
+                                    .input-group.test-selector
+                                        input#mcrob-yes(type="radio",for="system-exam",  name="mcrob", value="Yes" )
+                                        label(for="mcrob-yes") YES
+                                        input#mcrob-no(type="radio",for="system-exam",  name="mcrob", value="No" checked)
+                                        label(for="mcrob-no") NO 
+                                .test-radio-btn
+                                    h5 WIDAL
+                                    .input-group.test-selector
+                                        input#widal-yes(type="radio",for="system-exam",  name="widal", value="Yes" )
+                                        label(for="widal-yes") YES
+                                        input#widal-no(type="radio",for="system-exam",  name="widal", value="No" checked)
+                                        label(for="widal-no") NO 
+                                .test-radio-btn
+                                    h5 DENGUE
+                                    .input-group.test-selector
+                                        input#dengue-yes(type="radio",for="system-exam",  name="dengue", value="Yes" )
+                                        label(for="dengue-yes") YES
+                                        input#dengue-no(type="radio",for="system-exam",  name="dengue", value="No" checked)
+                                        label(for="dengue-no") NO 
+                                .test-radio-btn
+                                    h5 C R P
+                                    .input-group.test-selector
+                                        input#crp-yes(type="radio",for="system-exam",  name="crp", value="Yes" )
+                                        label(for="crp-yes") YES
+                                        input#crp-no(type="radio",for="system-exam",  name="crp", value="No" checked)
+                                        label(for="crp-no") NO 
+                                h5 BIOCHEMISTRY TEST
+                                .test-radio-btn
+                                    h5 R B S
+                                    .input-group.test-selector
+                                        input#rbs-yes(type="radio",for="system-exam",  name="rbs", value="Yes" )
+                                        label(for="rbs-yes") YES
+                                        input#rbs-no(type="radio",for="system-exam",  name="rbs", value="No" checked)
+                                        label(for="rbs-no") NO 
+                                .test-radio-btn
+                                    h5 MINI LFT
+                                    .input-group.test-selector
+                                        input#miniLft-yes(type="radio",for="system-exam",  name="miniLft", value="Yes" )
+                                        label(for="miniLft-yes") YES
+                                        input#miniLft-no(type="radio",for="system-exam",  name="miniLft", value="No" checked)
+                                        label(for="miniLft-no") NO 
+                                
+                            .note-Box
+                                .xRay.textarea
+                                    h4 X-RAY
+                                    textarea#xRay-text.sugg(placeholder="Enter something",for="system-exam",  name="text", rows="8", style="overflow: hidden; word-wrap: break-word; resize: none; ") 
+                                .usg.textarea
+                                    h4 USG
+                                    textarea#usg-text.sugg(placeholder="Enter something",for="system-exam",  name="text", rows="8", style="overflow: hidden; word-wrap: break-word; resize: none; ") 
+                                .other-test.textarea
+                                    h4 Any Other 
+                                    textarea#other-text.sugg(placeholder="Enter something",for="system-exam",  name="text", rows="8", style="overflow: hidden; word-wrap: break-word; resize: none; ") 
+                                div#system-exam-submit
+                                    input#submit-btn(type="submit", for="system-exam")
+                    .right-pane
+                        .details-heading 
+                            h5 PERSONAL DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header 
+                                    p Name :
+                                .text 
+                                    p #{patientFName} #{patientMName} #{patientLName}
+                            .details-row.white 
+                                .header 
+                                    p Age :
+                                .text 
+                                    p #{Age}
+                            .details-row.white 
+                                .header 
+                                    p Gender :
+                                .text 
+                                    p #{Sex} 
+                            .details-row.white 
+                                .header 
+                                    p Phone No. :
+                                .text 
+                                    p #{phoneNumber}
+                            .details-row.white 
+                                .header 
+                                    p Email :
+                                .text 
+                                    p #{email}
+                            .details-row.white 
+                                .header 
+                                    p Patient ID :
+                                .text
+                                    p #{patientID}
+                            .details-row.white 
+                                .header 
+                                    p Appointment ID :
+                                .text
+                                    p #{appointmentID}
+                             
+                        .details-heading 
+                            h5 VITALS DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header
+                                    p Weight :
+                                .text.recWeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Height :
+                                .text.recHeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Blood pressure :
+                                .text.recBp 
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Pulse :
+                                .text.recPulse
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p R. R. :
+                                .text.recRR 
+                                    p --
+              
+            .tab-content#section-4(style="display:none;")
+                .tab-container
+                    .left-pane#reporting
+                        h3.drug-heading REPORT
+                        form#makeReport(action="#section-4")
+                        
+                        form#listDrug(action="#section-4")
+                            .row
+                                .col-half
+                                    h4 Name of the drug
+                                    .input-group
+                                        select.name#drugName(form="listDrug")
+                                            script.
+                                                    var listAsString = sessionStorage.getItem("availableDrug");
+                                                    var listOfObjects = JSON.parse(listAsString);
+
+                                                    for (var i = 0; i < listOfObjects.length; i++) {
+                                                        document.write("<option>" + listOfObjects[i].drugName + "</option>");
+                                                    }
+                                            //- each val in availableDrugs
+                                            //-     option #{val}
+                                .col-third
+                                    h4 Quantity
+                                    .input-group 
+                                        input#drugQuantity.quantity.name(type="number" min="1" value='1' form="listDrug" required)  
+                            .row#time-period
+                                .col-fourth.checkbtn
+                                    h4 Morning
+                                    .input-group.checkbtnbox
+                                        input#mor(type="checkbox"  form="listDrug")
+                                        label(for="mor") 
+                                .col-fourth.checkbtn
+                                    h4 Afternoon
+                                    .input-group.checkbtnbox 
+                                        input#aft(type="checkbox" form="listDrug"  )
+                                        label(for="aft") 
+                                .col-fourth.checkbtn
+                                    h4 Evening
+                                    .input-group.checkbtnbox 
+                                        input#eve(type="checkbox" form="listDrug" )
+                                        label(for="eve") 
+                                .col-fourth.checkbtn
+                                    h4 Night
+                                    .input-group.checkbtnbox 
+                                        input#ngt(type="checkbox" form="listDrug" )
+                                        label(for="ngt") 
+                            .row 
+                                .col-half
+                                    h4 Note
+                                    .input-group.input-group-icon
+                                        input#note(type="text",name="note" form="listDrug" )
+                                        .input-icon
+                                            i.fa.fa-text 
+
+                                .col-fifth
+                                    
+                                    .row    
+                                        input#submit-btn(for="listDrug" type="submit" val="addDrug" form="listDrug"  onSubmit=addDrug )
+
+                        h3.drug-heading DRUGS
+                        hr(size, color="#bdbdbd")
+                        h4
+                        #Drugtable
+                             
+                            table
+                                thead
+                                    tr
+                                    th Name of the Drug
+                                    th Quantity 
+                                    th Timing
+                                    th Note
+                                    th Action
+                                tbody
+                                    script.
+ 
+                                            var listAsString = sessionStorage.getItem("drugList");
+                                            var listOfObjects = JSON.parse(listAsString);
+                                            //- console.log(listOfObjects.length)
+                                            if(listOfObjects!=undefined){
+                                                if(listOfObjects.length!=0){
+                                            for (var i = 0; i < listOfObjects.length; i++) {
+                                                var obj = listOfObjects[i];
+                                                document.write("<tr>");
+                                                document.write("<td>" + obj.drugName + "</td>");
+                                                document.write("<td>" + obj.drugQuantity + "</td>");
+                                                document.write("<td>" + obj.drugTiming[0]+'---'+ obj.drugTiming[2]+'---'+ obj.drugTiming[4] + '---'+ obj.drugTiming[6]+"</td>");
+                                                document.write("<td>" + obj.drugNote + "</td>");
+                                                document.write("<td><button id='button'onclick='deleteItem(" + i + ")'>Delete</button></td>");
+                                                document.write("</tr>");
+                                            }
+                                            }
+                                            else{
+                                                document.write("<tr>");
+                                                document.write("<td>No</td>");
+                                                document.write("<td>items</td>");
+                                                document.write("<td>are</td>");
+                                                document.write("<td>selected</td>");
+                                                document.write("<td>:)</td>");
+                                                document.write("</tr>");
+
+                                            }
+                                            }
+                                            else{
+                                                document.write("<tr>");
+                                                document.write("<td>No</td>");
+                                                document.write("<td>items</td>");
+                                                document.write("<td>are</td>");
+                                                document.write("<td>selected</td>");
+                                                document.write("<td>:)</td>");
+                                                document.write("</tr>");
+
+                                            }
+                        .suggestions
+                            h4 Suggestions
+                            .row  
+                                textarea.sugg#suggest-box(placeholder="Enter something",for="system-exam",  name="text", rows="4" style ="border:none;" )  
+                                .col-fourth
+                                    input#submit-btn(for="makeReport" type="submit" val="makeReport" form="makeReport"  onSubmit=makeReport )        
+
+                    .right-pane
+                        .details-heading 
+                            h5 PERSONAL DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header 
+                                    p Name :
+                                .text 
+                                    p #{patientFName} #{patientMName} #{patientLName}
+                            .details-row.white 
+                                .header 
+                                    p Age :
+                                .text 
+                                    p #{Age}
+                            .details-row.white 
+                                .header 
+                                    p Gender :
+                                .text 
+                                    p #{Sex} 
+                            .details-row.white 
+                                .header 
+                                    p Phone No. :
+                                .text 
+                                    p #{phoneNumber}
+                            .details-row.white 
+                                .header 
+                                    p Email :
+                                .text 
+                                    p #{email}
+                            .details-row.white 
+                                .header 
+                                    p Patient ID :
+                                .text
+                                    p #{patientID}
+                            .details-row.white 
+                                .header 
+                                    p Appointment ID :
+                                .text
+                                    p #{appointmentID}
+                        .details-heading 
+                            h5 VITALS DETAILS
+                        .details-text
+                            .details-row.white 
+                                .header
+                                    p Weight :
+                                .text.recWeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Height :
+                                .text.recHeight
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Blood pressure :
+                                .text.recBp 
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p Pulse :
+                                .text.recPulse
+                                    p --
+                            .details-row.white 
+                                .header 
+                                    p R. R. :
+                                .text.recRR 
+                                    p --
+                 
+             
+ 
+script.         
+        var tabs = document.querySelectorAll('.tab');
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          
+          var tabId = this.dataset.tab;
+     
+          var tabContents = document.querySelectorAll('.tab-content');
+          tabContents.forEach(function(tabContent) {
+            tabContent.style.display = 'none';
+          });
+    
+          var selectedTabContent = document.getElementById(tabId);
+          selectedTabContent.style.display = 'block';
+    
+        
+          tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+          });
+    
+         
+          this.classList.add('active');
+        });
+      });
+  

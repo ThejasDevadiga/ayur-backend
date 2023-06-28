@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "642475798db63c4a1e4ff695"
+  },
+  "vitalDataID": "AYUR28032023-VITL-2241-19",
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "temperature": "20deg",
+  "weight": 60,
+  "height": 180,
+  "pulse": "60-100",
+  "bloodPressure": {
+    "systolic": "140/90mmHg"
+  },
+  "respiratoryRate": "75-80",
+  "Date": {
+    "$date": "2023-03-28T18:30:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2023-03-29T17:29:29.752Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-29T17:29:29.752Z"
+  },
+  "__v": 0,
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "642475c88db63c4a1e4ff69a"
+  },
+  "vitalDataID": "AYUR29032023-VITL-2300-48",
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "temperature": "565",
+  "weight": 65,
+  "height": 172,
+  "pulse": "565",
+  "bloodPressure": {
+    "systolic": "565"
+  },
+  "respiratoryRate": "565",
+  "Date": {
+    "$date": "2023-03-28T18:30:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2023-03-29T17:30:48.965Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-29T17:30:48.965Z"
+  },
+  "__v": 0,
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+}]

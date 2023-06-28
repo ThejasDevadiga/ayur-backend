@@ -1,0 +1,129 @@
+head
+  title Pug
+  script(type='text/javascript').
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css' rel='stylesheet')
+include ../Navbar/navbar.pug
+
+section(style='background-color:  #eee;')
+  .container.py-4
+    .row
+      .col-lg-4
+        .card.mb-4
+          .card-body.text-center
+            img.rounded-circle.img-fluid(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp' alt='avatar' style='width: 150px;')
+            h5.my-3 #{Name} 
+            h6.text-muted.mb-1 #{Phone} 
+            h6.text-muted.mb-2.text-primary #{patientId}
+            p.text-muted.mb-2 (#{Age} years)
+            //- .d-flex.justify-content-center.mb-2
+              //- button.btn.btn-primary(type='button' disabled) #{Status}
+              //- button.btn.btn-outline-primary.ms-1(type='button') Message
+        .card.mb-4.mb-lg-0
+          .card-body.p-0
+            ul.list-group.list-group-flush.rounded-3
+              li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                h6.text-secondary Weight
+                p.mb-0 
+                  strong.text-primary #{weight} 
+              li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                h6.text-secondary Height
+                p.mb-0 
+                  strong.text-primary #{height} 
+              li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                h6.text-secondary Blood Pressure
+                p.mb-0 
+                  strong.text-primary #{bloodPressure['systolic']}
+              li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                h6.text-secondary Resp. Rate
+                p.mb-0
+                  strong.text-primary #{respiratoryRate} 
+              
+        
+        .card.mb-4.m-2
+          .card-body.text-center
+            //- img.rounded-circle.img-fluid(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp' alt='avatar' style='width: 150px;')
+            h5.my-3.text-primary
+                strong #{docName} 
+            p.text-muted.mb-1 #{Department} 
+            p.text-muted.mb-1.text-secondary #{ConsultantID} 
+        .card.mb-6.m-2
+          .card-body.text-center.p-2
+            h5.my-1.text-primary
+                strong #{hospital} 
+            h6.my-1.text-secondary
+                strong #{branch} 
+      .col-lg-8
+        .card.mb-4
+          .card-body
+            .row
+              .col-sm-3
+                p.mb-0 Gender
+              .col-sm-3
+                p.text-muted.mb-0 #{Gender} 
+              .col-sm-3
+                p.mb-0 Mobile
+              .col-sm-3
+                p.text-muted.mb-0 #{Phone} 
+            hr
+            .row
+              .col-sm-3
+                p.mb-0 Address
+              .col-sm-9
+                p.text-muted.mb-0 #{Address}  
+            
+        .col-lg-12
+          .card.mb-4
+            .card-body.p-2.pt-3.p-left-3
+              .row
+                .col-sm-3
+                  p.mb-0
+                    strong Complaint
+                .col-sm-9.text-center
+                  p.text-muted.mb-0.text-primary #{Reason}
+              hr 
+              .row
+                .col-sm-6
+                  p.md-0  Date   :
+                    strong.text-primary  #{date}
+                .col-sm-6 
+                  p.md-0 Time   : 
+                    strong.text-primary #{time}:00 - #{time}:15
+        .col-sm-12
+          .card.mb-4 
+            .card-body
+              table.table
+                thead
+                  tr
+                    th(scope='col') #
+                    th(scope='col') Drug Name
+                    th(scope='col') Timings
+                    th(scope='col') Quantity
+                tbody
+                  each drug in drugList
+                    tr
+                      th(scope='row') 1
+                      td #{drug.drugName}
+                      td #{drug.drugTiming}
+                      td #{drug.drugQuantity}
+                    
+        .col-lg-12
+          .card.mb-4
+            .card-body.p-2.pt-3.p-left-3
+              .row
+                .col-sm-3
+                  p.mb-0
+                    strong.text-primary Suggestions :
+                .col-sm-9.text-center
+                  p.text-muted.mb-0.text-primary  #{Suggestions} 
+        .row.d-flex.justify-content-center.align-items-center
+          .col-sm-4
+            button.btn.btn-secondary(type='button' onclick="window.history.go(-1); return false;") Back
+          
+              
+                
+                
+        
+                  
+script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js')

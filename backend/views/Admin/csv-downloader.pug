@@ -1,0 +1,126 @@
+
+head
+  title Pug
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+script(src="/js/Utils/generateId.js")
+script(src="/js/Utils/requestor.js")
+include ../Navbar/navbar.pug
+
+section(style='background-color:  #eee;').h-100
+  .container
+    .row
+      .col-lg-4.m-3
+        button.btn.btn-secondary(type='button' onclick="window.history.go(-1); return false;") Back
+  .container-lg.mt-3.w-auto.h-75
+    .card.d-flex.justify-content-center.align-items-center.h-100
+      .card-body.d-flex.justify-content-center.align-items-center.w-100
+        form.w-50.d-flex.flex-column.justify-content-center.align-items-center#csvForm
+          .row
+            h1(style="color:#293369") CSV Downloader
+          hr
+          h4 Select the record
+          .row.w-100
+            .col
+              select.form-select.form-select-lg.mb-3( aria-label=".form-select-lg example" id="recordName" required )
+                option(value="Patients") Patients
+                option(value="Appointments") Appointments
+                option(value="Doctors") Doctors
+          //- h4 Filter
+          
+          .row.w-100.m-3(style="display: none;" id="appointment")
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='AppointmentID') 
+                  p AppointmentID
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='DoctorID') 
+                  p Doctor ID
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='DoctorName') 
+                  p  Doctor Name
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+          .row.w-100.m-3(style="display: none;" id="patients")
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p  Patient checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+          .row.w-100.m-3(style="display: none;" id="doctors")
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p  Doctor checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+              .list-group.d-flex.flex-row.justify-content-evenly
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input(type='checkbox' value='') 
+                  p  First checkbox
+                label.list-group-item.d-flex.justify-content-evenly
+                  input.form-check-input.me-1(type='checkbox' value='') 
+                  p Second checkbox
+                  
+          .row.mb-6
+            .col
+              button.btn.btn-block(type='submit' style="background-color:#293369;color:white" ) Download document
+ 
+script(src="/js/receptionist/filedownload.js") 
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')

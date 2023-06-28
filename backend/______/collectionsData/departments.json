@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "63e4a1113ea7f0249c66571e"
+  },
+  "name": "Hospital",
+  "description": "Desc",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4a1593ea7f0249c66571f"
+  },
+  "name": "Hospital1",
+  "description": "Desc 1",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4a1613ea7f0249c665720"
+  },
+  "name": "Hospital2",
+  "description": "Desc 2",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4a1833ea7f0249c665721"
+  },
+  "name": "Hospital3",
+  "description": "Desc 3",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+}]

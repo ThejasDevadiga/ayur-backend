@@ -1,0 +1,86 @@
+[{
+  "_id": {
+    "$oid": "63e3b41819f48030de838d19"
+  },
+  "Basic": {
+    "Name": "wardn1",
+    "Phone": "1234567"
+  },
+  "Hostel": {
+    "HostelName": "wardn1",
+    "WardenId": "wardn1"
+  },
+  "EmpID": "AYUR08022023-EMP-1958-26",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e3b41819f48030de838d1a"
+  },
+  "Basic": {
+    "Name": "wardn2",
+    "Phone": "1234567"
+  },
+  "Hostel": {
+    "HostelName": "wardn2",
+    "WardenId": "wardn2"
+  },
+  "EmpID": "AYUR08022023-EMP-1958-06",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Basic": {
+    "Name": "wardn3",
+    "Phone": "1234567"
+  },
+  "Hostel": {
+    "HostelName": "wardn3",
+    "WardenId": "wardn3"
+  },
+  "EmpID": "AYUR08022023-EMP-1958-07",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e3b41819f48030de838d1c"
+  },
+  "Basic": {
+    "Name": "wardn4",
+    "Phone": "1234567"
+  },
+  "Hostel": {
+    "HostelName": "wardn4",
+    "WardenId": "wardn4"
+  },
+  "EmpID": "AYUR08022023-EMP-1958-08",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e3b41819f48030de838d1d"
+  },
+  "Basic": {
+    "Name": "wardn5",
+    "Phone": "1234567"
+  },
+  "Hostel": {
+    "HostelName": "wardn5",
+    "WardenId": "wardn5"
+  },
+  "EmpID": "AYUR08022023-EMP-1958-09",
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+}]

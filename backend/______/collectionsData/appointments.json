@@ -1,0 +1,1220 @@
+[{
+  "_id": {
+    "$oid": "63e3c6a26226d3b230824b69"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-26",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "8"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "I'm having mild headache"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-29T09:33:23.165Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e3f3adf258cf8f7e231440"
+  },
+  "AppointmentID": "AYUR09022023-APNT-0040-37",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1c"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-02-23",
+    "time": "12"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "Lorem ipsum dolor sit amet"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T19:10:37.860Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:44:16.421Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4933d7d8d7648abd3e4f6"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1201-25",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-10",
+    "time": "10"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:31:25.096Z"
+  },
+  "updatedAt": {
+    "$date": "2023-02-09T06:31:25.096Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4950b490ba7c04961c741"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1209-07",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-20",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:39:07.475Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-29T17:30:48.968Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "VitalsData": {
+    "$oid": "642475c88db63c4a1e4ff69a"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4957e490ba7c04961c748"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1211-02",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-08",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:41:02.937Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-23T03:33:20.723Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494408caa5130071a71cc"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4964e490ba7c04961c74f"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1214-30",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a03"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1c"
+  },
+  "Status": "REJECTED",
+  "Timing": {
+    "date": "2023-02-11",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:44:30.137Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-23T06:37:01.293Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494408caa5130071a71cc"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e49684490ba7c04961c756"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1215-24",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a59ff"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-02-11",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms5"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:45:24.639Z"
+  },
+  "updatedAt": {
+    "$date": "2023-02-09T06:45:24.639Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4969c490ba7c04961c75d"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1215-48",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-11",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms4"
+    ],
+    "Description": "tested"
+  },
+  "createdAt": {
+    "$date": "2023-02-09T06:45:48.484Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-23T06:46:42.387Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4a3d3c295fbba01c05e11"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1312-11",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a03"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-25",
+    "time": "1"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T07:42:11.277Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:45:36.223Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e494408caa5130071a71cc"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e4eec3309d6cf57b90f3f1"
+  },
+  "AppointmentID": "AYUR09022023-APNT-1831-55",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1c"
+  },
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-12",
+    "time": "9"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-02-09T13:01:55.906Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:45:39.991Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e8f4053cff7a2670a61369"
+  },
+  "AppointmentID": "AYUR12022023-APNT-1943-25",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e8f3d63cff7a2670a61361"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-24",
+    "time": "9"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": "This is a high dose medicine"
+  },
+  "createdAt": {
+    "$date": "2023-02-12T14:13:25.266Z"
+  },
+  "updatedAt": {
+    "$date": "2023-02-12T14:13:25.266Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "63e8f8861f6910b7bebea863"
+  },
+  "AppointmentID": "AYUR12022023-APNT-2002-38",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a59ff"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e8f3d63cff7a2670a61361"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-23",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "This is a high dose medicine"
+  },
+  "createdAt": {
+    "$date": "2023-02-12T14:32:38.833Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:44:27.219Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "640da13e7f9d81d822a5a195"
+  },
+  "AppointmentID": "AYUR12032023-APNT-1524-06",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e494408caa5130071a71cc"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-23",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-03-12T09:54:06.047Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-12T09:54:06.047Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "640db34816cb058c5c904de2"
+  },
+  "AppointmentID": "AYUR12032023-APNT-1641-04",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1c"
+  },
+  "PatientID": {
+    "$oid": "640db31016cb058c5c904dd8"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-22",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms2"
+    ],
+    "Description": "tested"
+  },
+  "createdAt": {
+    "$date": "2023-03-12T11:11:04.995Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:44:38.894Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "64141df23196cd9f3d1eea8c"
+  },
+  "AppointmentID": "AYUR17032023-APNT-1329-46",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-22",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-03-17T07:59:46.708Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:44:44.110Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "64184d26a97b5f8c323cd63d"
+  },
+  "AppointmentID": "AYUR20032023-APNT-1740-14",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a59ff"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-29",
+    "time": "12"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-03-20T12:10:14.561Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:45:29.320Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641b5b959887cf8aac0e09a4"
+  },
+  "AppointmentID": "AYUR23032023-APNT-0118-37",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e494398caa5130071a71cb"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-31",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "sdfffd"
+  },
+  "createdAt": {
+    "$date": "2023-03-22T19:48:37.582Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-23T06:46:44.213Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b5dec1de8a10c55c98a"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-28",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "9"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b78ec1de8a10c55c98b"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-29",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "10"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b7fec1de8a10c55c98c"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-36",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T13:36:51.452Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b8bec1de8a10c55c98e"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-19",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "12"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b91ec1de8a10c55c98f"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-16",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "2"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6b97ec1de8a10c55c990"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-06",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-20",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641d6badec1de8a10c55c991"
+  },
+  "AppointmentID": "AYUR08022023-APNT-2128-40",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a00"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-02-20",
+    "time": "8"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1",
+      "Symptoms2",
+      "Symptoms3"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-02-08T15:58:26.521Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-22T19:35:29.265Z"
+  },
+  "__v": 0,
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641db7d9416e1029ace2a85e"
+  },
+  "AppointmentID": "AYUR24032023-APNT-2016-49",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0200c616d6444b1ebcc"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "3"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": ""
+  },
+  "createdAt": {
+    "$date": "2023-03-24T14:46:49.894Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T14:46:55.712Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc7821873e8db50028ee3"
+  },
+  "AppointmentID": "AYUR24032023-APNT-2123-38",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0210c616d6444b1ebcf"
+  },
+  "Status": "APPROVED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "10"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms2"
+    ],
+    "Description": "note"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:53:38.073Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:53:55.184Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc78b1873e8db50028ef3"
+  },
+  "AppointmentID": "AYUR23032023-APNT-2223-30",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a59ff"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "63e36174581813b30ca66b99"
+  },
+  "Status": "CONSULTED",
+  "Timing": {
+    "date": "2023-03-08",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms3"
+    ],
+    "Description": "adssd"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:53:47.224Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:53:47.224Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc7d01873e8db50028f36"
+  },
+  "AppointmentID": "AYUR23032023-APNT-2224-39",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0630c616d6444b1ebd2"
+  },
+  "Status": "REQUESTED",
+  "Timing": {
+    "date": "2023-03-22",
+    "time": "3"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": "dsdsd"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:54:56.205Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:54:56.205Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc8211873e8db50028f6a"
+  },
+  "AppointmentID": "AYUR23032023-APNT-2226-01",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a03"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0630c616d6444b1ebd2"
+  },
+  "Status": "REQUESTED",
+  "Timing": {
+    "date": "2023-03-23",
+    "time": "8"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms1"
+    ],
+    "Description": "dsdsd"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:56:17.593Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:56:17.593Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc86f1873e8db50028f9a"
+  },
+  "AppointmentID": "AYUR23032023-APNT-2227-18",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a01"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0630c616d6444b1ebd2"
+  },
+  "Status": "REJECTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "12"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms2"
+    ],
+    "Description": "dsdsd nmvgjvj"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:57:35.225Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:57:58.295Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+},{
+  "_id": {
+    "$oid": "641dc86f1873e8db50028f9f"
+  },
+  "AppointmentID": "AYUR24032023-APNT-2127-35",
+  "DoctorID": {
+    "$oid": "63e3acccd2fd5b49f58a5a02"
+  },
+  "WardenID": {
+    "$oid": "63e3b41819f48030de838d1b"
+  },
+  "PatientID": {
+    "$oid": "640db0210c616d6444b1ebcf"
+  },
+  "Status": "REJECTED",
+  "Timing": {
+    "date": "2023-03-24",
+    "time": "11"
+  },
+  "Disease": {
+    "Symptoms": [
+      "Symptoms2"
+    ],
+    "Description": "tested"
+  },
+  "createdAt": {
+    "$date": "2023-03-24T15:57:35.456Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-24T15:58:03.939Z"
+  },
+  "__v": 0,
+  "VitalsData": {
+    "$oid": "64213d4df97580ae9b288ac1"
+  },
+  "Hospital": {
+    "Name": "Ayurveda",
+    "Branch": "Vidyagiri"
+  }
+}]

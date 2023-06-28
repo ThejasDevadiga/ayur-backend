@@ -1,0 +1,14 @@
+meta(charset="utf-8")
+title Details
+script(src="/js/table/table.js") 
+link.css(rel="stylesheet", href="/css/Components/table.css")
+script(src="/js/Utils/requestor.js")
+include ../Navbar/navbar.pug
+
+.table-container(id=tableID)
+  p#heading #{heading}
+  table#mytable
+    thead
+      tr
+        th No
+    tbody

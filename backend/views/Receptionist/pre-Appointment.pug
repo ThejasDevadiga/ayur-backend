@@ -1,0 +1,44 @@
+title #{title}
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
+link(href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700", rel="stylesheet", type="text/css")
+link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+link(rel="stylesheet", href="/css/components/form.css")
+//- script(src="/js/Utils/generateToken.js")
+script(src="/js/Utils/requestor.js")
+script(src="/js/receptionist/preAppointment.js")
+
+.container(style="margin-top:10%")
+  form#preappointmentForm(method="post")
+    .row
+      .input-group
+        input#warden.req(type="radio", name="role", value="warden" disabled)
+        label(for="warden") Warden
+        input#receptionist.req(type="radio", name="role", value="receptionist" disabled)
+        label(for="receptionist") Receptionist
+
+    hr(color="#bdbdbd")
+    br
+    br
+    .row
+        .col-half 
+            h4 Patient Name 
+            .input-group.input-group-icon
+                input#name.distext.req(type="text", placeHolder="Patient Name" name="name" required  )
+                .input-icon
+                    i.fa.fa-user
+        .col-half
+            h4 Patient Id
+            .input-group.input-group-icon
+                select#pid.req(required )
+                  option(val="") select the ID
+               
+    br
+    br
+    hr(color="#bdbdbd")
+    br
+
+    .row.button
+      .col-half
+        input#button.req(type="submit", value="submit")
+    .row

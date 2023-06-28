@@ -1,0 +1,98 @@
+title #{title}
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
+link(href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700", rel="stylesheet", type="text/css")
+link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+link(rel="stylesheet", href="/css/components/form.css")
+script(src="/js/Utils/requestor.js")
+script(src="/js/Utils/generateId.js") 
+script(src="/js/receptionist/bookAppointment.js")
+
+include ../Navbar/navbar.pug
+.container
+  form#appointmentForm(method="post")
+    .row  
+      .input-group
+        input#warden.req(type="radio", name="role", value="warden" disabled)
+        label(for="warden") Warden
+        input#receptionist.req(type="radio", name="role", value="receptionist" disabled)
+        label(for="receptionist") Receptionist
+    h3 DETAILS
+    hr(color="#bdbdbd")
+    .row
+        .col-half
+            h4 Patient Id
+            .input-group.input-group-icon
+                input#pid.distext.req(type="text", value=patientId name="pid" disabled )
+                .input-icon
+                    i.fa.fa-user
+        .col-half 
+            h4 Patient Name 
+            .input-group.input-group-icon
+                input#name.distext.req(type="text", value=patientName name="name" disabled )
+                .input-icon
+                    i.fa.fa-user
+    hr(color="#bdbdbd")
+    .row 
+      .col-half
+        h4 Hospital Name <span style="color:red">&ensp;*</span>
+        .input-group
+          select#hospital.req( required)
+            option(value="") Select Hospital 
+            
+      .col-half 
+        h4 Branch 
+        .input-group 
+          input#branch.req(type="text" name="desc" disabled)
+    .row 
+      .col-half 
+        h4 Category
+        .input-group 
+          select#symptoms.req(required)
+            option(value="") Select category 
+            option(value="symp") Fever 
+      .col-half 
+        h4 Descriptions 
+        .input-group 
+          input#desc.req(type="text" name="desc" )
+    h3 TIMINGS
+    hr(size, color="#bdbdbd") 
+    .row
+      .col-third
+        h4 Date<span style="color:red">&ensp;*</span>
+        .input-group
+          input#apntDate.req(type="date" name="apntDate" required)
+      .col-fourth
+        .input-group
+      .col-third
+        h4 Time<span style="color:red">&ensp;*</span>
+        .input-group
+          select#apntTime.req(required)
+    h3 DOCTOR DETAILS
+    hr(size, color="#bdbdbd")
+    .row
+      .col-half
+        h4 Department name
+        .input-group
+          select#department
+            each val, index in ["Select Department",'Hospital', 'Department2', 'Department3','Department4','Department5']
+              option #{val}
+               
+      .col-half
+        h4 Doctor name
+        .input-group
+          select#doctorName
+            
+             
+    //- h3 TERMS
+    //- hr(size, color="#bdbdbd")
+    //- .row
+    //-   br
+    //-   h4 Terms and Conditions
+    //-   .input-group
+    //-     input#terms(type="checkbox")
+    //-     label#term(for="terms") 
+    .row.button
+      .col-half
+        input#button.req(type="submit", value="submit")
+    .row
