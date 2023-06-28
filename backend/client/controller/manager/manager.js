@@ -6,11 +6,11 @@ const managerHome = asyncHandler(async (req, res, next) => {
   res.render("Manager/manager", {
     title: "Manager",
     user: "Thejas Devadiga",
-    cardHeading:"Card testing",
-    cardTagline:"Card tagline is good",
-    cardDescription:"lorem gipsum doloro sit amet",
-    cardImg:"/images/classes-1.jpg",
-    cardBtnName:"Get details",
+    cardHeading: "Card testing",
+    cardTagline: "Card tagline is good",
+    cardDescription: "lorem gipsum doloro sit amet",
+    cardImg: "/images/classes-1.jpg",
+    cardBtnName: "Get details",
     controlles: {
       1: {
         linkName: "Patient Details",
@@ -28,9 +28,9 @@ const managerHome = asyncHandler(async (req, res, next) => {
         linkName: "Addmission",
         linkUrl: "/views/Manager/patient-addmission",
       },
-    }
-  })
-})
+    },
+  });
+});
 
 const drugDetails = asyncHandler(async (req, res, next) => {
   var raw = JSON.stringify({
@@ -38,23 +38,21 @@ const drugDetails = asyncHandler(async (req, res, next) => {
     filter: {},
     projection: { PatientID: 0 },
   });
-  
+
   const patData = await requestor(
     "POST",
     raw,
-    "http:localhost:5000/api/manager/get-drug-details"
+    "https://ayur.vercel.app/api/manager/get-drug-details"
   );
   result = JSON.parse(patData).data;
- 
+
   function extractBasicData(data) {
     return data.map((item) => {
-      const {
-       drugID,drugName
-      } = item;
+      const { drugID, drugName } = item;
 
       return {
         Name: drugName,
-       ID: drugID
+        ID: drugID,
       };
     });
   }
@@ -67,9 +65,7 @@ const drugDetails = asyncHandler(async (req, res, next) => {
   });
 });
 
-
-
-
 module.exports = {
-  managerHome,drugDetails
+  managerHome,
+  drugDetails,
 };
