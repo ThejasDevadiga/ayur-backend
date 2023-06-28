@@ -35,11 +35,11 @@ const receptHome = asyncHandler(async (req, res, next) => {
         linkName: "Book Appointment",
         linkUrl: "/views/Receptionist/preAppointment.pug",
       },
-      6:{
-        // 
+      6: {
+        //
         linkName: "File download",
         linkUrl: "/views/download-file.pug",
-      }
+      },
     },
   });
 });
@@ -52,7 +52,6 @@ const PatientDetails = asyncHandler(async (req, res, next) => {
     tableID: "patientlist",
   });
 });
-
 
 const appointmentsList = asyncHandler(async (req, res, next) => {
   res.render("Components/table", {
@@ -73,7 +72,7 @@ const DoctorDetails = asyncHandler(async (req, res, next) => {
   // const result = await requestor(
   //   "POST",
   //   raw,
-  //   "http://localhost:5000/api/Receptionist/get-doctor-list"
+  //   "https://ayur.vercel.app//api/Receptionist/get-doctor-list"
   // );
 
   // if (result==null ){
@@ -93,7 +92,7 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
   const fmDate = new Date(req.params["date"]);
   const toDate = new Date(req.params["date"]);
   const doctorID = req.params["docId"];
-  
+
   toDate.setDate(toDate.getDate() + 10);
   let dates = [];
   const count = new Date(req.params["date"]);
@@ -135,12 +134,12 @@ const AppointmentTable = asyncHandler(async (req, res, next) => {
   let result = await requestor(
     "POST",
     raw,
-    "http://localhost:5000/api/Receptionist/get-appointment-details"
+    "https://ayur.vercel.app//api/Receptionist/get-appointment-details"
   );
   // result  =  JSON.parse(result)
 
   if (result != null) {
-  let  data = extractedData(result);
+    let data = extractedData(result);
 
     res.render("Components/scheduleTable", {
       title: "Schedules",
@@ -209,7 +208,6 @@ const updateAppointment = asyncHandler(async (req, res) => {
 });
 
 const profilePage = asyncHandler(async (req, res, next) => {
-
   const patientID = req.params["id"];
 
   let raw = JSON.stringify({
@@ -220,78 +218,78 @@ const profilePage = asyncHandler(async (req, res, next) => {
   let result = await requestor(
     "POST",
     raw,
-    "http://localhost:5000/api/Receptionist/patient-AppointmentList"
+    "https://ayur.vercel.app//api/Receptionist/patient-AppointmentList"
   );
-  
+
   // result  =  JSON.parse(result)
 
   if (result != null) {
     console.log(result);
     const {
-     
-        Basic: { Fname, Mname, Lname, Gender, Phone, Age,Address,City },
-        PatientID,
-        Status,
-        Appointments
-      } = result;
-  const LastAppointment = Appointments[Appointments.length -1]
-  console.log(LastAppointment);
-  // let weight,height,pulse,respiratoryRate,Date,bloodPressure= {systolic:""};
-  if(LastAppointment &&LastAppointment['VitalsData']){
-    const {
-      VitalsData:{weight,height,pulse,respiratoryRate,bloodPressure,Date
-      } 
-    }= LastAppointment
-  
-  
-  res.render("Receptionist/profile", {
-    title: " ",
-    message: "Hello there!",
-    Name:Fname +" "+Mname +" "+Lname,
-    patientId:PatientID,
-    Status,
-    Address:Address+", "+City,
-    Phone,
-    Age,
-    Gender,
-    weight:weight?weight:"",
-    height:height?height:"",
-    pulse:pulse?pulse:"",
-    respiratoryRate,
-    bloodPressure: bloodPressure["systolic"],
-    Date:Date?Date.slice(0,10):"",
-    Appointments
-  });
-  
-}
-else{
-  res.render("Receptionist/profile", {
-    title: " ",
-    message: "Hello there!",
-    Name:Fname +" "+Mname +" "+Lname,
-    patientId:PatientID,
-    Status,
-    Address:Address+", "+City,
-    Phone,
-    Age,
-    Gender,
-    weight:"",
-    height:"",
-    pulse:"",
-    respiratoryRate:"",
-    bloodPressure:"",
-    Date:"",
-    Appointments
-  });
-}
+      Basic: { Fname, Mname, Lname, Gender, Phone, Age, Address, City },
+      PatientID,
+      Status,
+      Appointments,
+    } = result;
+    const LastAppointment = Appointments[Appointments.length - 1];
+    console.log(LastAppointment);
+    // let weight,height,pulse,respiratoryRate,Date,bloodPressure= {systolic:""};
+    if (LastAppointment && LastAppointment["VitalsData"]) {
+      const {
+        VitalsData: {
+          weight,
+          height,
+          pulse,
+          respiratoryRate,
+          bloodPressure,
+          Date,
+        },
+      } = LastAppointment;
 
-  
-}
+      res.render("Receptionist/profile", {
+        title: " ",
+        message: "Hello there!",
+        Name: Fname + " " + Mname + " " + Lname,
+        patientId: PatientID,
+        Status,
+        Address: Address + ", " + City,
+        Phone,
+        Age,
+        Gender,
+        weight: weight ? weight : "",
+        height: height ? height : "",
+        pulse: pulse ? pulse : "",
+        respiratoryRate,
+        bloodPressure: bloodPressure["systolic"],
+        Date: Date ? Date.slice(0, 10) : "",
+        Appointments,
+      });
+    } else {
+      res.render("Receptionist/profile", {
+        title: " ",
+        message: "Hello there!",
+        Name: Fname + " " + Mname + " " + Lname,
+        patientId: PatientID,
+        Status,
+        Address: Address + ", " + City,
+        Phone,
+        Age,
+        Gender,
+        weight: "",
+        height: "",
+        pulse: "",
+        respiratoryRate: "",
+        bloodPressure: "",
+        Date: "",
+        Appointments,
+      });
+    }
+  }
 });
 
-const csvFileDownloaderPage = asyncHandler(async(req,res)=>{
-res.render("admin/csv-downloader",{})
-})
+const csvFileDownloaderPage = asyncHandler(async (req, res) => {
+  res.render("admin/csv-downloader", {});
+});
 module.exports = {
   receptHome,
   PatientDetails,
@@ -304,5 +302,5 @@ module.exports = {
   preSchedule,
   profilePage,
   csvFileDownloaderPage,
-  appointmentsList
+  appointmentsList,
 };

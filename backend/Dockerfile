@@ -6,7 +6,7 @@ ENV NODE_ENV  development
 ENV JWT_SECRET  thejas1234
 ENV API_USERNAME   apiUserName
 ENV API_USERPASS   apiUserPass
-ENV HOST  http://localhost:5000
+ENV HOST  https://ayur.vercel.app/
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../

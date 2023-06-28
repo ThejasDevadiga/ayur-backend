@@ -1,6 +1,5 @@
 // window.addEventListener("load", () => {
-//   loadPatientList()  
-
+//   loadPatientList()
 
 //   const d0cList = document.querySelectorAll(".doc-list");
 //   docList.forEach((btn) => {
@@ -81,7 +80,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/Receptionist/get-doctor-list"
+      "https://ayur.vercel.app//api/Receptionist/get-doctor-list"
     );
     const doctors = JSON.parse(result);
     console.log(doctors);
@@ -99,34 +98,32 @@ window.addEventListener("DOMContentLoaded", async () => {
         tr.appendChild(th);
       });
       const th = document.createElement("th");
-      th.innerText = 'Action';
-      tr.appendChild(th)
-      let count = 0
+      th.innerText = "Action";
+      tr.appendChild(th);
+      let count = 0;
       thead.appendChild(tr);
       const tbody = docList.querySelector("tbody");
       doctorsData.forEach((doctor) => {
-        count +=1
+        count += 1;
         const trEle = document.createElement("tr");
         const td = document.createElement("td");
-        td.innerText = count
-        trEle.appendChild(td)
+        td.innerText = count;
+        trEle.appendChild(td);
         Object.values(doctor).forEach((data) => {
           const td = document.createElement("td");
           td.innerText = data;
           trEle.appendChild(td);
         });
         const tdel = document.createElement("td");
-        tdel.innerHTML =' <button>click</button>'
-        trEle.appendChild(tdel)
-        tbody.appendChild(trEle)
+        tdel.innerHTML = " <button>click</button>";
+        trEle.appendChild(tdel);
+        tbody.appendChild(trEle);
       });
     }
   } else {
     console.log("not");
   }
 });
-
-
 
 window.addEventListener("DOMContentLoaded", async () => {
   const patList = document.querySelector("#patientlist");
@@ -140,10 +137,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     const result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/Receptionist/get-patient-details"
+      "https://ayur.vercel.app//api/Receptionist/get-patient-details"
     );
     const patients = JSON.parse(result);
-    
+
     function extractBasicData(data) {
       return data.map((item) => {
         const {
@@ -152,7 +149,7 @@ window.addEventListener("DOMContentLoaded", async () => {
           Status,
           Appointments,
         } = item;
-  
+
         return {
           Name: Fname + " " + Mname + " " + Lname,
           Sex: Gender,
@@ -182,35 +179,36 @@ window.addEventListener("DOMContentLoaded", async () => {
         tr.appendChild(th);
       });
       const th = document.createElement("th");
-      th.innerText = 'Action';
-      tr.appendChild(th)
-      let count = 0
+      th.innerText = "Action";
+      tr.appendChild(th);
+      let count = 0;
       thead.appendChild(tr);
       const tbody = patList.querySelector("tbody");
       patientData.forEach((patient) => {
-        count +=1
+        count += 1;
         const trEle = document.createElement("tr");
         const td = document.createElement("td");
-        td.innerText = count
-        trEle.appendChild(td)
+        td.innerText = count;
+        trEle.appendChild(td);
         Object.values(patient).forEach((data) => {
           const td = document.createElement("td");
           td.innerText = data;
           trEle.appendChild(td);
         });
-        
+
         const tdel = document.createElement("td");
-        tdel.innerHTML =' <a href="/views/patient-profile/'+patient.ID+'"+>View profile</a>';
-        trEle.appendChild(tdel)
-        tbody.appendChild(trEle)
+        tdel.innerHTML =
+          ' <a href="/views/patient-profile/' +
+          patient.ID +
+          '"+>View profile</a>';
+        trEle.appendChild(tdel);
+        tbody.appendChild(trEle);
       });
     }
   } else {
     console.log("not");
   }
 });
-
-
 
 window.addEventListener("DOMContentLoaded", async () => {
   const apntList = document.querySelector("#appointments");
@@ -224,9 +222,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     const result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/Receptionist/appointment-list"
+      "https://ayur.vercel.app//api/Receptionist/appointment-list"
     );
-    
+
     const appointments = JSON.parse(result);
     console.log(appointments);
     if (!appointments.acknowledged) {
@@ -243,32 +241,33 @@ window.addEventListener("DOMContentLoaded", async () => {
         tr.appendChild(th);
       });
       const th = document.createElement("th");
-      th.innerText = 'Report';
-      tr.appendChild(th)
-      let count = 0
+      th.innerText = "Report";
+      tr.appendChild(th);
+      let count = 0;
       thead.appendChild(tr);
       const tbody = apntList.querySelector("tbody");
       appointmentsData.forEach((appointment) => {
-        count +=1
+        count += 1;
         const trEle = document.createElement("tr");
         const td = document.createElement("td");
-        td.innerText = count
-        trEle.appendChild(td)
+        td.innerText = count;
+        trEle.appendChild(td);
         Object.values(appointment).forEach((data) => {
           const td = document.createElement("td");
-        
+
           td.innerText = data;
           trEle.appendChild(td);
         });
         const tdel = document.createElement("td");
-        tdel.innerHTML =' <a href="/views/Consultant/report/'+appointment.AppointmentID+'"+>View profile</a>';
-        trEle.appendChild(tdel)
-        tbody.appendChild(trEle)
+        tdel.innerHTML =
+          ' <a href="/views/Consultant/report/' +
+          appointment.AppointmentID +
+          '"+>View profile</a>';
+        trEle.appendChild(tdel);
+        tbody.appendChild(trEle);
       });
     }
   } else {
     console.log("not");
   }
 });
-
-

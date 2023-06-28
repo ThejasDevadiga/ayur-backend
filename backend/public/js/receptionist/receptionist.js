@@ -6,14 +6,13 @@ window.addEventListener("load", async () => {
       filter: {
         Status: status,
         "Timing.date": date,
-        
       },
-      Hospital
+      Hospital,
     });
     let result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/Receptionist/get-appointment-list"
+      "https://ayur.vercel.app//api/Receptionist/get-appointment-list"
     );
 
     let data = JSON.parse(result);
@@ -264,7 +263,7 @@ window.addEventListener("load", async () => {
       const result = await requestor(
         "POST",
         raw,
-        "http://localhost:5000/api/Receptionist/department-list"
+        "https://ayur.vercel.app//api/Receptionist/department-list"
       );
       const data = JSON.parse(result);
 
@@ -291,7 +290,7 @@ window.addEventListener("load", async () => {
         "POST",
         raw,
 
-        "http://localhost:5000/api/Receptionist/available-doctor"
+        "https://ayur.vercel.app//api/Receptionist/available-doctor"
       );
       const data = JSON.parse(result);
 
@@ -333,7 +332,7 @@ window.addEventListener("load", async () => {
     let result = await requestor(
       "PUT",
       raw,
-      "http://localhost:5000/api/Receptionist/update-appointment-doctor"
+      "https://ayur.vercel.app//api/Receptionist/update-appointment-doctor"
     );
 
     let data = JSON.parse(result);
@@ -354,7 +353,7 @@ window.addEventListener("load", async () => {
     let result = await requestor(
       "PUT",
       raw,
-      "http://localhost:5000/api/Receptionist/update-appointment-status"
+      "https://ayur.vercel.app//api/Receptionist/update-appointment-status"
     );
 
     let data = JSON.parse(result);
@@ -387,11 +386,11 @@ window.addEventListener("load", async () => {
         console.log(parentData);
         // let desc = prompt("type ACCEPT");
         // if (desc.toLocaleLowerCase() == "accept") {
-          // console.log(desc);
-          // console.log(parentData.id);
-          alert("Confirm ?")
-          updateStatus("APPROVED", parentData.id, "null");
-          location.reload();
+        // console.log(desc);
+        // console.log(parentData.id);
+        alert("Confirm ?");
+        updateStatus("APPROVED", parentData.id, "null");
+        location.reload();
         // }
       });
     });
@@ -413,9 +412,4 @@ window.addEventListener("load", async () => {
   //   // "2023-04-20"
   // );
   addListener();
-  
-
-  
-  
 });
-

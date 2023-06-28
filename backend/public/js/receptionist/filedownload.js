@@ -47,7 +47,7 @@ window.addEventListener("load", async () => {
     return csvRows.join("\n");
   };
 
-  const download = function (data,fileName) {
+  const download = function (data, fileName) {
     const blob = new Blob([data], { type: "text/csv" });
 
     const url = window.URL.createObjectURL(blob);
@@ -63,7 +63,7 @@ window.addEventListener("load", async () => {
   csvForm.addEventListener("submit", async (e) => {
     const recordName = document.querySelector("#recordName").value;
     e.preventDefault();
-   
+
     if (recordName == "Appointments") {
       console.log(recordName);
       const Hospital = sessionStorage.getItem("Hospital");
@@ -76,20 +76,19 @@ window.addEventListener("load", async () => {
       let result = await requestor(
         "POST",
         raw,
-        "http://localhost:5000/api/Receptionist/consulted-appointments"
+        "https://ayur.vercel.app//api/Receptionist/consulted-appointments"
       );
       result = JSON.parse(result);
-     
+
       if (result.acknowledged) {
         console.log(result.data);
         const csvData = csvMaker(result.data);
-         
-        download(csvData,"appointments.csv");
+
+        download(csvData, "appointments.csv");
       } else {
         alert("No data found");
       }
     } else if (recordName == "Patients") {
-      
       const Hospital = sessionStorage.getItem("Hospital");
       let raw = JSON.stringify({
         requestedId: "Hello",
@@ -99,7 +98,7 @@ window.addEventListener("load", async () => {
       const result = await requestor(
         "POST",
         raw,
-        "http://localhost:5000/api/Receptionist/get-patient-details"
+        "https://ayur.vercel.app//api/Receptionist/get-patient-details"
       );
       const patients = JSON.parse(result);
 
@@ -118,7 +117,7 @@ window.addEventListener("load", async () => {
               City,
               State,
               Country,
-              Zip
+              Zip,
             },
             PatientID,
             Status,
@@ -140,7 +139,7 @@ window.addEventListener("load", async () => {
           };
         });
       }
-      
+
       if (!patients.acknowledged) {
         alert("No data found");
         console.log(patients.message);
@@ -148,11 +147,10 @@ window.addEventListener("load", async () => {
         // const patients = patient.data;
         const patientData = extractBasicData(patients.data);
         const csvData = csvMaker(patientData);
-        
-        download(csvData,"patients.csv");
+
+        download(csvData, "patients.csv");
       }
-    }
-    else if (recordName == "Doctors") {
+    } else if (recordName == "Doctors") {
       const Hospital = sessionStorage.getItem("Hospital");
 
       let raw = JSON.stringify({
@@ -160,22 +158,21 @@ window.addEventListener("load", async () => {
         filter: { Hospital },
         projection: {},
       });
-      
+
       const result = await requestor(
         "POST",
         raw,
-        "http://localhost:5000/api/Receptionist/get-doctor-list"
+        "https://ayur.vercel.app//api/Receptionist/get-doctor-list"
       );
       const doctors = JSON.parse(result);
-      
+
       if (!doctors.success) {
         console.log(doctors.message);
       } else {
-       
-         const csvData = csvMaker(doctors.data);
-        
-        download(csvData,"doctors.csv");
+        const csvData = csvMaker(doctors.data);
+
+        download(csvData, "doctors.csv");
+      }
     }
-  }
   });
 });

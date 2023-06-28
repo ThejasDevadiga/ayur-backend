@@ -24,7 +24,7 @@ window.addEventListener("load", async () => {
     }
   }
 
-   function updateCountryNames(countryList) {
+  function updateCountryNames(countryList) {
     // Clear the content of the select list.
     Country.innerHTML = '<option value="">Select country</option>';
 
@@ -50,8 +50,8 @@ window.addEventListener("load", async () => {
 
   // -------------------------------------------------
   //-------------ste states names---------------
-   // Select the element with id 'state'.
-   const State = document.getElementById("state");
+  // Select the element with id 'state'.
+  const State = document.getElementById("state");
 
   // Hardcoded list of Indian states.
   let statesList = [
@@ -99,56 +99,53 @@ window.addEventListener("load", async () => {
     State.appendChild(option);
   });
   State.options[11].selected = true;
-//-----------------------------------------------------
-// set hospital
+  //-----------------------------------------------------
+  // set hospital
 
-const raw = JSON.stringify({
-    requestedId:"Hello",
-});
+  const raw = JSON.stringify({
+    requestedId: "Hello",
+  });
 
-var result = await requestor(
-  "POST",
-  raw,
-  "http://localhost:5000/api/Receptionist/get-hospital-list"
-);
+  var result = await requestor(
+    "POST",
+    raw,
+    "https://ayur.vercel.app//api/Receptionist/get-hospital-list"
+  );
 
-if(!result && result.acknowledged){
- console.log(result);
-}
+  if (!result && result.acknowledged) {
+    console.log(result);
+  } else {
+    const hospital = document.getElementById("hospital");
+    const HospitalList = JSON.parse(result).data;
 
-else{
-  const hospital = document.getElementById("hospital");
-  const HospitalList = JSON.parse(result).data;
-  
-  sessionStorage.setItem('HospitalList',JSON.stringify(HospitalList))
-HospitalList.forEach(function (hosp) {
-  const option = document.createElement("option");
-  option.value =JSON.stringify(hosp);
-  option.textContent = hosp.Name;
-  hospital.appendChild(option);
-});
-}
-
-//--------------------set age--------------------------
-
-const patientdob = document.getElementById("dob");
-const age = document.getElementById("age")
-
-patientdob.onchange = function() {
-  const patientdob = document.getElementById("dob").value;
-  const dob = new Date(patientdob);
-  const today = new Date();
-  // diffrence between these two date in years
-  let ageOfPat =Math.floor((today - dob) / (1000 * 60 * 60 * 24 * 365.25))
-  if(ageOfPat==-1){
-    this.value = null
-    alert("Select the correct Date")
+    sessionStorage.setItem("HospitalList", JSON.stringify(HospitalList));
+    HospitalList.forEach(function (hosp) {
+      const option = document.createElement("option");
+      option.value = JSON.stringify(hosp);
+      option.textContent = hosp.Name;
+      hospital.appendChild(option);
+    });
   }
-  else{
-    age.value = ageOfPat
-  }
-}
- 
+
+  //--------------------set age--------------------------
+
+  const patientdob = document.getElementById("dob");
+  const age = document.getElementById("age");
+
+  patientdob.onchange = function () {
+    const patientdob = document.getElementById("dob").value;
+    const dob = new Date(patientdob);
+    const today = new Date();
+    // diffrence between these two date in years
+    let ageOfPat = Math.floor((today - dob) / (1000 * 60 * 60 * 24 * 365.25));
+    if (ageOfPat == -1) {
+      this.value = null;
+      alert("Select the correct Date");
+    } else {
+      age.value = ageOfPat;
+    }
+  };
+
   async function admissionPatient() {
     const patientFname = document.getElementById("Fname").value;
     const patientMname = document.getElementById("Mname").value;
@@ -163,15 +160,14 @@ patientdob.onchange = function() {
     const state = document.getElementById("state").value;
     const country = document.getElementById("country").value;
     const address = document.getElementById("address").value;
-    const hospital =JSON.parse(document.getElementById("hospital").value)
+    const hospital = JSON.parse(document.getElementById("hospital").value);
     const PatientId = GenerateId("PAT");
-    
- 
+
     var raw = JSON.stringify({
       requestedId: "Hello",
       PatientId: PatientId,
       Fname: patientFname,
-      Mname: patientMname?patientMname:" ",
+      Mname: patientMname ? patientMname : " ",
       Lname: patientLname,
       DateOfBirth: patientdob,
       Gender: gender,
@@ -179,23 +175,25 @@ patientdob.onchange = function() {
       Age: age,
       Email: "email",
       Address: address,
-      City: city?city:"city",
+      City: city ? city : "city",
       State: state,
       Country: country,
       Zip: 12345,
-      Hospital:hospital
+      Hospital: hospital,
     });
     var result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/Receptionist/insert-patient-details"
+      "https://ayur.vercel.app//api/Receptionist/insert-patient-details"
     );
     data = JSON.parse(result);
     // console.log(data);
     if (data.acknowledged) {
       var Role = sessionStorage.getItem("userRole");
-        location.href =
-        "/views/"+Role+"/book-appointment/" +
+      location.href =
+        "/views/" +
+        Role +
+        "/book-appointment/" +
         data.PatientId +
         "&" +
         data.PatientName;

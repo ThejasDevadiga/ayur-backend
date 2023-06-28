@@ -1,6 +1,5 @@
-window.addEventListener("load",  () => {
-
-async function loadAppointments(date) {
+window.addEventListener("load", () => {
+  async function loadAppointments(date) {
     const wardenID = sessionStorage.getItem("EmployeeID");
     var raw = JSON.stringify({
       requestedId: "Hello",
@@ -10,10 +9,10 @@ async function loadAppointments(date) {
     var result = await requestor(
       "POST",
       raw,
-      "http://localhost:5000/api/warden/wardens-appointment"
+      "https://ayur.vercel.app//api/warden/wardens-appointment"
     );
     data = JSON.parse(result);
-     if (data.acknowledged) {
+    if (data.acknowledged) {
       return data.data;
     }
   }
@@ -57,7 +56,7 @@ async function loadAppointments(date) {
 
       half1.appendChild(nameP);
       status.appendChild(circle);
-      
+
       status.appendChild(h8);
       half2.appendChild(status);
 
@@ -88,7 +87,7 @@ async function loadAppointments(date) {
       ul.append(li);
       count++;
     });
-    const li = document.querySelector('li')
+    const li = document.querySelector("li");
     const lis = li.querySelectorAll(".container");
     let isExpanded = false;
 
