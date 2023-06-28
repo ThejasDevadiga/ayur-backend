@@ -45,7 +45,7 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.use("/k", asyncHandler(async (req, res, next) => {  
+app.get("/k", asyncHandler(async (req, res, next) => {  
     res.render('Login/home', { title: '', message: 'Hello there!' })
 }) 
 );
