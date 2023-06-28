@@ -1,5 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const asyncHandler = require("express-async-handler");
+
 const http = require("http");
 const connectDB = require("./src/config/db");
 const cors = require("cors");
@@ -43,28 +45,28 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.use("/", asyncHandler(async (req, res, next) => {  
+app.use("/k", asyncHandler(async (req, res, next) => {  
     res.render('Login/home', { title: '', message: 'Hello there!' })
 }) 
 );
 
 
 // Backend routes
-app.use("/", ConsultantRoutes);
-app.use("/", HelpDeskRoutes);
-app.use("/", ManagerRoutes);
-app.use("/", UserRoutes);
-app.use("/", wardenRoutes);
+// app.use("/", ConsultantRoutes);
+// app.use("/", HelpDeskRoutes);
+// app.use("/", ManagerRoutes);
+// app.use("/", UserRoutes);
+// app.use("/", wardenRoutes);
 
 //Frontend routes
-app.use("/", loginView);
-app.use("/", consultantView);
-app.use("/", receptionistView);
-app.use("/", adminView);
-app.use("/", managerView);
-app.use("/", wardenView);
+// app.use("/", loginView);
+// app.use("/", consultantView);
+// app.use("/", receptionistView);
+// app.use("/", adminView);
+// app.use("/", managerView);
+// app.use("/", wardenView);
 
-app.use("/", visualRoutes);
+// app.use("/", visualRoutes);
 // app.post("/api/consultant/todays-doctor-appointments",(req,res)=>{
 //     res.send({
 //         aknowledge:true,
