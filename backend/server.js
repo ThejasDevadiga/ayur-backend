@@ -43,7 +43,7 @@ console.log(__dirname);
 app.use(express.static('public'));  
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/home.html");
+    res.sendFile(__dirname + "/home.pug");
 });
 // Backend routes 
 app.use('/',ConsultantRoutes)
