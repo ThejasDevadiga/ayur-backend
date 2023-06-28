@@ -75,9 +75,17 @@ app.use(errorHandler);
 
 // write a code for render a file
 
-const PORT =  8001;
+// const PORT =  8001;
 
 // WebServer(`http://localhost:5000/test`)
-console.log(`http://localhost:${PORT}/test`);
+// console.log(`http://localhost:${PORT}/test`);
 
-app.listen(PORT, console.log(`Server port ${PORT}`));
+// app.listen(PORT, console.log(`Server port ${PORT}`));
+
+
+const Server = http.createServer(app)
+const PORT = 8000
+Server.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
+
