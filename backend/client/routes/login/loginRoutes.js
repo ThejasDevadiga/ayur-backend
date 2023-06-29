@@ -12,4 +12,4 @@ router.get('/0',renderdefault)
 
 module.exports = router;
 
-console.log(process.env.HOST+'/views/login/login.pug');
+console.log('https://ayur.vercel.app'+'/views/login/login.pug');

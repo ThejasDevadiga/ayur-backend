@@ -1,33 +1,32 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const asyncHandler = require("express-async-handler");
-
+const dotenv = require('dotenv');
+dotenv.config();
 const http = require("http");
 const connectDB = require("./src/config/db");
 const cors = require("cors");
-const Grid = require("gridfs-stream");
-const mongoose = require("mongoose");
-const auth = require("./src/middlewares/authMiddleware");
-const WebServer = require("open");
+// const Grid = require("gridfs-stream");
+// const mongoose = require("mongoose");
+// const auth = require("./src/middlewares/authMiddleware");
+// const WebServer = require("open");
 
-const ConsultantRoutes = require("./src/routes/Consultant/ConsultantRoutes");
-const HelpDeskRoutes = require("./src/routes/Receptionist/ReceptionistRoutes");
-const ManagerRoutes = require("./src/routes/manager/ManagerRoutes");
-const UserRoutes = require("./src/routes/user/userRoutes");
-const wardenRoutes = require("./src/routes/Warden/warden");
+// const ConsultantRoutes = require("./src/routes/Consultant/ConsultantRoutes");
+// const HelpDeskRoutes = require("./src/routes/Receptionist/ReceptionistRoutes");
+// const ManagerRoutes = require("./src/routes/manager/ManagerRoutes");
+// const UserRoutes = require("./src/routes/user/userRoutes");
+// const wardenRoutes = require("./src/routes/Warden/warden");
 
-const loginView = require("./client/routes/login/loginRoutes");
-const consultantView = require("./client/routes/consultant/consultantRoutes");
-const receptionistView = require("./client/routes/receptionist/receptionistRoutes");
-const adminView = require("./client/routes/admin/adminRoutes");
-const managerView = require("./client/routes/manager/managerRoutes");
-const wardenView = require("./client/routes/warden/wardenRoutes");
+// const loginView = require("./client/routes/login/loginRoutes");
+// const consultantView = require("./client/routes/consultant/consultantRoutes");
+// const receptionistView = require("./client/routes/receptionist/receptionistRoutes");
+// const adminView = require("./client/routes/admin/adminRoutes");
+// const managerView = require("./client/routes/manager/managerRoutes");
+// const wardenView = require("./client/routes/warden/wardenRoutes");
 
-const visualRoutes = require("./src/routes/Visualise/visualroutes");
+// const visualRoutes = require("./src/routes/Visualise/visualroutes");
 
 const { notFound, errorHandler } = require("./src/middlewares/errorMiddleware");
 
-dotenv.config();
 
 connectDB();
 
@@ -42,11 +41,11 @@ app.set("view engine", "pug");
 // app.set("view engine", "html");
 
 console.log(__dirname);
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 
 app.get('/',asyncHandler(async (req, res) => {
-  res.render("Login/home",{});
+  res.render("Login/home.pug",{});
 })
 )
 
