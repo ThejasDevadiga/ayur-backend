@@ -45,9 +45,10 @@ console.log(__dirname);
 // app.use(express.static("public"));
 
 
-app.get('/', (req, res) => {
+app.get('/',asyncHandler(async (req, res) => {
   res.render("Login/home",{});
-});
+})
+)
 
 
 // Backend routes
@@ -69,14 +70,14 @@ app.get('/', (req, res) => {
 
 // app.use("/", visualRoutes);
 
-app.get("/json",(req,res)=>{
+app.get("/json",asyncHandler(async (req,res)=>{
     res.send({
         aknowledge:true,
         data:["d","d","d"],
         message:"empty"
     })
 })
-
+)
 // const testFun = require("./test/functions");
 
 // app.get("/test", testFun);
