@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.set("views", "views");
+app.set('views', __dirname+'/views');
 app.set("view engine", "pug");
 // app.set("view engine", "html");
 
@@ -45,7 +45,7 @@ app.use(express.static("public"));
 
 
 app.get('/',asyncHandler(async (req, res) => {
-  res.render("/Login/home.pug",{});
+  res.render("index",{});
 })
 )
 
