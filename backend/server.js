@@ -44,16 +44,10 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-  res.sendFile("/index.pug");
+app.get('/k', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 });
 
-app.get(
-  "/k",
-  asyncHandler(async (req, res, next) => {
-    res.render("Login/home", { title: "", message: "Hello there!" });
-  })
-);
 
 // Backend routes
 // app.use("/", ConsultantRoutes);
@@ -66,7 +60,7 @@ app.get(
 
 //Frontend routes
 // app.use("/", loginView);
-// app.use("/", consultantView);
+app.use("/", consultantView);
 // app.use("/", receptionistView);
 // app.use("/", adminView);
 // app.use("/", managerView);
