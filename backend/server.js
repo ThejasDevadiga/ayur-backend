@@ -45,11 +45,12 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.get("/k", asyncHandler(async (req, res, next) => {  
-    res.render('Login/home', { title: '', message: 'Hello there!' })
-}) 
+app.use(
+  "/k",
+  asyncHandler(async (req, res, next) => {
+    res.render("Login/home", { title: "", message: "Hello there!" });
+  })
 );
-
 
 // Backend routes
 // app.use("/", ConsultantRoutes);
@@ -57,7 +58,7 @@ app.get("/k", asyncHandler(async (req, res, next) => {
 // app.use("/", ManagerRoutes);
 // app.use("/", UserRoutes);
 // app.use("/", wardenRoutes);
-
+// https://ayur.vercel.app
 //Frontend routes
 // app.use("/", loginView);
 // app.use("/", consultantView);
@@ -75,9 +76,9 @@ app.get("/k", asyncHandler(async (req, res, next) => {
 //     })
 // })
 
-const testFun = require("./test/functions");
+// const testFun = require("./test/functions");
 
-app.get("/test", testFun);
+// app.get("/test", testFun);
 
 app.use(notFound);
 
@@ -94,6 +95,7 @@ app.use(errorHandler);
 
 const Server = http.createServer(app);
 const PORT = 8000;
+
 Server.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
