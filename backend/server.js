@@ -42,10 +42,10 @@ app.set("view engine", "pug");
 // app.set("view engine", "html");
 
 console.log(__dirname);
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 
-app.get('/k', (req, res) => {
+app.get('/', (req, res) => {
   res.render("Login/home",{});
 });
 
@@ -68,10 +68,11 @@ app.get('/k', (req, res) => {
 // app.use("/", wardenView);
 
 // app.use("/", visualRoutes);
+
 app.get("/json",(req,res)=>{
     res.send({
         aknowledge:true,
-        data:[],
+        data:["d","d","d"],
         message:"empty"
     })
 })
