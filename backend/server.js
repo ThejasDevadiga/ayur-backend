@@ -37,12 +37,16 @@ app.use(express.json());
 app.use(cors());
 
 app.set('views', __dirname+'/views');
+
+// app.set('views', __dirname+'/public');
+
 app.set("view engine", "pug");
+
 // app.set("view engine", "html");
 
 console.log(__dirname);
-app.use(express.static("public"));
 
+app.use(express.static("public"));
 
 app.get('/',asyncHandler(async (req, res) => {
   res.render("index",{});
