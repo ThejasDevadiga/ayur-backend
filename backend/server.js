@@ -44,7 +44,8 @@ app.set("view engine", "pug");
 console.log(__dirname);
 app.use(express.static("public"));
 
-app.get('/k', (req, res) => {
+
+app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
