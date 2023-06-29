@@ -37,23 +37,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-// app.set("views", "views");
-// app.set("view engine", "pug");
+app.set("views", "views");
+app.set("view engine", "pug");
 // app.set("view engine", "html");
 
 console.log(__dirname);
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile("/index.pug");
 });
 
-// app.get(
-//   "/k",
-//   asyncHandler(async (req, res, next) => {
-//     res.render("Login/home", { title: "", message: "Hello there!" });
-//   })
-// );
+app.get(
+  "/k",
+  asyncHandler(async (req, res, next) => {
+    res.render("Login/home", { title: "", message: "Hello there!" });
+  })
+);
 
 // Backend routes
 // app.use("/", ConsultantRoutes);
