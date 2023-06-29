@@ -46,7 +46,7 @@ app.set("view engine", "pug");
 
 console.log(__dirname);
 
-app.use(express.static("public"));
+app.use(express.static(__dirname+"public"));
 
 app.get('/',asyncHandler(async (req, res) => {
   res.render("index",{});
