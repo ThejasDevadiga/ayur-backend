@@ -37,8 +37,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.set("views", "views");
-app.set("view engine", "pug");
+// app.set("views", "views");
+// app.set("view engine", "pug");
 // app.set("view engine", "html");
 
 console.log(__dirname);
@@ -48,12 +48,12 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get(
-  "/k",
-  asyncHandler(async (req, res, next) => {
-    res.render("Login/home", { title: "", message: "Hello there!" });
-  })
-);
+// app.get(
+//   "/k",
+//   asyncHandler(async (req, res, next) => {
+//     res.render("Login/home", { title: "", message: "Hello there!" });
+//   })
+// );
 
 // Backend routes
 // app.use("/", ConsultantRoutes);
