@@ -34,18 +34,21 @@ connectDB();
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
-
 app.use(cors());
+
 app.set("views", "views");
 app.set("view engine", "pug");
 // app.set("view engine", "html");
 
 console.log(__dirname);
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
-app.use(
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.get(
   "/k",
   asyncHandler(async (req, res, next) => {
     res.render("Login/home", { title: "", message: "Hello there!" });
@@ -58,7 +61,9 @@ app.use(
 // app.use("/", ManagerRoutes);
 // app.use("/", UserRoutes);
 // app.use("/", wardenRoutes);
+
 // https://ayur.vercel.app
+
 //Frontend routes
 // app.use("/", loginView);
 // app.use("/", consultantView);
