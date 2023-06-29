@@ -61,20 +61,20 @@ app.get('/', (req, res) => {
 
 //Frontend routes
 // app.use("/", loginView);
-app.use("/", consultantView);
+// app.use("/", consultantView);
 // app.use("/", receptionistView);
 // app.use("/", adminView);
 // app.use("/", managerView);
 // app.use("/", wardenView);
 
 // app.use("/", visualRoutes);
-// app.post("/api/consultant/todays-doctor-appointments",(req,res)=>{
-//     res.send({
-//         aknowledge:true,
-//         data:[],
-//         message:"empty"
-//     })
-// })
+app.get("/json",(req,res)=>{
+    res.send({
+        aknowledge:true,
+        data:[],
+        message:"empty"
+    })
+})
 
 // const testFun = require("./test/functions");
 
