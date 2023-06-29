@@ -38,7 +38,7 @@ app.use(cors());
 
 app.set('views', __dirname+'/views');
 
-// app.set('views', __dirname+'/public');
+// app.set('static', __dirname+'/public');
 
 app.set("view engine", "pug");
 
