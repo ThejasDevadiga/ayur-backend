@@ -45,7 +45,7 @@ app.use(express.static("public"));
 
 
 app.get('/',asyncHandler(async (req, res) => {
-  res.render("Login/home.pug",{});
+  res.render("/Login/home.pug",{});
 })
 )
 
