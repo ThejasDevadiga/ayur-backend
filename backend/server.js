@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.set('views', __dirname+'/views/');
+app.set('views', './views/');
 
 
 app.set("view engine", "pug");
