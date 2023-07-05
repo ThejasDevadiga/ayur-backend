@@ -17,8 +17,7 @@ const validateUser = asyncHandler(async (req, res) => {
     //   path:"EmployeeID",
     //   model:Employee
     // })
-   
-    
+
     if (!userCred) {
       throw new Error("Invalid username  !");
     } else {
@@ -53,26 +52,24 @@ const validateUser = asyncHandler(async (req, res) => {
           }
           
           else{
-            const foundndUser = await user.findOne({ Username: username })
+            const foundUser = await user.findOne({ Username: username })
             .populate({
               path:"EmployeeID",
               model:Employee
             })
-            const {Hospital,EmployeeID} = foundndUser.EmployeeID;
-           
+            console.log(foundUser);
+            const {Hospital,EmployeeID} = foundUser.EmployeeID;
+            
             res.status(200).json({
               acknowledged: true,
-              token: generateToken(username + foundndUser.Designation),
-              userRole: foundndUser.Designation,
+              token: generateToken(username + foundUser.Designation),
+              userRole: foundUser.Designation,
               userName: username,
               userID: EmployeeID,
               Hospital: Hospital,
               message: "Successfully logged in",
             });
           }
-           
-         
-        
         }
         else{
           throw new Error("Error while updating user status")
@@ -94,6 +91,7 @@ const insertUser = asyncHandler(async (req, res) => {
   if (!requestedId) {
     throw new Error("Request ID required");
   }
+  
   try {
     const { username, password } = req.body;
     const findUser = await user.findOne({ Username: username });
